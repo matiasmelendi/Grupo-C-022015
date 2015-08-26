@@ -1,8 +1,5 @@
 package model;
 
-/**
- *
- */
 public class Player {
 
     private String name;
@@ -81,6 +78,15 @@ public class Player {
      */
     public Position position() {
         return this.position;
+    }
+
+    /**
+     * Returns the Player's team.
+     *
+     * @return This player team.
+     */
+    public Team team() {
+        return this.team;
     }
 
 }
