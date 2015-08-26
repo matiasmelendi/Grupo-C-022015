@@ -89,4 +89,13 @@ public class Player {
         return this.team;
     }
 
+    @Override
+    public boolean equals(Object _anotherPlayer){
+        Player anotherPlayer = (Player) _anotherPlayer;
+
+        return this.name().equals(anotherPlayer.name()) &&
+               this.position().equals(anotherPlayer.position()) &&
+               this.team().equals(anotherPlayer.team()) &&
+               this.isCaptain().equals(anotherPlayer.isCaptain());
+    }
 }
