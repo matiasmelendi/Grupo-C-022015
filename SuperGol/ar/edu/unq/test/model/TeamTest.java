@@ -16,6 +16,7 @@ public class TeamTest {
         assertEquals(expectedDefenders(), team.defenders());
     }
 
+    @Test
     public void whenATeamIsCreatedItShouldNotHavePlayers(){
         assertTrue(anyTeam().players().isEmpty());
     }
