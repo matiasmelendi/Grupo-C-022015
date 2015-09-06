@@ -16,6 +16,22 @@ public class TeamTest {
     }
 
     @Test
+    public void aTeamShouldKnowTheMidfielderPlayers() throws PositionFull {
+        Team team = anyTeam();
+        team.addPlayer(midfielder());
+
+        assertEquals(expectedMidfielders(), team.midfielders());
+    }
+
+    @Test
+    public void aTeamShouldKnowTheForwarderPlayers() throws PositionFull {
+        Team team = anyTeam();
+        team.addPlayer(forwarder());
+
+        assertEquals(expectedForwarders(), team.forwarders());
+    }
+
+    @Test
     public void whenATeamIsCreatedItShouldNotHavePlayers(){
         assertTrue(anyTeam().players().isEmpty());
     }
@@ -45,12 +61,42 @@ public class TeamTest {
     * Helper methods
     * */
 
+    private Player forwarder(){
+        Player forwarder = anyPlayer();
+        forwarder.changePosition(Position.FORWARD);
+
+        return forwarder;
+    }
+
+    private Player midfielder(){
+        Player midfielder = anyPlayer();
+        midfielder.changePosition(Position.MIDFIELDER);
+
+        return midfielder;
+    }
+
     private List<Player> expectedDefenders(){
         List<Player> defenders = new ArrayList<Player>();
 
         defenders.add(anyPlayer());
 
         return defenders;
+    }
+
+    private List<Player> expectedMidfielders(){
+        List<Player> midfielders = new ArrayList<Player>();
+
+        midfielders.add(midfielder());
+
+        return midfielders;
+    }
+
+    private List<Player> expectedForwarders(){
+        List<Player> forwarders = new ArrayList<Player>();
+
+        forwarders.add(forwarder());
+
+        return forwarders;
     }
 
     private Player anyPlayer(){

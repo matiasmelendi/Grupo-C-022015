@@ -22,6 +22,14 @@ public class Team {
         return this.formation.defenders();
     }
 
+    public List<Player> midfielders(){
+        return this.formation.midfielders();
+    }
+
+    public List<Player> forwarders(){
+        return this.formation.forwarders();
+    }
+
     @Override
     public boolean equals(Object anotherTeam){
         return true;
