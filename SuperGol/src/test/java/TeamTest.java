@@ -8,25 +8,26 @@ import static org.junit.Assert.*;
 public class TeamTest {
 
     @Test
-    public void aTeamShouldKnowTheDefenderPlayers() throws PositionFull {
+    public void aTeamShouldKnowTheDefenderPlayers(){
         Team team = anyTeam();
-        team.addPlayer(anyPlayer());
+        Player defender = anyPlayer();
+        addPlayerToTeam(team, defender);
 
         assertEquals(expectedDefenders(), team.defenders());
     }
 
     @Test
-    public void aTeamShouldKnowTheMidfielderPlayers() throws PositionFull {
+    public void aTeamShouldKnowTheMidfielderPlayers(){
         Team team = anyTeam();
-        team.addPlayer(midfielder());
+        addPlayerToTeam(team, midfielder());
 
         assertEquals(expectedMidfielders(), team.midfielders());
     }
 
     @Test
-    public void aTeamShouldKnowTheForwarderPlayers() throws PositionFull {
+    public void aTeamShouldKnowTheForwarderPlayers() {
         Team team = anyTeam();
-        team.addPlayer(forwarder());
+        addPlayerToTeam(team, forwarder());
 
         assertEquals(expectedForwarders(), team.forwarders());
     }
@@ -105,5 +106,15 @@ public class TeamTest {
 
     private Team anyTeam(){
         return new Team();
+    }
+
+    private Team addPlayerToTeam(Team team, Player player){
+        try{
+            team.addPlayer(player);
+        }catch (PositionFull e){
+            fail("Position is Full you can't add another player");
+        }
+
+        return team;
     }
 }
