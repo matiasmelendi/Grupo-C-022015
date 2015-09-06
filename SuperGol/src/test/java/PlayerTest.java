@@ -16,7 +16,7 @@ public class PlayerTest {
     }
 
     private Team anyTeam() {
-        return new Team();
+        return new Team("A team name");
     }
 
 }
