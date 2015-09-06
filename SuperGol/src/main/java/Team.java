@@ -1,3 +1,4 @@
+import exceptions.AbsentCaptain;
 import exceptions.PositionFull;
 
 import java.util.List;
@@ -5,9 +6,22 @@ import java.util.List;
 public class Team {
 
     private Formation formation;
+    private String name;
 
-    public Team(){
+    public Team(String teamName){
+        this.name = teamName;
         this.formation = new Formation(3,4,3);
+    }
+
+    public String name(){
+        return this.name;
+    }
+
+    public Player captain() throws AbsentCaptain {
+        for(Player player : this.players()){
+            if(player.isCaptain()) { return player; }
+        }
+        throw new AbsentCaptain();
     }
 
     public List<Player> players(){

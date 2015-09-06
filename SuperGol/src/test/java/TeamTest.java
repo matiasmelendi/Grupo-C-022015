@@ -1,3 +1,4 @@
+import exceptions.AbsentCaptain;
 import exceptions.PositionFull;
 import org.junit.Test;
 import java.util.ArrayList;
@@ -6,6 +7,23 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class TeamTest {
+
+    @Test
+    public void aTeamShouldHaveAName(){
+        assertEquals(barcelona().name(), "F.C Barcelona");
+    }
+
+    @Test
+    public void aTeamShouldHaveACaptain() throws AbsentCaptain {
+        assertEquals(barcelona().captain(), messi());
+    }
+
+
+    /** When a team has no captain */
+    @Test(expected = AbsentCaptain.class)
+    public void itShouldFail() throws AbsentCaptain {
+        anyTeam().captain();
+    }
 
     @Test
     public void aTeamShouldKnowTheDefenderPlayers(){
@@ -105,7 +123,21 @@ public class TeamTest {
     }
 
     private Team anyTeam(){
-        return new Team();
+        return new Team("A team name");
+    }
+
+    private Player messi(){
+        Player messi = new Player("Leo Messi", Position.FORWARD, anyTeam());
+        messi.becomeCaptain();
+
+        return messi;
+    }
+
+    private Team barcelona(){
+        Team barcelona = new Team("F.C Barcelona");
+        addPlayerToTeam(barcelona, messi());
+
+        return barcelona;
     }
 
     private Team addPlayerToTeam(Team team, Player player){
