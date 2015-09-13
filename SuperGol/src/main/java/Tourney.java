@@ -38,6 +38,10 @@ public class Tourney {
         return this.teams;
     }
 
+    public Integer amountOfTeams() {
+        return this.teams.size();
+    }
+
     public Fixture fixture(){
         return new Fixture(this);
     }
