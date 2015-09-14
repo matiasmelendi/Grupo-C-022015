@@ -1,13 +1,13 @@
+import exceptions.FullTourney;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class UserTest {
 
     @Test
-    public void shouldHaveAUsernamePasswordAndZeroScore(){
+    public void shouldHaveAUsernameAndPassword(){
         assertEquals("Pepe123", pepe().username());
         assertTrue(pepe().hasPassword());
-        assertEquals(pepe().score(), Integer.valueOf(0));
     }
 
     @Test
@@ -20,9 +20,20 @@ public class UserTest {
     @Test
     public void shouldBePossibleToUpdateTheScore(){
         User pepe = pepe();
-        pepe.updateScore(15);
+        Tourney aTourney = new Tourney("La copa del Rey", 1, 3);
+        addTeamToTourney(pepe().team(), aTourney);
 
-        assertEquals(pepe.score(), Integer.valueOf(15));
+        pepe.updateScoreFor(aTourney, 15);
+
+        assertEquals(pepe.scoreFor(aTourney), Integer.valueOf(15));
+    }
+
+    private void addTeamToTourney(Team team, Tourney tourney){
+        try{
+            tourney.addTeam(team);
+        }catch (FullTourney e){
+            fail("Tourney is Full you can't add another team");
+        }
     }
 
     private Team anyTeam(){
@@ -30,6 +41,6 @@ public class UserTest {
     }
 
     private User pepe(){
-        return new User("Pepe123", "123ASDQWE", null);
+        return new User("Pepe123", "123ASDQWE", anyTeam());
     }
 }

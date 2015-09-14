@@ -19,6 +19,16 @@ public class TeamTest {
     }
 
 
+    @Test
+    public void aCreatorCouldBeAssigned(){
+        Team team = anyTeam();
+        User creator = new User("Memin", "zxcasdqwe", team);
+
+        team.beAssignedTo(creator);
+
+        assertEquals(creator, team.creator());
+    }
+
     /** When a team has no captain */
     @Test(expected = AbsentCaptain.class)
     public void itShouldFail() throws AbsentCaptain {
