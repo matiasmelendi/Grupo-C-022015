@@ -1,16 +1,18 @@
+import java.util.HashMap;
+import java.util.Map;
 
 public class User {
 
     private String username;
     private String password;
     private Team team;
-    private Integer score;
+    private Map<Tourney, Integer> scores;
 
     public User(String username, String password, Team aTeam){
         this.username = username;
         this.password = password;
         this.team = aTeam;
-        this.score = 0;
+        this.scores = new HashMap<Tourney, Integer>();
     }
 
     public String username(){
@@ -25,11 +27,11 @@ public class User {
         return this.team;
     }
 
-    public Integer score(){
-        return this.score;
+    public Integer scoreFor(Tourney aTourney){
+        return this.scores.get(aTourney);
     }
 
-    public void updateScore(Integer newScore){
-        this.score = newScore;
+    public void updateScoreFor(Tourney tourney, Integer newScore){
+        this.scores.put(tourney, newScore);
     }
 }
