@@ -7,10 +7,19 @@ public class Team {
 
     private Formation formation;
     private String name;
+    private User creator;
 
     public Team(String teamName){
         this.name = teamName;
         this.formation = new Formation(3,4,3);
+    }
+
+    public void beAssignedTo(User creator){
+        this.creator = creator;
+    }
+
+    public User creator(){
+        return this.creator;
     }
 
     public String name(){
