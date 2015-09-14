@@ -46,7 +46,9 @@ public class Team {
 
     @Override
     public boolean equals(Object anotherTeam){
-        return true;
+        Team _anotherTeam = (Team) anotherTeam;
+
+        return this.name.equals(_anotherTeam.name());
     }
 
 }
