@@ -19,7 +19,7 @@ public class SuperGol {
 
     public List<Team> rankingFor(Tourney aTourney){
 
-        return ascendingSortByValue(createScoresMapFromUsers(aTourney));
+        return ascendingSortByScore(createScoresMapFromUsers(aTourney));
     }
 
     public void updateScoresFor(Tourney tourney, Map<Team, Integer> scoresForTeams){
@@ -28,7 +28,7 @@ public class SuperGol {
         }
     }
 
-    private List<Team> ascendingSortByValue(Map<Team, Integer> teamScores){
+    private List<Team> ascendingSortByScore(Map<Team, Integer> teamScores){
 
         return new ArrayList<Team>(MapUtils.sortByAscendingValue(teamScores).keySet());
     }
