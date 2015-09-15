@@ -21,7 +21,10 @@ public class MatchResult {
     }
 
     public List<Player> scorersOfTeam(Team team){
-        if (this.match.isLocalTeam(team)) return this.localScorers; else return this.awayScorers;
+        if (this.match.isLocalTeam(team))
+            return this.localScorers;
+        else
+            return this.awayScorers;
     }
 
     public Integer pointsOfTeam(Team team){

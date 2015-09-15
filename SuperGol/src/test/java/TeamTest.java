@@ -18,6 +18,21 @@ public class TeamTest {
         assertEquals(barcelona().captain(), messi());
     }
 
+    @Test
+    public void teamsWithDifferentNamesAreDifferents(){
+        Team team1 = new Team("Pepe 1");
+        Team team2 = new Team("Pepe 2");
+
+        assertFalse(team1.equals(team2));
+    }
+
+    @Test
+    public void teamsWithTheSameNameAreEquals(){
+        Team team1 = new Team("Pepe 1");
+        Team team2 = new Team("Pepe 1");
+
+        assertTrue(team1.equals(team2));
+    }
 
     @Test
     public void aCreatorCouldBeAssigned(){
