@@ -45,4 +45,8 @@ public class Tourney {
     public Fixture fixture(){
         return new Fixture(this);
     }
+
+    public List<Round> rounds(){
+        return this.fixture().rounds();
+    }
 }

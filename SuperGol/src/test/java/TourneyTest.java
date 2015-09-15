@@ -51,10 +51,28 @@ public class TourneyTest {
         assertEquals(aTourneyWithTeams.teams(), expectedTeams());
     }
 
-    //TODO: Replace this test when fixture class is created
     @Test
     public void aFixtureCouldBeCreatedForATourney(){
         assertNotNull(anyTourney().fixture());
+    }
+
+    /** When request rounds of an empty tourney */
+    @Test
+    public void shouldHaveZeroRounds(){
+        Tourney emptyTourney = anyTourney();
+
+        assertTrue(emptyTourney.rounds().isEmpty());
+    }
+
+    /** When request rounds of a tourney with two teams */
+    @Test
+    public void shouldHaveTwoRoundsTheFirstOneForVisitorAndTheOtherForLocal(){
+        Tourney aTourneyWithTeams = anyTourney();
+        addTeamToTourney(anyTeam(), aTourneyWithTeams);
+        addTeamToTourney(anyTeam(), aTourneyWithTeams);
+
+        assertFalse(aTourneyWithTeams.rounds().isEmpty());
+        assertEquals(2, aTourneyWithTeams.rounds().size());
     }
 
     /*
