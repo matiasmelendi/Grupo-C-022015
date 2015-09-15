@@ -86,6 +86,20 @@ public class TeamTest {
         team.addPlayer(defender);
     }
 
+    /** When a match result is stored */
+    @Test
+    public void itShouldKnowHisPointsAndTheScorers(){
+        Team team1 = anyTeam();
+        Match match = new Match(team1, anyTeam());
+        List<Player> emptyListOfScorers = new ArrayList<Player>();
+        MatchResult result = new MatchResult(match, emptyListOfScorers, 1, emptyListOfScorers, 1);
+
+        team1.saveMatchResult(result);
+
+        assertEquals(Integer.valueOf(1), team1.pointsOnMatch(match));
+        assertEquals(emptyListOfScorers, team1.scorersOnMatch(match));
+    }
+
     /*
     * Helper methods
     * */
