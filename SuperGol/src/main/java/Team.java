@@ -1,17 +1,21 @@
 import exceptions.AbsentCaptain;
 import exceptions.PositionFull;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Team {
 
     private Formation formation;
     private String name;
     private User creator;
+    private Map<Match, MatchResult> matchResults;
 
     public Team(String teamName){
         this.name = teamName;
         this.formation = new Formation(3,4,3);
+        this.matchResults = new HashMap<Match, MatchResult>();
     }
 
     public void beAssignedTo(User creator){
@@ -53,6 +57,18 @@ public class Team {
         return this.formation.forwarders();
     }
 
+    public void saveMatchResult(MatchResult matchResult){
+        this.matchResults.put(matchResult.match(), matchResult);
+    }
+
+    public Integer pointsOnMatch(Match match){
+        return this.resultForMatch(match).pointsOfTeam(this);
+    }
+
+    public List<Player> scorersOnMatch(Match match) {
+        return this.resultForMatch(match).scorersOfTeam(this);
+    }
+
     @Override
     public boolean equals(Object anotherTeam){
         Team _anotherTeam = (Team) anotherTeam;
@@ -60,4 +76,7 @@ public class Team {
         return this.name.equals(_anotherTeam.name());
     }
 
+    private MatchResult resultForMatch(Match match){
+        return this.matchResults.get(match);
+    }
 }
