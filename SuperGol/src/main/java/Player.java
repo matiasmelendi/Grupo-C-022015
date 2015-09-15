@@ -20,15 +20,6 @@ public class Player {
     }
 
     /**
-     * Sets the name gives as parameter as the Player's name.
-     *
-     * @param newName Name to be assigned.
-     */
-    public void name(String newName) {
-        this.name = newName;
-    }
-
-    /**
      * Returns the name of the Player.
      *
      * @return Name of the Player.
@@ -45,7 +36,7 @@ public class Player {
     }
 
     /**
-     * Makes this player a normal Captain.
+     * Makes this player a normal Player.
      */
     public void unassignCaptain() {
         this.isCaptain = Boolean.FALSE;
