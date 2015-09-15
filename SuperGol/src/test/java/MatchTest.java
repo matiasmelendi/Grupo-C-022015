@@ -71,4 +71,49 @@ public class MatchTest {
 
         assertTrue(match.isDrawMatch());
     }
+
+    @Test
+    public void itShouldRespondIfATeamIsTheLocalTeam(){
+        Team localTeam = new Team("Local");
+        Team awayTeam = new Team("Away");
+        Match match = new Match(localTeam, awayTeam);
+
+        assertFalse(match.isLocalTeam(awayTeam));
+        assertTrue(match.isLocalTeam(localTeam));
+    }
+
+    /** When match has no scorers */
+    @Test
+    public void itShouldReturnAnEmptyListOfScorersForEachTeam() throws NoMatchResultFound {
+        List<Player> emptyListOfScorers = new ArrayList<Player>();
+        Team local = new Team("Local");
+        Team away = new Team("Away");
+        Match match = new Match(local, away);
+        MatchResult drawMatch = new MatchResult(match, emptyListOfScorers, 0, emptyListOfScorers, 0);
+
+        match.setMatchResult(drawMatch);
+
+        assertEquals(emptyListOfScorers, match.localScorers());
+        assertEquals(emptyListOfScorers, match.awayScorers());
+    }
+
+    /** When match has no result */
+    @Test(expected = NoMatchResultFound.class)
+    public void itShouldFailBecauseMatchHasNoResult() throws NoMatchResultFound {
+        Team local = new Team("Local");
+        Team away = new Team("Away");
+        Match match = new Match(local, away);
+
+        match.localScorers();
+    }
+
+    /** When match has no result */
+    @Test(expected = NoMatchResultFound.class)
+    public void _itShouldFailBecauseMatchHasNoResult() throws NoMatchResultFound {
+        Team local = new Team("Local");
+        Team away = new Team("Away");
+        Match match = new Match(local, away);
+
+        match.awayScorers();
+    }
 }

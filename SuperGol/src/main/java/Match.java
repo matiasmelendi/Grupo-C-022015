@@ -38,11 +38,11 @@ public class Match {
         return this.teamWithMorePoints();
     }
 
-    public List<Player> localScorers(){
+    public List<Player> localScorers() throws NoMatchResultFound {
         return  this.scorersForTeam(this.localTeam());
     }
 
-    public List<Player> awayScorers(){
+    public List<Player> awayScorers() throws NoMatchResultFound {
         return  this.scorersForTeam(this.awayTeam());
     }
 
@@ -61,8 +61,12 @@ public class Match {
     }
 
     private void verifyMatchWithResultAndNotDrawMatch() throws NoMatchResultFound, MatchIsDraw {
-        if (!this.matchResultSet) { throw new NoMatchResultFound(); }
+        this.verifyIsMatchWithResult();
         if (this.isDrawMatch()){ throw new MatchIsDraw("That match is draw then nobody wins"); }
+    }
+
+    private void verifyIsMatchWithResult() throws NoMatchResultFound {
+        if (!this.matchResultSet) { throw new NoMatchResultFound(); }
     }
 
     private void matchResultSet(){
@@ -76,7 +80,8 @@ public class Match {
             return this.awayTeam();
     }
 
-    private List<Player> scorersForTeam(Team team){
+    private List<Player> scorersForTeam(Team team) throws NoMatchResultFound {
+        this.verifyIsMatchWithResult();
         return team.scorersOnMatch(this);
     }
 }
