@@ -14,6 +14,13 @@
           <version>4.12</version>
           <scope>test</scope>
       </dependency>
+    <!-- Utils Dependencies -->
+    <dependency>
+      <groupId>com.opencsv</groupId>
+      <artifactId>opencsv</artifactId>
+      <version>3.4</version>
+    </dependency>
+    <!-- End Utils Dependencies -->
   </dependencies>
   <build>
     <finalName>SuperGol</finalName>
