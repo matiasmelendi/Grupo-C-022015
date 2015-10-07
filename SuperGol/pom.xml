@@ -129,7 +129,6 @@
   </dependencies>
 
   <properties>
-    <jetty.version>9.3.1</jetty.version>
     <spring.version>4.2.1.RELEASE</spring.version>
     <cxf.version>2.3.5</cxf.version>
   </properties>
@@ -141,6 +140,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
+        <version>2.6</version>
         <configuration>
           <failOnMissingWebXml>false</failOnMissingWebXml>
         </configuration>
