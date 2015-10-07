@@ -1,0 +1,60 @@
+/* Common */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: #0B3B0B;
+    font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+    color: #FFFFFF;
+}
+
+#wrapper {
+    min-height: 100%;
+}
+
+.green {
+    background-color: #0B3B0B;
+}
+
+.dark-green {
+    background-color: #083208;
+}
+
+.black-text {
+    color: #000000;
+}
+
+/* End Common */
+
+/* Side Menu */
+
+#side-menu {
+    width: 25%;
+    height: 100%;
+}
+
+/* End Side Menu */
+
+/* Home page */
+
+#title {
+    transition-property: letter-spacing;
+    transition-duration: 1s;
+    -webkit-transition-property: letter-spacing;
+    -webkit-transition-duration: 1s;
+    -o-transition-property: letter-spacing;
+    -o-transition-duration: 1s;
+    letter-spacing: 5px;
+}
+
+#title:hover {
+    transition-property: letter-spacing;
+    transition-duration: 1s;
+    -webkit-transition-property: letter-spacing;
+    -webkit-transition-duration: 1s;
+    -o-transition-property: letter-spacing;
+    -o-transition-duration: 1s;
+    letter-spacing: 20px;
+}
+
+/* End Home page */
