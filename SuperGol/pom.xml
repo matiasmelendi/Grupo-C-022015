@@ -9,6 +9,13 @@
   <url>http://maven.apache.org</url>
 
   <dependencies>
+    <!-- Utils Dependencies -->
+    <dependency>
+      <groupId>com.opencsv</groupId>
+      <artifactId>opencsv</artifactId>
+      <version>3.4</version>
+    </dependency>
+    <!-- End Utils Dependencies -->
 
     <!-- Testing Dependencies -->
 
