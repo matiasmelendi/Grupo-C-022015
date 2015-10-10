@@ -97,6 +97,25 @@ public class MatchTest {
         assertEquals(emptyListOfScorers, match.awayScorers());
     }
 
+    /** When local team has scorers */
+    @Test
+    public void itShouldReturnAListOfScorers() throws NoMatchResultFound {
+        List<Player> emptyListOfScorers = new ArrayList<Player>();
+        List<Player> listOfScorers = new ArrayList<Player>();
+        listOfScorers.add(anyPlayer());
+
+        Team local = new Team("Local");
+        Team away = new Team("Away");
+
+        Match match = new Match(local, away);
+        MatchResult matchResult = new MatchResult(match, listOfScorers, 6, emptyListOfScorers, 0);
+
+        match.setMatchResult(matchResult);
+
+        assertEquals(listOfScorers, match.localScorers());
+        assertEquals(emptyListOfScorers, match.awayScorers());
+    }
+
     /** When match has no result */
     @Test(expected = NoMatchResultFound.class)
     public void itShouldFailBecauseMatchHasNoResult() throws NoMatchResultFound {
@@ -116,4 +135,12 @@ public class MatchTest {
 
         match.awayScorers();
     }
+
+    private Player anyPlayer(){
+        return new Player("Pepe", Position.DEFENDER, anyTeam());
+    }
+    private Team anyTeam(){
+        return new Team("A team name");
+    }
+
 }
