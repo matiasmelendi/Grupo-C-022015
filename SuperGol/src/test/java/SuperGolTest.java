@@ -1,10 +1,8 @@
 import exceptions.FullTourney;
+import exceptions.PositionFull;
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static org.junit.Assert.*;
 
@@ -90,6 +88,45 @@ public class SuperGolTest {
         assertEquals(userTwo.scoreFor(aTourney), Integer.valueOf(100));
     }
 
+    //    @Test
+    public void couldCalculateScoresForTourneyInARound() {
+        SuperGol superGol = superGol();
+
+        Tourney aTourney = new Tourney("La copa del Rey", 2, 10);
+
+        Team teamOne = new Team("TeamOne");
+        Team teamTwo = new Team("TeamTwo");
+        User userOne = new User("Memo 1", "123123123", teamOne);
+        User userTwo = new User("Memo 2", "123123123", teamTwo);
+
+        addTeamToTourney(teamTwo, aTourney);
+        addTeamToTourney(teamOne, aTourney);
+
+        userOne.updateScoreFor(aTourney, 0);
+        userTwo.updateScoreFor(aTourney, 0);
+
+        superGol.addUser(userTwo);
+        superGol.addUser(userOne);
+
+        Player defender = new Player("Pepe", Position.DEFENDER, teamOne);
+        addPlayerToTeam(teamOne, defender);
+
+        Round round = new Round(0, Arrays.asList(teamOne, teamTwo), 2);
+        Match match = round.matches().get(0);
+
+        List<Player> emptyListOfScorers = new ArrayList<Player>();
+        List<Player> listOfScorers = new ArrayList<Player>();
+        listOfScorers.add(defender);
+
+        MatchResult localTeamWins = new MatchResult(match, listOfScorers, 8, emptyListOfScorers, 0);
+        match.setMatchResult(localTeamWins);
+
+        superGol.calculateScoresForTourneyInARound(aTourney, round);
+
+        assertEquals(Integer.valueOf(5), userTwo.scoreFor(aTourney));
+        assertEquals(Integer.valueOf(0), userOne.scoreFor(aTourney));
+    }
+
     private void addTeamToTourney(Team team, Tourney tourney){
         try{
             tourney.addTeam(team);
@@ -108,5 +145,15 @@ public class SuperGolTest {
 
     private User anyUserWithTeam(Team aTeam){
         return new User("Memo", "123123123", aTeam);
+    }
+
+    private Team addPlayerToTeam(Team team, Player player) {
+        try {
+            team.addPlayer(player);
+        } catch (PositionFull e) {
+            fail("Position is Full you can't add another player");
+        }
+
+        return team;
     }
 }
