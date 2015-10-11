@@ -1,3 +1,5 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,10 +8,10 @@ public class UtilFixtureBuilder {
     private static Team dummyTeam = new Team("Dummy");
 
     /**
-     * Given a Tourney, it returns the amount of Rounds for that Tourney.
+     * Given a model.Tourney, it returns the amount of Rounds for that model.Tourney.
      *
-     * @param aTourney Tourney from where the amount of teams is taken.
-     * @return Amount of Rounds for a Tourney.
+     * @param aTourney model.Tourney from where the amount of teams is taken.
+     * @return Amount of Rounds for a model.Tourney.
      */
     public static Integer calculateAmountOfRounds(Tourney aTourney) {
         Integer amountOfRounds;
@@ -22,9 +24,9 @@ public class UtilFixtureBuilder {
     }
 
     /**
-     * Adds a Dummy Team to a Tourney in case it has an odd amount of Teams.
+     * Adds a Dummy model.Team to a model.Tourney in case it has an odd amount of Teams.
      *
-     * @param aTourney Tourney to check.
+     * @param aTourney model.Tourney to check.
      */
     public static void addDummyIfNeeded(Tourney aTourney) {
         if (!tourneyHasEvenAmountOfTeams(aTourney)) {
@@ -33,9 +35,9 @@ public class UtilFixtureBuilder {
     }
 
     /**
-     * Removes a Dummy Team in case a Tourney has one.
+     * Removes a Dummy model.Team in case a model.Tourney has one.
      *
-     * @param aTourney Tourney to check.
+     * @param aTourney model.Tourney to check.
      */
     public static void removeDummyIfNeeded(Tourney aTourney) {
         for (int i = 0; i < aTourney.amountOfTeams(); i++) {
@@ -48,7 +50,7 @@ public class UtilFixtureBuilder {
     /**
      * Returns if the given team is Dummy.
      *
-     * @param team Team to check.
+     * @param team model.Team to check.
      * @return If a given team is Dummy.
      */
     public static Boolean aTeamIsDummy(Team team) {
@@ -56,10 +58,10 @@ public class UtilFixtureBuilder {
     }
 
     /**
-     * Returns if the Tourney has an even amount of teams.
+     * Returns if the model.Tourney has an even amount of teams.
      *
-     * @param aTourney Tourney to be checked.
-     * @return If a Tourney has an even amount of teams.
+     * @param aTourney model.Tourney to be checked.
+     * @return If a model.Tourney has an even amount of teams.
      */
     private static Boolean tourneyHasEvenAmountOfTeams(Tourney aTourney) {
         return aTourney.amountOfTeams() % 2 == 0;

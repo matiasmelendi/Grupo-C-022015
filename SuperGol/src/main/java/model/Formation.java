@@ -1,3 +1,5 @@
+package model;
+
 import exceptions.PlayerNotFound;
 import exceptions.PositionFull;
 

@@ -1,3 +1,5 @@
+package model;
+
 import exceptions.AbsentCaptain;
 import exceptions.PositionFull;
 

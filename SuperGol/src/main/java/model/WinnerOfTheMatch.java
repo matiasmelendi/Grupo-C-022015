@@ -1,3 +1,5 @@
+package model;
+
 import exceptions.MatchIsDraw;
 import exceptions.NoMatchResultFound;
 

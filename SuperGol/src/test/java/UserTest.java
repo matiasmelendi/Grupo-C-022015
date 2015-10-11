@@ -1,4 +1,7 @@
 import exceptions.FullTourney;
+import model.Team;
+import model.Tourney;
+import model.User;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -32,7 +35,7 @@ public class UserTest {
         try{
             tourney.addTeam(team);
         }catch (FullTourney e){
-            fail("Tourney is Full you can't add another team");
+            fail("model.Tourney is Full you can't add another team");
         }
     }
 

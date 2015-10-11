@@ -1,3 +1,5 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,9 +13,9 @@ public class Round {
     /**
      * Class' constructor.
      *
-     * @param number      Number of the Round.
+     * @param number      Number of the model.Round.
      * @param teams       Teams that the round will build the matches with.
-     * @param halfTourney Number that represents the half of the Tourney.
+     * @param halfTourney Number that represents the half of the model.Tourney.
      */
     public Round(Integer number, List<Team> teams, Integer halfTourney) {
         this.number = number;
@@ -28,8 +30,8 @@ public class Round {
      * <p/>
      * Given a N amount of teams, it keeps the first team fixed,
      * and rotates the rest (clockwise) of the teams, until N - 1.
-     * If N is odd, a Dummy Team needs to be added, and the Team that is
-     * matched against the Dummy Team, doesn't play this round.
+     * If N is odd, a Dummy model.Team needs to be added, and the model.Team that is
+     * matched against the Dummy model.Team, doesn't play this round.
      */
     private void build() {
         Integer matchesToBuild = teams.size() / 2;
@@ -47,12 +49,12 @@ public class Round {
     }
 
     /**
-     * Adds a Match to this round, checking that none of the teams is Dummy.
+     * Adds a model.Match to this round, checking that none of the teams is Dummy.
      * Also, check if the round is before or after the half of the tourney
      * to see if it should be "A vs B", or "B vs A".
      *
-     * @param teamA Team to be added.
-     * @param teamB Team to be added.
+     * @param teamA model.Team to be added.
+     * @param teamB model.Team to be added.
      */
     private void addMatch(Team teamA, Team teamB) {
         Boolean firstTeamIsDummy = UtilFixtureBuilder.aTeamIsDummy(teamA);

@@ -1,3 +1,5 @@
+package model;
+
 import exceptions.NoMatchResultFound;
 
 public class NoGoals extends ScoringRule {

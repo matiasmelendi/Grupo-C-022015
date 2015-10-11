@@ -1,3 +1,4 @@
+package model;
 
 public class DefenderScored extends ScoringRule {
     @Override

@@ -2,6 +2,9 @@ import exceptions.FullTourney;
 
 import static org.junit.Assert.*;
 
+import model.Fixture;
+import model.Team;
+import model.Tourney;
 import org.junit.Test;
 
 public class FixtureTest {
@@ -24,7 +27,7 @@ public class FixtureTest {
      * Returns any tourney with X amount of Teams.
      *
      * @param amountOfTeams Amount of Teams.
-     * @return A Tourney with a X amount of Teams already created.
+     * @return A model.Tourney with a X amount of Teams already created.
      * @throws FullTourney
      */
     private Tourney anyTourneyWith(Integer amountOfTeams) throws FullTourney {

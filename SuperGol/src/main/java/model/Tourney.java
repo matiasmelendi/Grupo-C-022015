@@ -1,3 +1,5 @@
+package model;
+
 import exceptions.FullTourney;
 
 import java.util.ArrayList;

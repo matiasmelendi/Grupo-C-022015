@@ -1,3 +1,5 @@
+package model;
+
 public class Player {
 
     private String name;
@@ -8,9 +10,9 @@ public class Player {
     /**
      * Class' constructor.
      *
-     * @param name     Name of the Player.
-     * @param position Position of the Player.
-     * @param team     Team of the Player.
+     * @param name     Name of the model.Player.
+     * @param position model.Position of the model.Player.
+     * @param team     model.Team of the model.Player.
      */
     public Player(String name, Position position, Team team) {
         this.name = name;
@@ -20,9 +22,9 @@ public class Player {
     }
 
     /**
-     * Returns the name of the Player.
+     * Returns the name of the model.Player.
      *
-     * @return Name of the Player.
+     * @return Name of the model.Player.
      */
     public String name() {
         return this.name;
@@ -36,7 +38,7 @@ public class Player {
     }
 
     /**
-     * Makes this player a normal Player.
+     * Makes this player a normal model.Player.
      */
     public void unassignCaptain() {
         this.isCaptain = Boolean.FALSE;
@@ -61,7 +63,7 @@ public class Player {
     }
 
     /**
-     * Returns the Player's position.
+     * Returns the model.Player's position.
      *
      * @return This player position.
      */
@@ -70,7 +72,7 @@ public class Player {
     }
 
     /**
-     * Returns the Player's team.
+     * Returns the model.Player's team.
      *
      * @return This player team.
      */

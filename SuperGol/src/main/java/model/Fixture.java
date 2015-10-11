@@ -1,3 +1,5 @@
+package model;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +13,7 @@ public class Fixture {
     /**
      * Class' constructor.
      *
-     * @param aTourney Tourney that contains the information needed to build this up.
+     * @param aTourney model.Tourney that contains the information needed to build this up.
      */
     public Fixture(Tourney aTourney) {
         this.tourney = aTourney;
