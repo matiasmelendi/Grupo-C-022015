@@ -1,0 +1,42 @@
+/* Common */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: #0B3B0B;
+    font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
+    color: #FFFFFF;
+}
+
+.container-fluid {
+    min-height: 100%;
+    overflow: hidden;
+    display: table;
+    width: 100%;
+    margin-top: -50px;
+    padding-top: 50px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.green {
+    background-color: #0B3B0B;
+}
+
+.dark-green {
+    background-color: #083208;
+}
+
+.black-text {
+    color: #000000;
+}
+
+/* End Common */
+
+/* Side Menu */
+
+.title {
+    height: 20%;
+}
+
+/* End Side Menu */
