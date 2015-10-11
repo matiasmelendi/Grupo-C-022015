@@ -1,0 +1,21 @@
+{
+  "name": "SuperGol_Frontend",
+  "version": "1.0.0",
+  "description": "SuperGol_Frontend",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matiasmelendi/Grupo-C-022015/tree/feature/frontend_development"
+  },
+  "author": "Grupo-C-022015",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-webserver": "^0.9.1",
+    "jshint-stylish": "^2.0.1"
+  }
+}
