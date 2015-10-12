@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <title></title>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="UTF-8" http-equiv="encoding">
+        <title>SuperGol</title>
         <link rel="stylesheet" type="text/css" href="resources/css/bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="resources/css/app.css" />
+        <link rel="icon" type="image/png" href="resources/images/soccer.ico" sizes="16x16">
+        <script type="text/javascript" src="resources/js/bootstrap.min.js"></script>
         <script type="text/javascript" src="resources/js/angular.js"></script>
         <script type="text/javascript" src="resources/js/angular-route.js"></script>
         <script type="text/javascript" src="app.js"></script>
     </head>
     <body ng-app="superGol">
+        <top-nav></top-nav>
         <div class="container-fluid text-center" ng-view>
             <!-- Content -->
         </div> <!-- /container -->

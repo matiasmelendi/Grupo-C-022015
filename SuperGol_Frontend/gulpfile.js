@@ -7,7 +7,7 @@ gulp.task('default', function () {
 
 gulp.task('run', function () {
     connect.server({
-        root: '/',
+        root: '.',
         port: 8080
     });
 });

@@ -31,12 +31,47 @@ html, body {
     color: #000000;
 }
 
-/* End Common */
-
-/* Side Menu */
-
-.title {
-    height: 20%;
+input.ng-invalid.ng-dirty {
+    border: 1px solid #00ff00;
 }
 
-/* End Side Menu */
+input.ng-valid.ng-dirty {
+    border: 1px solid #ff0000;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+/* End Common */
+
+/* Login */
+
+.form {
+    width: 20%;
+    padding-top: 2%;
+}
+
+.home-buttons {
+    width: 20%;
+}
+
+/* End Login */
+
+/* Ranking */
+
+.ranking {
+    width: 60%;
+}
+
+/* End Ranking*/
+
+/* Round update */
+
+.round-update {
+    width: 30%;
+}
+
+/* End Round update */
