@@ -9,13 +9,17 @@ import javax.ws.rs.Produces;
 import java.util.List;
 
 @Path("/players")
+@Produces("application/json")
 public class PlayersService {
 
     private PlayersRepository repository;
 
+    public PlayersService(){
+        this.repository = new PlayersRepository();
+    }
+
     @GET
     @Path("/all")
-    @Produces("application/json")
     public List<Player> all() {
         return repository.all();
     }
