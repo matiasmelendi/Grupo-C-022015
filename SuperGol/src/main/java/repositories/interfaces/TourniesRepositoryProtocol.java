@@ -4,7 +4,7 @@ import model.Tourney;
 
 import java.util.List;
 
-public interface TourneyRepositoryProtocol {
+public interface TourniesRepositoryProtocol {
 
     List<Tourney> all();
 

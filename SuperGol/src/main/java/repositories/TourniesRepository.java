@@ -1,11 +1,11 @@
 package repositories;
 
 import model.Tourney;
-import repositories.interfaces.TourneyRepositoryProtocol;
+import repositories.interfaces.TourniesRepositoryProtocol;
 
 import java.util.List;
 
-public class TourneyRepository implements TourneyRepositoryProtocol {
+public class TourniesRepository implements TourniesRepositoryProtocol {
 
     public List<Tourney> all(){
         return null;

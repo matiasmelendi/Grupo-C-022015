@@ -1,7 +1,7 @@
 package services;
 
 import model.Tourney;
-import repositories.TourneyRepository;
+import repositories.TourniesRepository;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -13,10 +13,10 @@ import java.util.List;
 @Produces("application/json")
 public class TourniesService {
 
-    private TourneyRepository repository;
+    private TourniesRepository repository;
 
     public TourniesService(){
-        this.repository = new TourneyRepository();
+        this.repository = new TourniesRepository();
     }
 
     @GET
