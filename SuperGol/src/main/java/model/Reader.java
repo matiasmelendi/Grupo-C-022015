@@ -1,3 +1,5 @@
+package model;
+
 import com.opencsv.CSVReader;
 import exceptions.UpdateGoalsFromFileFailure;
 
