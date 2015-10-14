@@ -145,4 +145,22 @@ input.ng-valid.ng-dirty {
     margin-right: 20px;
 }
 
+.players {
+    width: 28%;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: #DBDBDB;
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.current-formation {
+    height: 400px;
+    background: green;
+    width: 300px;
+    margin-left: 20px;
+    float: left;
+}
+
 /* End Team create / update */
