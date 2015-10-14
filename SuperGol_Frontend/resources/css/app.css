@@ -14,7 +14,6 @@ html, body {
     display: table;
     width: 100%;
     margin-top: -50px;
-    padding-top: 50px;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
@@ -43,6 +42,42 @@ input.ng-valid.ng-dirty {
     margin-left: auto;
     margin-right: auto;
     display: block;
+}
+
+.navbar {
+    margin: 0px;
+}
+
+.panel {
+    margin-top: 20px;
+    border: none;
+    background-color: rgb(34, 74, 7);
+}
+
+.panel-body {
+    padding-top: 10px;
+    padding-bottom: 0px;
+    font-size: 16px;
+    color: white;
+    text-align: left;
+}
+
+
+.btn-primary {
+    color: #355723;
+    background-color: #FFFFFF;
+    border-color: #355723;
+}
+
+.btn-primary:hover, .btn-primary:active {
+    color: #355723;
+    background-color: #DBDBDB;
+    border-color: #355723;
+    box-shadow: none;
+}
+
+.workspace {
+    height: 520px;
 }
 
 /* End Common */
@@ -75,3 +110,39 @@ input.ng-valid.ng-dirty {
 }
 
 /* End Round update */
+
+/* Team create / update */
+
+.team-roster {
+    background: green;
+    height: 400px;
+    width: 300px;
+    margin-left: 20px;
+    margin-right: 20px;
+    float: left;
+}
+
+.team-roster-input {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 250px;
+}
+
+.img-thumbnail {
+    height: 180px;
+}
+
+.team-logo {
+    padding-top: 10px;
+    padding-bottom: 40px;
+}
+
+.team-formation {
+    width: 920px;
+    height: 500px;
+    float: left;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* End Team create / update */
