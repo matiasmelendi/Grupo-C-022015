@@ -1,6 +1,6 @@
 <div class="panel panel-default">
     <div class="panel-body">
-        <p>Team Creation</p>
+        <p>{{ 'TEAM_CREATION' | translate }}</p>
     </div>
 </div>
 
@@ -8,12 +8,12 @@
 
     <div class="team-roster">
         <div class="team-roster-input center">
-            <input type="text" name='team-name' placeholder='Team name' class="form-control"/>
+            <input type="text" name='team-name' placeholder="{{ 'TEAM_NAME' | translate }}" class="form-control"/>
         </div>
         <div class="team-logo">
             <img src="http://www.tagetik.com/intouch2015/user.png" class="img-thumbnail" alt="Team Logo">
         </div>
-        <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Select a Logo</a>
+        <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {{ 'SELECT_LOGO' | translate }}</a>
     </div>
 
     <div class="team-formation">

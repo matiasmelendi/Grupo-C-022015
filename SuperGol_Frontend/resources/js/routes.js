@@ -6,10 +6,10 @@ app.config(['$routeProvider', function($routeProvider){
         .when("/userhome", {
             templateUrl: "views/userhome.html",
         })
-        .when("/league/create", {
+        .when("/tourney/create", {
             templateUrl: "views/leagueCreate.html",
         })
-        .when("/league/modify", {
+        .when("/tourney/modify", {
             templateUrl: "views/leagueModify.html",
         })
         .when("/team/create", {

@@ -1,18 +1,18 @@
 <div class="panel panel-default">
     <div class="panel-body">
-        <p>Round update</p>
+        <p>{{ 'ROUND_UPDATE' | translate }}</p>
     </div>
 </div>
 
 <div class="round-update center">
 
     <form name="roundUpdate" class="form-horizontal" role="form"  novalidate>
-        <label>Set the scores of the Round Number 1</label>
+        <label>{{ 'SCORES_TITLE' | translate }} 1</label>
         <table class="table">
             <thead>
                 <tr >
                     <th class="text-center">
-                        Local Team
+                        {{ 'LOCAL_TEAM' | translate }}
                     </th>
                     <th class="text-center">
                     </th>
@@ -22,7 +22,7 @@
                     <th class="text-center">
                     </th>
                     <th class="text-center">
-                        Away Team
+                        {{ 'AWAY_TEAM' | translate }}
                     </th>
                 </tr>
             </thead>
@@ -32,13 +32,13 @@
                         T1
                     </td>
                     <td>
-                        <input type="text" name='name0' placeholder='Points' class="form-control"/>
+                        <input type="text" name='name0' placeholder="{{ 'POINTS' | translate }}" class="form-control"/>
                     </td>
                     <td>
                         VS
                     </td>
                     <td>
-                        <input type="text" name='mobile0' placeholder='Points' class="form-control"/>
+                        <input type="text" name='mobile0' placeholder="{{ 'POINTS' | translate }}" class="form-control"/>
                     </td>
                     <td>
                         T2
@@ -49,13 +49,13 @@
                         T3
                     </td>
                     <td>
-                        <input type="text" name='name0' placeholder='Points' class="form-control"/>
+                        <input type="text" name='name0' placeholder="{{ 'POINTS' | translate }}" class="form-control"/>
                     </td>
                     <td>
                         VS
                     </td>
                     <td>
-                        <input type="text" name='mobile0' placeholder='Points' class="form-control"/>
+                        <input type="text" name='mobile0' placeholder="{{ 'POINTS' | translate }}" class="form-control"/>
                     </td>
                     <td>
                         T4
