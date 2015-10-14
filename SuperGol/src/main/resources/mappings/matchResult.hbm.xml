@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field" default-cascade="save-update">
+    <class name="model.MatchResult">
+        <id column="ID" name="id">
+            <generator class="native" />
+        </id>
+
+        <property name="localPoints" />
+        <property name="awayPoints" />
+
+        <list name="localScorers" table="scorers">
+            <key column="scorers_id" />
+            <list-index column="index" />
+            <many-to-many column="player_id" class="model.Player"/>
+        </list>
+
+        <list name="awayScorers" table="scorers">
+            <key column="scorers_id" />
+            <list-index column="index" />
+            <many-to-many column="player_id" class="model.Player"/>
+        </list>
+
+        <one-to-one name="match" class="model.Match" />
+    </class>
+</hibernate-mapping>
