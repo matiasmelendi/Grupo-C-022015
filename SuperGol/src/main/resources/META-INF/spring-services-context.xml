@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!-- beans de spring -->
+    <bean id="services.teams" class="services.TeamsService">
+        <property name="repository" ref="repositories.TeamsRepository" />
+    </bean>
+
+    <bean id="services.players" class="services.PlayersService">
+        <property name="repository" ref="repositories.PlayersRepository" />
+    </bean>
+
+    <bean id="services.tournies" class="services.TourniesService">
+        <property name="repository" ref="repositories.TourniesRepository" />
+    </bean>
+
+</beans>
