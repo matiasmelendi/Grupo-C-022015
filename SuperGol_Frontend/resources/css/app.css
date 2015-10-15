@@ -163,4 +163,57 @@ input.ng-valid.ng-dirty {
     float: left;
 }
 
+.formation {
+    width: 60%;
+    padding-top: 5px;
+    padding-bottom: 30px;
+}
+
+.formation-info {
+    padding: 3px;
+}
+
 /* End Team create / update */
+
+/* League Create / Update */
+
+.tourney-setup {
+    width: 30%;
+    height: 100%;
+    float: left;
+}
+
+.setup {
+    background: green;
+    height: 80%;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.setup-info {
+    width: 80%;
+    padding-top: 20px;
+}
+
+.setup-info input {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.tourney-teams {
+    width: 70%;
+    height: 100%;
+    float: left;
+}
+
+.teams {
+    width: 40%;
+    float: left;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: #DBDBDB;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+/* End League Create / Update */
