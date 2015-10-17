@@ -4,18 +4,15 @@
     </div>
 </div>
 
-<div class="workspace">
+<div class="workspace" ng-controller="RankingCtrl">
 
     <div class="ranking center">
 
         <!-- Tourneys -->
         <div class="form-group">
-            <label for="sel1">{{ 'TOURNEY_SELECT' | translate }}:</label>
-            <select class="form-control" id="sel1">
-                <option>Tourney A</option>
-                <option>Tourney B</option>
-                <option>Tourney C</option>
-                <option>Tourney D</option>
+            <label for="tournies">{{ 'TOURNEY_SELECT' | translate }}:</label>
+            <select class="form-control" id="tournies" ng-repeat="tourney in tournies">
+                <option>{{ tourney.name }}</option>
             </select>
         </div>
 
