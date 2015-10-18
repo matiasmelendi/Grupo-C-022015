@@ -185,7 +185,8 @@ input.ng-valid.ng-dirty {
 
 .setup {
     background: green;
-    height: 80%;
+    height: 53%;
+    border-radius: 10px;
     margin-left: 20px;
     margin-right: 20px;
 }
@@ -200,10 +201,29 @@ input.ng-valid.ng-dirty {
     margin-bottom: 20px;
 }
 
-.tourney-teams {
+.tourney-selectors {
     width: 70%;
     height: 100%;
     float: left;
+    background: green;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.tourney-selector {
+    width: 50%;
+    height: 100%;
+    float: left;
+}
+
+.team-selector {
+    width: 90%;
+    height: 85%;
+    border-radius: 10px;
+    margin-top: 14px;
+    background-color: #DBDBDB;
+    overflow-y: scroll;
 }
 
 .teams {

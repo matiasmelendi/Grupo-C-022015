@@ -4,7 +4,7 @@
     </div>
 </div>
 
-<div class="workspace">
+<div class="workspace" ng-controller="TourneyCtrl">
 
     <div class="tourney-setup">
         <div class="setup">
@@ -17,27 +17,23 @@
         </div>
     </div>
 
-    <div class="tourney-teams">
-        <div class="teams">
-            <div class="list-group black-text">
-                <button type="button" class="list-group-item">
-                    Equipo 1
-                </button>
-                <button type="button" class="list-group-item">
-                    Equipo 2
-                </button>
-                <button type="button" class="list-group-item">
-                    Equipo 3
-                </button>
+    <div class="tourney-selectors">
+        <div class="tourney-selector">
+            <h4>Available Teams</h4>
+            <div class="team-selector center">
+                <div class="list-group black-text" ng-repeat="availableTeam in allTeams | orderBy:'name'">
+                    <button type="button" class="list-group-item" ng-click="addToSelected(availableTeam)">{{ availableTeam.name }}</button>
+                </div>
             </div>
         </div>
-
-        <div class="teams">
-
+        <div class="tourney-selector">
+            <h4>Selected Teams</h4>
+            <div class="team-selector center">
+                <div class="list-group black-text" ng-repeat="selectedTeam in selectedTeams | orderBy:'name'">
+                    <button type="button" class="list-group-item" ng-click="removeFromSelected(selectedTeam)">{{ selectedTeam.name }}</button>
+                </div>
+            </div>
         </div>
-
     </div>
-
-
 
 </div>
