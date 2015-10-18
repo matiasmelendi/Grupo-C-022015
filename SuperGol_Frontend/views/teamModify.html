@@ -4,7 +4,7 @@
     </div>
 </div>
 
-<div class="workspace">
+<div class="workspace" ng-controller="TeamCtrl">
 
     <div class="team-roster">
         <div class="team-roster-input center">
@@ -16,89 +16,44 @@
         <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {{ 'SELECT_LOGO' | translate }}</a>
     </div>
 
-    <div class="team-formation">
-        <div class="players">
-            <div class="list-group black-text">
-                <button type="button" class="list-group-item">
-                    <span class="badge">GK</span>
-                    Cras justo odio
-                </button>
-                <button type="button" class="list-group-item">
-                    <span class="badge">DF</span>
-                    Cras justo odio
-                </button>
-                <button type="button" class="list-group-item">
-                    <span class="badge">DF</span>
-                    Cras justo odio
-                </button>
-                <button type="button" class="list-group-item">
-                    <span class="badge">GK</span>
-                    Cras justo odio
-                </button>
-                <button type="button" class="list-group-item">
-                    <span class="badge">MF</span>
-                    Cras justo odio
-                </button>
-                <button type="button" class="list-group-item">
-                    <span class="badge">GK</span>
-                    Cras justo odio
-                </button>
-                <button type="button" class="list-group-item">
-                    <span class="badge">GK</span>
-                    Cras justo odio
-                </button>
-                <button type="button" class="list-group-item">
-                    <span class="badge">FW</span>
-                    Cras justo odio
-                </button>
-                <button type="button" class="list-group-item">
-                    <span class="badge">GK</span>
-                    Cras justo odio
-                </button>
-                <button type="button" class="list-group-item">
-                    <span class="badge">FW</span>
-                    Cras justo odio
-                </button>
-                <button type="button" class="list-group-item">
-                    <span class="badge">FW</span>
-                    Cras justo odio
-                </button>
-                <button type="button" class="list-group-item">
-                    <span class="badge">FW</span>
-                    Cras justo odio
-                </button>
-                <button type="button" class="list-group-item">
-                    <span class="badge">FW</span>
-                    Cras justo odio
-                </button>
-                <button type="button" class="list-group-item">
-                    <span class="badge">FW</span>
-                    Cras justo odio
-                </button>
+    <div class="team-information">
+        <div class="player-selector">
+            <h4>Available Players</h4>
+            <div class="players center">
+                <div class="list-group black-text" ng-repeat="availablePlayer in allPlayers | orderBy:'name'">
+                    <button type="button" class="list-group-item" ng-click="addToSelected(availablePlayer)">
+                        <span class="badge">{{ availablePlayer.position }}</span>
+                        {{ availablePlayer.name }}
+                    </button>
+                </div>
             </div>
         </div>
-
-        <div class="players">
-
-        </div>
-
-        <div class="current-formation">
-            <h4>Current Formation</h4>
-            <ul class="list-group">
-                <div class="formation center">
-                    <h5>Goalkeeper</h5>
-                    <li class="list-group-item list-group-item-success formation-info">1/1</li>
-                    <h5>Defenders</h5>
-                    <li class="list-group-item list-group-item-danger formation-info">2/3</li>
-                    <h5>Midfielders</h5>
-                    <li class="list-group-item list-group-item-success formation-info">4/4</li>
-                    <h5>Forwards</h5>
-                    <li class="list-group-item list-group-item-success formation-info">3/3</li>
+        <div class="player-selector">
+            <h4>Selected Players</h4>
+            <div class="players center">
+                <div class="list-group black-text" ng-repeat="selectedPlayer in selectedPlayers | orderBy:'name'">
+                    <button type="button" class="list-group-item" ng-click="removeFromSelected(selectedPlayer)">
+                        <span class="badge">{{ selectedPlayer.position }}</span>
+                        {{ selectedPlayer.name }}
+                    </button>
                 </div>
-                <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Create!</a>
-            </ul>
+            </div>
         </div>
-
+        <div class="team-formation">
+            <h4>Current Formation</h4>
+            <div class="formation center">
+                <ul class="list-group">
+                    <h5>Goalkeeper</h5>
+                    <li ng-class="fullGoalkeepers ? 'list-group-item-success' : 'list-group-item-danger'" class="list-group-item formation-info">{{ selectedGoalkeepers }}/1</li>
+                    <h5>Defenders</h5>
+                    <li ng-class="fullDefenders ? 'list-group-item-success' : 'list-group-item-danger'" class="list-group-item formation-info">{{ selectedDefenders }}/3</li>
+                    <h5>Midfielders</h5>
+                    <li ng-class="fullMidfielders ? 'list-group-item-success' : 'list-group-item-danger'" class="list-group-item formation-info">{{ selectedMidfielders }}/4</li>
+                    <h5>Forwards</h5>
+                    <li ng-class="fullForwards ? 'list-group-item-success' : 'list-group-item-danger'" class="list-group-item formation-info">{{ selectedForwards }}/3</li>
+                </ul>
+            </div>
+            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Create!</a>
+        </div>
     </div>
-
 </div>

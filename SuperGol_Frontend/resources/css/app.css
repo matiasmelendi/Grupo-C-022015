@@ -120,6 +120,7 @@ input.ng-valid.ng-dirty {
     margin-left: 20px;
     margin-right: 20px;
     float: left;
+    border-radius: 10px;
 }
 
 .team-roster-input {
@@ -137,40 +138,39 @@ input.ng-valid.ng-dirty {
     padding-bottom: 40px;
 }
 
-.team-formation {
-    width: 920px;
-    height: 500px;
+.team-information {
+    background: green;
+    height: 100%;
     float: left;
-    margin-left: 20px;
-    margin-right: 20px;
+    width: 72%;
+    border-radius: 10px;
+}
+
+.player-selector {
+    float: left;
+    height: 100%;
+    width: 35%
 }
 
 .players {
-    width: 28%;
-    height: 100%;
     overflow-y: scroll;
     background-color: #DBDBDB;
-    float: left;
-    margin-left: 20px;
-    margin-right: 20px;
+    border-radius: 10px;
+    height: 86%;
+    width: 90%;
+    margin-top: 15px;
 }
 
-.current-formation {
-    height: 400px;
-    background: green;
-    width: 300px;
-    margin-left: 20px;
+.team-formation {
     float: left;
+    height: 100%;
+    width: 30%
 }
 
 .formation {
-    width: 60%;
-    padding-top: 5px;
+    width: 80%;
+    padding-top: 30px;
     padding-bottom: 30px;
-}
-
-.formation-info {
-    padding: 3px;
 }
 
 /* End Team create / update */

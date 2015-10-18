@@ -2,7 +2,7 @@ app.service('Teams', function( $http, $q ) {
 
     /* Service API */
     return {
-        all: all
+        all: all,
         ranking: ranking
     };
 

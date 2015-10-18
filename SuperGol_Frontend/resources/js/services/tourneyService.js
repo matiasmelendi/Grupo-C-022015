@@ -2,7 +2,7 @@ app.service('Tourney', function( $http, $q ) {
 
     /* Service API */
     return {
-        all: all
+        all: all,
         getById: getById
     };
 
