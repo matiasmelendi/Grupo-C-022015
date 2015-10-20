@@ -7,6 +7,9 @@ import java.util.List;
 
 public class Tourney {
 
+    //It's only used for hibernate.
+    private double id;
+
     private String name;
     private Integer minNumberOfTeams;
     private Integer maxNumberOfTeams;

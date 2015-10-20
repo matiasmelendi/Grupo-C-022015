@@ -4,6 +4,9 @@ import java.util.List;
 
 public class MatchResult {
 
+    //It's only used for hibernate.
+    private double id;
+
     private List<Player> localScorers;
     private List<Player> awayScorers;
     private Integer localPoints;

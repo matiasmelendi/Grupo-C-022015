@@ -1,9 +1,13 @@
 package model;
 
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class User {
+
+    //It's only used for hibernate.
+    private double id;
 
     private String username;
     private String password;

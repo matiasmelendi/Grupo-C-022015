@@ -2,6 +2,9 @@ package model;
 
 public class Player {
 
+    //It's only used for hibernate.
+    private double id;
+
     private String name;
     private Position position;
     private Team team;

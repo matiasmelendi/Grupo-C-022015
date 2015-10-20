@@ -9,6 +9,9 @@ import java.util.Map;
 
 public class Team {
 
+    //It's only used for hibernate.
+    private double id;
+
     private Formation formation;
     private String name;
     private User creator;

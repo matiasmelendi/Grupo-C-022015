@@ -7,6 +7,9 @@ import java.util.List;
 
 public class Match {
 
+    //It's only used for hibernate.
+    private double id;
+
     private Team localTeam;
     private Team awayTeam;
     private Boolean matchResultSet;

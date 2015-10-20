@@ -10,6 +10,9 @@ import java.util.Map;
 
 public class Formation {
 
+    //It's only used for hibernate.
+    private double id;
+
     private List<Player> players;
     private Map<Position, Integer> allowedPlayers;
 
