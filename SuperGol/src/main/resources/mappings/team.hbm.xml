@@ -8,12 +8,12 @@
         </id>
 
         <property name="name" />
-        <property name="isCaptain" />
+        <property name="matchResults" />
 
         <map name="matchResults" table="match_results_by_match">
-            <key column="match_results_by_match_id" />
-            <map-key type="model.Match" column="match" />
-            <element type="model.MatchResult" column="match_result"/>
+            <key column="id" />
+            <map-key-many-to-many class="model.Match" column="match"/>
+            <many-to-many class="model.MatchResult" column="match_result"/>
         </map>
 
         <many-to-one name="creator" class="model.User" />

@@ -52,10 +52,33 @@
           <groupId>org.eclipse.jetty</groupId>
           <artifactId>jetty-server</artifactId>
         </exclusion>
+          <exclusion>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-context</artifactId>
+          </exclusion>
+          <exclusion>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-beans</artifactId>
+          </exclusion>
+          <exclusion>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-asm</artifactId>
+          </exclusion>
+          <exclusion>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-expression</artifactId>
+          </exclusion>
       </exclusions>
     </dependency>
 
     <!-- End CXF -->
+
+    <dependency>
+        <groupId>commons-dbcp</groupId>
+        <artifactId>commons-dbcp</artifactId>
+        <version>1.4</version>
+    </dependency>
+
 
     <!-- Service Dependencies -->
 
@@ -126,13 +149,6 @@
     </dependency>
 
     <!-- End Persistence Dependencies -->
-
-    <dependency>
-      <groupId>org.eclipse.jetty</groupId>
-      <artifactId>jetty-server</artifactId>
-      <version>9.3.1.v20150714</version>
-    </dependency>
-
   </dependencies>
 
   <properties>
@@ -163,13 +179,35 @@
         <artifactId>maven-checkstyle-plugin</artifactId>
         <version>2.16</version>
       </plugin>
-
       <plugin>
-        <groupId>org.eclipse.jetty</groupId>
-        <artifactId>jetty-maven-plugin</artifactId>
-        <version>9.0.5.v20130815</version>
+        <groupId>org.mortbay.jetty</groupId>
+        <artifactId>maven-jetty-plugin</artifactId>
+        <version>6.1.10</version>
+        <configuration>
+            <scanIntervalSeconds>10</scanIntervalSeconds>
+            <connectors>
+                <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+                    <port>8080</port>
+                    <maxIdleTime>60000</maxIdleTime>
+                </connector>
+            </connectors>
+        </configuration>
       </plugin>
     </plugins>
+
+    <resources>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/main/resources</directory>
+      </resource>
+      <resource>
+        <filtering>true</filtering>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**</include>
+        </includes>
+      </resource>
+    </resources>
   </build>
 
   <reporting>

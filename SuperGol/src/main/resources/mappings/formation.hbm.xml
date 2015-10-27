@@ -15,7 +15,7 @@
 
         <map name="allowedPlayers" table="allowed_players">
             <key column="allowed_players_id" />
-            <map-key type="model.Position" column="position" />
+            <index-many-to-many class="model.Position" column="position" />
             <element type="Integer" column="number_of_allowed_players"/>
         </map>
 

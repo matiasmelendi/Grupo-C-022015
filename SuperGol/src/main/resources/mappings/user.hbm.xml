@@ -9,11 +9,12 @@
 
         <property name="username" />
         <property name="password" />
+        <property name="scores" />
 
         <map name="scores" table="tourney_scores">
             <key column="tourney_scores_id" />
-            <map-key type="model.Tourney" column="tourney" />
-            <element type="Integer" column="score"/>
+            <map-key-many-to-many class="model.Tourney" column="tourney" />
+            <element type="int" column="score"/>
         </map>
 
         <one-to-one name="team" class="model.Team" />
