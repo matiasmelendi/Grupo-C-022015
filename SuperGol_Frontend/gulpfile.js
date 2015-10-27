@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var connect = require('gulp-connect');
 var jasmine = require('gulp-jasmine');
 
-var testPaths = ['specs/*.js'];
+var testPaths = ['specs/models/*.js'];
 
 gulp.task('default', function () {
     console.log('Nothing set as default.');
