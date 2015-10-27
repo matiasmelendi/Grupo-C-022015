@@ -19,6 +19,7 @@ app.controller('TeamCtrl', ['$scope', 'Helpers', function($scope, Helpers) {
     $scope.selectedMidfielders = $scope.team.midfielders();
     $scope.selectedForwards = $scope.team.forwards();
 
+    /* TODO: Fix. Can't find the reason of why this doesn't work. */
     $scope.addPlayer = function(player) {
         if($scope.team.canAddPlayer(player)) {
             $scope.team.addPlayer(player);

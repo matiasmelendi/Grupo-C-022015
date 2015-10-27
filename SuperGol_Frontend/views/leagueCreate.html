@@ -9,9 +9,9 @@
     <div class="tourney-setup">
         <div class="setup">
             <div class="setup-info center">
-                <input type="text" name='team-name' placeholder="Tourney Name" class="form-control"/>
-                <input type="text" name='team-name' placeholder="Minimum amount of teams" class="form-control"/>
-                <input type="text" name='team-name' placeholder="Maximum amount of teams" class="form-control"/>
+                <input type="text" name='team-name' ng-model="tourney.name" placeholder="Tourney Name" class="form-control"/>
+                <input type="text" name='team-name' ng-model="tourney.minimumAmountOfTeams" placeholder="Minimum amount of teams" class="form-control"/>
+                <input type="text" name='team-name' ng-model="tourney.maximumAmountOfTeams" placeholder="Maximum amount of teams" class="form-control"/>
             </div>
             <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Create!</a>
         </div>
@@ -22,15 +22,15 @@
             <h4>Available Teams</h4>
             <div class="team-selector center">
                 <div class="list-group black-text" ng-repeat="availableTeam in allTeams | orderBy:'name'">
-                    <button type="button" class="list-group-item" ng-click="addToSelected(availableTeam)">{{ availableTeam.name }}</button>
+                    <button type="button" class="list-group-item" ng-click="addTeam(availableTeam)">{{ availableTeam.name }}</button>
                 </div>
             </div>
         </div>
         <div class="tourney-selector">
             <h4>Selected Teams</h4>
             <div class="team-selector center">
-                <div class="list-group black-text" ng-repeat="selectedTeam in selectedTeams | orderBy:'name'">
-                    <button type="button" class="list-group-item" ng-click="removeFromSelected(selectedTeam)">{{ selectedTeam.name }}</button>
+                <div class="list-group black-text" ng-repeat="selectedTeam in tourney.teams | orderBy:'name'">
+                    <button type="button" class="list-group-item" ng-click="removeTeam(selectedTeam)">{{ selectedTeam.name }}</button>
                 </div>
             </div>
         </div>
