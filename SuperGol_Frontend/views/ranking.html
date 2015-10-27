@@ -10,9 +10,9 @@
 
         <!-- Tourneys -->
         <div class="form-group">
-            <label for="tournies">{{ 'TOURNEY_SELECT' | translate }}:</label>
-            <select class="form-control" id="tournies" ng-repeat="tourney in tournies">
-                <option>{{ tourney.name }}</option>
+            <h3 for="tournies">{{ 'TOURNEY_SELECT' | translate }}:</h3>
+            <select class="form-control" id="tournies" >
+                <option ng-repeat="tourney in tournies">{{ tourney.name }}</option>
             </select>
         </div>
 

@@ -21,8 +21,8 @@
             <h4>Available Players</h4>
             <div class="players center">
                 <div class="list-group black-text" ng-repeat="availablePlayer in allPlayers | orderBy:'name'">
-                    <button type="button" class="list-group-item" ng-click="addToSelected(availablePlayer)">
-                        <span class="badge">{{ availablePlayer.position }}</span>
+                    <button type="button" class="list-group-item" ng-click="addPlayer(availablePlayer)">
+                        <span class="badge">{{ availablePlayer.position.number }}</span>
                         {{ availablePlayer.name }}
                     </button>
                 </div>
@@ -31,9 +31,9 @@
         <div class="player-selector">
             <h4>Selected Players</h4>
             <div class="players center">
-                <div class="list-group black-text" ng-repeat="selectedPlayer in selectedPlayers | orderBy:'name'">
-                    <button type="button" class="list-group-item" ng-click="removeFromSelected(selectedPlayer)">
-                        <span class="badge">{{ selectedPlayer.position }}</span>
+                <div class="list-group black-text" ng-repeat="selectedPlayer in team.players | orderBy:'name'">
+                    <button type="button" class="list-group-item" ng-click="removePlayer(selectedPlayer)">
+                        <span class="badge">{{ selectedPlayer.position.number }}</span>
                         {{ selectedPlayer.name }}
                     </button>
                 </div>
