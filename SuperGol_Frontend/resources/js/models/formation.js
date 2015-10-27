@@ -1,36 +1,40 @@
 function Formation(allowedDefenders, allowedMidfielders, allowedForwards) {
 
-    this.players = [];
+    this.players = new Array();
     this.positions = new HashTable();
     this.positions.put(new Position(1), 1);
     this.positions.put(new Position(2), allowedDefenders);
     this.positions.put(new Position(3), allowedMidfielders);
     this.positions.put(new Position(4), allowedForwards);
 
-    this.canAddPlayer = function(player) {
+}
+
+Formation.prototype = {
+
+    canAddPlayer: function(player) {
         return this.canAddPlayerWithPosition(player.position);
-    };
+    },
 
-    this.canAddPlayerWithPosition = function(position) {
+    canAddPlayerWithPosition: function(position) {
         return this.playersOnPosition(position).length < this.allowedPlayersForPosition(position);
-    };
+    },
 
-    this.allowedPlayersForPosition = function(position) {
+    allowedPlayersForPosition: function(position) {
         return this.positions.get(position);
-    };
+    },
 
-    this.addPlayer = function(player) {
+    addPlayer: function(player) {
         this.players.push(player);
-    };
+    },
 
-    this.removePlayer = function(player) {
+    removePlayer: function(player) {
         var index = players.indexOf(player);
         if (index > -1) {
             players.splice(index, 1);
         }
-    };
+    },
 
-    this.playersOnPosition = function(position) {
+    playersOnPosition: function(position) {
         var filtered = [];
         this.players.forEach(function(player) {
             if(player.position.equals(position)) {
@@ -38,22 +42,21 @@ function Formation(allowedDefenders, allowedMidfielders, allowedForwards) {
             }
         });
         return filtered;
-    };
+    },
 
-    this.goalkeepers = function() {
+    goalkeepers: function() {
         return this.playersOnPosition(new Position(1)).length;
-    };
+    },
 
-    this.defenders = function() {
+    defenders: function() {
         return this.playersOnPosition(new Position(2)).length;
-    };
+    },
 
-    this.midfielders = function() {
+    midfielders: function() {
         return this.playersOnPosition(new Position(3)).length;
-    };
+    },
 
-    this.forwards = function() {
+    forwards: function() {
         return this.playersOnPosition(new Position(4)).length;
-    };
-
+    }
 };

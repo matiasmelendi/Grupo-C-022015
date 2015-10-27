@@ -5,15 +5,19 @@ function Tourney() {
     this.maximumAmountOfTeams = "";
     this.teams = [];
 
-    this.addTeam = function(team) {
-        this.teams.push(team);
-    }
+}
 
-    this.removeTeam = function(team) {
+Tourney.prototype = {
+
+    addTeam: function(team) {
+        this.teams.push(team);
+    },
+
+    removeTeam: function(team) {
         var index = teams.indexOf(team);
         if (index > -1) {
             teams.splice(index, 1);
         }
-    };
+    }
 
-}
+};

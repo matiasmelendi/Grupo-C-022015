@@ -1,11 +1,10 @@
 require('../resources/js/models/team.js');
 
-describe("A suite", function() {
-  it("contains spec with an expectation", function() {
+describe("Team tests :", function() {
+
+  it("a Team can be created", function() {
     var team = new Team();
     expect(team).not.toBeNull();
   });
+
 });
-
-
-
