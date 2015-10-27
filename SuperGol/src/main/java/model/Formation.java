@@ -10,9 +10,6 @@ import java.util.Map;
 
 public class Formation {
 
-    //It's only used for hibernate.
-    private double id;
-
     private List<Player> players;
     private Map<Position, Integer> allowedPlayers;
 
@@ -74,5 +71,34 @@ public class Formation {
 
     private Integer allowedNumberOfPlayersOnPosition(Position position){
         return this.allowedPlayers.get(position);
+    }
+
+    //*******************************
+    //It's only used for hibernate.
+    //*******************************
+    private double id;
+
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
+
+    public Map<Position, Integer> getAllowedPlayers() {
+        return allowedPlayers;
+    }
+
+    public void setAllowedPlayers(Map<Position, Integer> allowedPlayers) {
+        this.allowedPlayers = allowedPlayers;
+    }
+
+    public double getId() {
+        return id;
+    }
+
+    public void setId(double id) {
+        this.id = id;
     }
 }

@@ -6,9 +6,6 @@ import java.util.Map;
 
 public class User {
 
-    //It's only used for hibernate.
-    private double id;
-
     private String username;
     private String password;
     private Team team;
@@ -40,4 +37,50 @@ public class User {
     public void updateScoreFor(Tourney tourney, Integer newScore){
         this.scores.put(tourney, newScore);
     }
+
+    //*******************************
+    //It's only used for hibernate.
+    //*******************************
+    private double id;
+
+    public double getId() {
+        return id;
+    }
+
+    public void setId(double id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
+    public Map<Tourney, Integer> getScores() {
+        return scores;
+    }
+
+    public void setScores(Map<Tourney, Integer> scores) {
+        this.scores = scores;
+    }
+
 }

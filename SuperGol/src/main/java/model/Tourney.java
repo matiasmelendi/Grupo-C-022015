@@ -7,9 +7,6 @@ import java.util.List;
 
 public class Tourney {
 
-    //It's only used for hibernate.
-    private double id;
-
     private String name;
     private Integer minNumberOfTeams;
     private Integer maxNumberOfTeams;
@@ -54,4 +51,51 @@ public class Tourney {
     public List<Round> rounds(){
         return this.fixture().rounds();
     }
+
+
+    //*******************************
+    //It's only used for hibernate.
+    //*******************************
+    private double id;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getMinNumberOfTeams() {
+        return minNumberOfTeams;
+    }
+
+    public void setMinNumberOfTeams(Integer minNumberOfTeams) {
+        this.minNumberOfTeams = minNumberOfTeams;
+    }
+
+    public Integer getMaxNumberOfTeams() {
+        return maxNumberOfTeams;
+    }
+
+    public void setMaxNumberOfTeams(Integer maxNumberOfTeams) {
+        this.maxNumberOfTeams = maxNumberOfTeams;
+    }
+
+    public List<Team> getTeams() {
+        return teams;
+    }
+
+    public void setTeams(List<Team> teams) {
+        this.teams = teams;
+    }
+
+    public double getId() {
+        return id;
+    }
+
+    public void setId(double id) {
+        this.id = id;
+    }
+
 }

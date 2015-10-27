@@ -9,9 +9,6 @@ import java.util.Map;
 
 public class Team {
 
-    //It's only used for hibernate.
-    private double id;
-
     private Formation formation;
     private String name;
     private User creator;
@@ -84,4 +81,51 @@ public class Team {
     private MatchResult resultForMatch(Match match){
         return this.matchResults.get(match);
     }
+
+
+    //*******************************
+    //It's only used for hibernate.
+    //*******************************
+    private double id;
+
+    public Formation getFormation() {
+        return formation;
+    }
+
+    public void setFormation(Formation formation) {
+        this.formation = formation;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public User getCreator() {
+        return creator;
+    }
+
+    public void setCreator(User creator) {
+        this.creator = creator;
+    }
+
+    public Map<Match, MatchResult> getMatchResults() {
+        return matchResults;
+    }
+
+    public void setMatchResults(Map<Match, MatchResult> matchResults) {
+        this.matchResults = matchResults;
+    }
+
+    public double getId() {
+        return id;
+    }
+
+    public void setId(double id) {
+        this.id = id;
+    }
+
 }

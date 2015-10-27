@@ -2,9 +2,6 @@ package model;
 
 public class Player {
 
-    //It's only used for hibernate.
-    private double id;
-
     private String name;
     private Position position;
     private Team team;
@@ -92,4 +89,51 @@ public class Player {
                this.team().equals(anotherPlayer.team()) &&
                this.isCaptain().equals(anotherPlayer.isCaptain());
     }
+
+    //*******************************
+    //It's only used for hibernate.
+    //*******************************
+    private double id;
+
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+
+    public Position getPosition() {
+        return position;
+    }
+
+    public void setPosition(Position position) {
+        this.position = position;
+    }
+
+    public Boolean getIsCaptain() {
+        return isCaptain;
+    }
+
+    public void setIsCaptain(Boolean isCaptain) {
+        this.isCaptain = isCaptain;
+    }
+
+    public double getId() {
+        return id;
+    }
+
+    public void setId(double id) {
+        this.id = id;
+    }
+
 }
