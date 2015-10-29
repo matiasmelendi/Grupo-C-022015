@@ -3,7 +3,7 @@
 html, body {
     height: 100%;
     margin: 0;
-    background-color: #0B3B0B;
+    background-image: url('http://www.elotrofutbol.es/wp-content/uploads/2014/10/Alfombras-de-C%C3%A9sped-VITA-Soluciones-Integrales-Verdes4.jpg');
     font-family: Avant Garde,Avantgarde,Century Gothic,CenturyGothic,AppleGothic,sans-serif;
     color: #FFFFFF;
 }
@@ -105,8 +105,17 @@ input.ng-valid.ng-dirty {
 
 /* Round update */
 
-.round-update {
+.rounds-container {
     width: 30%;
+    background: green;
+    height: 100%;
+    width: 60%;
+    border-radius: 10px;
+}
+
+.rounds-form {
+    height: 450px;
+    width: 90%;
 }
 
 /* End Round update */
