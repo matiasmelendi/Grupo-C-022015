@@ -43,6 +43,10 @@ public class User {
     //*******************************
     private double id;
 
+    public User(){
+
+    }
+
     public double getId() {
         return id;
     }

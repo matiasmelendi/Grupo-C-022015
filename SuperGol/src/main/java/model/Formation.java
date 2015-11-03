@@ -76,6 +76,10 @@ public class Formation {
     //*******************************
     private double id;
 
+    public Formation(){
+
+    }
+
     public List<Player> getPlayers() {
         return players;
     }

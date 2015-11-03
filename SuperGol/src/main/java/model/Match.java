@@ -93,6 +93,9 @@ public class Match {
     //*******************************
     private double id;
 
+    public Match(){
+
+    }
 
     public Team getLocalTeam() {
         return localTeam;

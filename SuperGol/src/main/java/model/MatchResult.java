@@ -39,6 +39,10 @@ public class MatchResult {
     //*******************************
     private double id;
 
+    public MatchResult(){
+
+    }
+
     public List<Player> getLocalScorers() {
         return localScorers;
     }

@@ -95,6 +95,9 @@ public class Player {
     //*******************************
     private double id;
 
+    public Player(){
+
+    }
 
     public String getName() {
         return name;

@@ -58,6 +58,10 @@ public class Tourney {
     //*******************************
     private double id;
 
+    public Tourney(){
+
+    }
+
     public String getName() {
         return name;
     }

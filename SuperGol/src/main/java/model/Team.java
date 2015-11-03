@@ -87,6 +87,10 @@ public class Team {
     //*******************************
     private double id;
 
+    public Team(){
+
+    }
+
     public Formation getFormation() {
         return formation;
     }
