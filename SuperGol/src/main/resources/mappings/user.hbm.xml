@@ -2,6 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="field" default-cascade="save-update">
+
     <class name="model.User">
         <id column="ID" name="id">
             <generator class="native" />
@@ -9,13 +10,12 @@
 
         <property name="username" />
         <property name="password" />
-        <property name="scores" />
 
-        <map name="scores" table="tourney_scores">
+        <list name="scores" table="tourney_scores">
             <key column="tourney_scores_id" />
-            <map-key-many-to-many class="model.Tourney" column="tourney" />
-            <element type="int" column="score"/>
-        </map>
+            <list-index column="tourney_id" />
+            <element type="java.lang.Integer" />
+        </list>
 
         <one-to-one name="team" class="model.Team" />
     </class>

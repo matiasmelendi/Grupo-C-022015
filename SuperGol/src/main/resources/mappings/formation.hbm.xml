@@ -2,6 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="field" default-cascade="save-update">
+
     <class name="model.Formation">
         <id column="ID" name="id">
             <generator class="native" />
@@ -13,11 +14,11 @@
             <many-to-many column="player_id" class="model.Player"/>
         </list>
 
-        <map name="allowedPlayers" table="allowed_players">
+        <list name="allowedPlayers" table="allowed_players" cascade="all">
             <key column="allowed_players_id" />
-            <index-many-to-many class="model.Position" column="position" />
-            <element type="Integer" column="number_of_allowed_players"/>
-        </map>
+            <list-index column="position" />
+            <element type="java.lang.Integer" />
+        </list>
 
     </class>
 </hibernate-mapping>
