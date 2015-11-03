@@ -9,8 +9,12 @@
 
         <property name="name" />
         <property name="isCaptain" />
+        <property name="position" column="position">
+            <type name="org.hibernate.type.EnumType">
+                <param name="enumClass">model.Position</param>
+            </type>
+        </property>
 
         <many-to-one name="team" class="model.Team" />
-        <one-to-one name="position" class="model.Position" />
     </class>
 </hibernate-mapping>
