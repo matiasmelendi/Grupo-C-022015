@@ -3,6 +3,7 @@ package model;
 import exceptions.AbsentCaptain;
 import exceptions.PositionFull;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,12 +13,12 @@ public class Team {
     private Formation formation;
     private String name;
     private User creator;
-    private Map<Match, MatchResult> matchResults;
+    private List<MatchResult> matchResults;
 
     public Team(String teamName){
         this.name = teamName;
         this.formation = new Formation(3,4,3);
-        this.matchResults = new HashMap<Match, MatchResult>();
+        this.matchResults = new ArrayList<MatchResult>();
     }
 
     public void beAssignedTo(User creator){
@@ -60,7 +61,7 @@ public class Team {
     }
 
     public void saveMatchResult(MatchResult matchResult){
-        this.matchResults.put(matchResult.match(), matchResult);
+        this.matchResults.add((int)matchResult.match().getId(), matchResult);
     }
 
     public Integer pointsOnMatch(Match match){
@@ -79,7 +80,7 @@ public class Team {
     }
 
     private MatchResult resultForMatch(Match match){
-        return this.matchResults.get(match);
+        return this.matchResults.get((int)match.getId());
     }
 
 
@@ -112,11 +113,11 @@ public class Team {
         this.creator = creator;
     }
 
-    public Map<Match, MatchResult> getMatchResults() {
+    public List<MatchResult> getMatchResults() {
         return matchResults;
     }
 
-    public void setMatchResults(Map<Match, MatchResult> matchResults) {
+    public void setMatchResults(List<MatchResult> matchResults) {
         this.matchResults = matchResults;
     }
 
