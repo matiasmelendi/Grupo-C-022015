@@ -11,15 +11,15 @@ import java.util.Map;
 public class Formation {
 
     private List<Player> players;
-    private Map<Position, Integer> allowedPlayers;
+    private List<Integer> allowedPlayers;
 
     public Formation(Integer numberOfDefenders, Integer numberOfMidfielders, Integer numberOfForwarders){
         this.players = new ArrayList<Player>();
-        this.allowedPlayers = new HashMap<Position, Integer>();
-        this.allowedPlayers.put(Position.GOALKEEPER, 1);
-        this.allowedPlayers.put(Position.DEFENDER, numberOfDefenders);
-        this.allowedPlayers.put(Position.MIDFIELDER, numberOfMidfielders);
-        this.allowedPlayers.put(Position.FORWARD, numberOfForwarders);
+        this.allowedPlayers = new ArrayList<Integer>();
+        this.allowedPlayers.add(Position.GOALKEEPER.value(), 1);
+        this.allowedPlayers.add(Position.DEFENDER.value(), numberOfDefenders);
+        this.allowedPlayers.add(Position.MIDFIELDER.value(), numberOfMidfielders);
+        this.allowedPlayers.add(Position.FORWARD.value(), numberOfForwarders);
     }
 
     public List<Player> defenders(){
@@ -70,7 +70,7 @@ public class Formation {
     }
 
     private Integer allowedNumberOfPlayersOnPosition(Position position){
-        return this.allowedPlayers.get(position);
+        return this.allowedPlayers.get(position.value());
     }
 
     //*******************************
@@ -86,11 +86,11 @@ public class Formation {
         this.players = players;
     }
 
-    public Map<Position, Integer> getAllowedPlayers() {
+    public List<Integer> getAllowedPlayers() {
         return allowedPlayers;
     }
 
-    public void setAllowedPlayers(Map<Position, Integer> allowedPlayers) {
+    public void setAllowedPlayers(List<Integer> allowedPlayers) {
         this.allowedPlayers = allowedPlayers;
     }
 
