@@ -1,7 +1,9 @@
 package model;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class User {
@@ -9,13 +11,13 @@ public class User {
     private String username;
     private String password;
     private Team team;
-    private Map<Tourney, Integer> scores;
+    private List<Integer> scores;
 
     public User(String username, String password, Team aTeam){
         this.username = username;
         this.password = password;
         this.team = aTeam;
-        this.scores = new HashMap<Tourney, Integer>();
+        this.scores = new ArrayList<Integer>();
     }
 
     public String username(){
@@ -31,11 +33,11 @@ public class User {
     }
 
     public Integer scoreFor(Tourney aTourney){
-        return this.scores.get(aTourney);
+        return this.scores.get((int)aTourney.getId());
     }
 
     public void updateScoreFor(Tourney tourney, Integer newScore){
-        this.scores.put(tourney, newScore);
+        this.scores.add((int) tourney.getId(), newScore);
     }
 
     //*******************************
@@ -75,11 +77,11 @@ public class User {
         this.team = team;
     }
 
-    public Map<Tourney, Integer> getScores() {
+    public List<Integer> getScores() {
         return scores;
     }
 
-    public void setScores(Map<Tourney, Integer> scores) {
+    public void setScores(List<Integer> scores) {
         this.scores = scores;
     }
 
