@@ -25,4 +25,15 @@ describe('Team Controller', function() {
         expect(scope.allPlayers.length).toBe(initialSelectedPlayersSize - 1);
     });
 
+    it('should be able to remove a Player from Selected List to Available List', function() {
+        var selectedPlayer = scope.allPlayers[0];
+        var initialAvailablePlayersSize = scope.allPlayers.length;
+
+        scope.addPlayer(selectedPlayer);
+        scope.removePlayer(selectedPlayer);
+
+        expect(scope.team.players().length).toBe(0);
+        expect(scope.allPlayers.length).toBe(initialAvailablePlayersSize);
+    });
+
 });
