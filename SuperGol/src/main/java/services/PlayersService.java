@@ -24,4 +24,12 @@ public class PlayersService {
         return repository.all();
     }
 
+    public PlayersRepository getRepository() {
+        return repository;
+    }
+
+    public void setRepository(PlayersRepository repository) {
+        this.repository = repository;
+    }
+
 }

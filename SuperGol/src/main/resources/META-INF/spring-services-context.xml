@@ -6,15 +6,15 @@
 
     <!-- beans de spring -->
     <bean id="services.teams" class="services.TeamsService">
-        <property name="repository" ref="repositories.TeamsRepository" />
+        <property name="repository" ref="persistence.teams" />
     </bean>
 
     <bean id="services.players" class="services.PlayersService">
-        <property name="repository" ref="repositories.PlayersRepository" />
+        <property name="repository" ref="persistence.players" />
     </bean>
 
     <bean id="services.tournies" class="services.TourniesService">
-        <property name="repository" ref="repositories.TourniesRepository" />
+        <property name="repository" ref="persistence.tournies" />
     </bean>
 
 </beans>

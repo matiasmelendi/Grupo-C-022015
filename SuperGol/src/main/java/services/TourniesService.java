@@ -30,4 +30,13 @@ public class TourniesService {
     public Tourney getById(@PathParam("id") final Integer id){
         return this.repository.getById(id);
     }
+
+    public TourniesRepository getRepository() {
+        return repository;
+    }
+
+    public void setRepository(TourniesRepository repository) {
+        this.repository = repository;
+    }
+
 }

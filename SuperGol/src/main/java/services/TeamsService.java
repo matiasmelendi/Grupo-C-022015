@@ -29,4 +29,13 @@ public class TeamsService {
     public List<Team> ranking() {
         return this.repository.ranking();
     }
+
+    public TeamsRepository getRepository() {
+        return repository;
+    }
+
+    public void setRepository(TeamsRepository repository) {
+        this.repository = repository;
+    }
+
 }
