@@ -9,15 +9,24 @@ function Tourney() {
 
 Tourney.prototype = {
 
+    canAddATeam: function() {
+        return this.amountOfTeams() < this.maximumAmountOfTeams;
+    },
+
     addTeam: function(team) {
-        this.teams.push(team);
+        if(this.canAddATeam())
+            this.teams.push(team);
     },
 
     removeTeam: function(team) {
-        var index = teams.indexOf(team);
+        var index = this.teams.indexOf(team);
         if (index > -1) {
-            teams.splice(index, 1);
+            this.teams.splice(index, 1);
         }
+    },
+
+    amountOfTeams: function() {
+        return this.teams.length;
     }
 
 };
