@@ -14,8 +14,7 @@ Tourney.prototype = {
     },
 
     addTeam: function(team) {
-        if(this.canAddATeam())
-            this.teams.push(team);
+        this.teams.push(team);
     },
 
     removeTeam: function(team) {

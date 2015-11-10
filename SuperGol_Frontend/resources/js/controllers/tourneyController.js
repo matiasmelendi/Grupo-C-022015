@@ -18,8 +18,10 @@ app.controller('TourneyCtrl', ['$scope', 'Helpers', function($scope, Helpers) {
     $scope.tourney = new Tourney();
 
     $scope.addTeam = function(team) {
-        $scope.tourney.addTeam(team);
-        removeTeam(team);
+        if($scope.tourney.canAddATeam()) {
+            $scope.tourney.addTeam(team);
+            removeTeam(team);
+        }
     };
 
     /* TODO: Fix. Can't find the reason of why this doesn't work. */
