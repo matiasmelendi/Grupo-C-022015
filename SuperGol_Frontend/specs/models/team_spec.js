@@ -1,20 +1,17 @@
-require('../../resources/js/models/team.js');
+describe("Team", function() {
 
-describe("Team tests :", function() {
-
-  it("could be created", function(Team) {
+  it("could be created", function() {
     var team = new Team();
 
     expect(team).not.toBeNull();
     expect(team).toBeDefined();
   });
 
-  it("should not have name and logo", function(Team) {
+  it("should not have name and logo", function() {
     var team = new Team();
 
     expect(team.name).toEqual('');
     expect(team.logo).toEqual('');
   });
-
 
 });
