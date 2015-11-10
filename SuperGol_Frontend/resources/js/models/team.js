@@ -25,16 +25,32 @@ Team.prototype = {
         return this.formation.goalkeepers();
     },
 
+    fullGoalkeepers: function() {
+        return this.formation.fullGoalkeepers();
+    },
+
     defenders: function() {
         return this.formation.defenders();
+    },
+
+    fullDefenders: function() {
+        return this.formation.fullDefenders();
     },
 
     midfielders: function() {
         return this.formation.midfielders();
     },
 
+    fullMidfielders: function() {
+        return this.formation.fullMidfielders();
+    },
+
     forwards: function() {
         return this.formation.forwards();
+    },
+
+    fullForwards: function() {
+        return this.formation.fullForwards();
     },
 
     players: function() {

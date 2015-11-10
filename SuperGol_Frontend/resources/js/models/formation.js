@@ -48,15 +48,35 @@ Formation.prototype = {
         return this.playersOnPosition(new Position(1)).length;
     },
 
+    fullGoalkeepers: function() {
+        return this.fullPosition(this.goalkeepers(), new Position(1));
+    },
+
     defenders: function() {
         return this.playersOnPosition(new Position(2)).length;
+    },
+
+    fullDefenders: function() {
+        return this.fullPosition(this.defenders(), new Position(2));
     },
 
     midfielders: function() {
         return this.playersOnPosition(new Position(3)).length;
     },
 
+    fullMidfielders: function() {
+        return this.fullPosition(this.midfielders(), new Position(3));
+    },
+
     forwards: function() {
         return this.playersOnPosition(new Position(4)).length;
+    },
+
+    fullForwards: function() {
+        return this.fullPosition(this.forwards(), new Position(4));
+    },
+
+    fullPosition: function(checkingPosition, position) {
+        return checkingPosition == this.allowedPlayersForPosition(position);
     }
 };

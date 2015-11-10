@@ -31,7 +31,7 @@
         <div class="player-selector">
             <h4>Selected Players</h4>
             <div class="players center">
-                <div class="list-group black-text" ng-repeat="selectedPlayer in team.players | orderBy:'name'">
+                <div class="list-group black-text" ng-repeat="selectedPlayer in team.players() | orderBy:'name'">
                     <button type="button" class="list-group-item" ng-click="removePlayer(selectedPlayer)">
                         <span class="badge">{{ selectedPlayer.position.number }}</span>
                         {{ selectedPlayer.name }}
@@ -44,13 +44,13 @@
             <div class="formation center">
                 <ul class="list-group">
                     <h5>Goalkeeper</h5>
-                    <li ng-class="fullGoalkeepers ? 'list-group-item-danger' : 'list-group-item-success'" class="list-group-item formation-info">{{ selectedGoalkeepers }}/1</li>
+                    <li ng-class="team.fullGoalkeepers() ? 'list-group-item-danger' : 'list-group-item-success'" class="list-group-item formation-info">{{ team.goalkeepers() }}/1</li>
                     <h5>Defenders</h5>
-                    <li ng-class="fullDefenders ? 'list-group-item-danger' : 'list-group-item-success'" class="list-group-item formation-info">{{ selectedDefenders }}/3</li>
+                    <li ng-class="team.fullDefenders() ? 'list-group-item-danger' : 'list-group-item-success'" class="list-group-item formation-info">{{ team.defenders() }}/3</li>
                     <h5>Midfielders</h5>
-                    <li ng-class="fullMidfielders ? 'list-group-item-danger' : 'list-group-item-success'" class="list-group-item formation-info">{{ selectedMidfielders }}/4</li>
+                    <li ng-class="team.fullMidfielders() ? 'list-group-item-danger' : 'list-group-item-success'" class="list-group-item formation-info">{{ team.midfielders() }}/4</li>
                     <h5>Forwards</h5>
-                    <li ng-class="fullForwards ? 'list-group-item-danger' : 'list-group-item-success'" class="list-group-item formation-info">{{ selectedForwards }}/3</li>
+                    <li ng-class="team.fullForwards() ? 'list-group-item-danger' : 'list-group-item-success'" class="list-group-item formation-info">{{ team.forwards() }}/3</li>
                 </ul>
             </div>
             <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Create!</a>

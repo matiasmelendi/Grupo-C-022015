@@ -1,4 +1,4 @@
-function Tourney() {
+function Tourney() { !this.canAddPlayer(new Player('', 4));
 
     this.name = "";
     this.minimumAmountOfTeams = "";
