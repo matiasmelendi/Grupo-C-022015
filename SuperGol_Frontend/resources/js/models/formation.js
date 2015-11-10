@@ -28,9 +28,9 @@ Formation.prototype = {
     },
 
     removePlayer: function(player) {
-        var index = players.indexOf(player);
+        var index = this.players.indexOf(player);
         if (index > -1) {
-            players.splice(index, 1);
+            this.players.splice(index, 1);
         }
     },
 
