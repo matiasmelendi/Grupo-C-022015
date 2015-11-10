@@ -1,4 +1,4 @@
-app.controller('TourneyCtrl', ['$scope', 'Helpers', function($scope, Helpers) {
+app.controller('TourneyCtrl', ['$scope', function($scope) {
 
     /* TODO: Remove when Services are implemented. */
     $scope.allTeams = [

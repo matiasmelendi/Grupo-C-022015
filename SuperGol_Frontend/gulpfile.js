@@ -14,8 +14,23 @@ gulp.task('run', function () {
     });
 });
 
-gulp.task('tests', function () {
-    var filesForTest = ['resources/js/models/*.js', 'specs/**/*_spec.js']
+gulp.task('tests-js-models', function () {
+    var filesForTest = ['resources/js/models/*.js', 'specs/models/*_spec.js']
+    return gulp.src(filesForTest)
+        .pipe(watch(filesForTest))
+        .pipe(jasmineBrowser.specRunner())
+        .pipe(jasmineBrowser.server({port: 8081}));
+});
+
+gulp.task('tests-angular', function () {
+    var filesForTest = ['resources/js/angular.js',
+                        'resources/js/angular-mocks.js',
+                        'resources/js/angular-route.js',
+                        'resources/js/angular-translate.min.js',
+                        'app.js',
+                        'resources/js/models/*.js' ,
+                        'resources/js/controllers/*.js',
+                        'specs/angular/**/*_spec.js'];
     return gulp.src(filesForTest)
         .pipe(watch(filesForTest))
         .pipe(jasmineBrowser.specRunner())
