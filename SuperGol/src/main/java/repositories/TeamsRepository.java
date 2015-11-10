@@ -1,6 +1,7 @@
 package repositories;
 
 import model.Team;
+import org.hibernate.SessionFactory;
 import repositories.interfaces.TeamsRepositoryProtocol;
 
 import java.util.List;
@@ -19,11 +20,21 @@ public class TeamsRepository implements TeamsRepositoryProtocol {
 
     }
 
-     public void delete(Integer id){
+    public void delete(Integer id){
 
      }
 
-     public Team find(Integer id){
-        return null;
+    public Team find(Integer id){
+return null;
      }
+
+    private SessionFactory sessionFactory;
+
+    public SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 }

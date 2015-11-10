@@ -1,6 +1,7 @@
 package repositories;
 
 import model.Player;
+import org.hibernate.SessionFactory;
 import repositories.interfaces.PlayersRepositoryProtocol;
 
 import java.util.List;
@@ -17,5 +18,15 @@ public class PlayersRepository implements PlayersRepositoryProtocol {
 
     public Player find(Integer id){
         return null;
+    }
+
+    private SessionFactory sessionFactory;
+
+    public SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
+
+    public void setSessionFactory(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
     }
 }
