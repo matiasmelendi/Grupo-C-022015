@@ -2,7 +2,7 @@ package repositories;
 
 import model.Tourney;
 import org.hibernate.SessionFactory;
-import repositories.interfaces.TourniesRepositoryProtocol;
+import repositories.protocols.TourniesRepositoryProtocol;
 
 import java.util.List;
 

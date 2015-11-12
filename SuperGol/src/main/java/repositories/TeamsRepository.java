@@ -2,7 +2,7 @@ package repositories;
 
 import model.Team;
 import org.hibernate.SessionFactory;
-import repositories.interfaces.TeamsRepositoryProtocol;
+import repositories.protocols.TeamsRepositoryProtocol;
 
 import java.util.List;
 

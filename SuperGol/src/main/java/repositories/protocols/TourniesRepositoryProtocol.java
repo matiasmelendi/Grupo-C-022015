@@ -1,4 +1,4 @@
-package repositories.interfaces;
+package repositories.protocols;
 
 import model.Tourney;
 

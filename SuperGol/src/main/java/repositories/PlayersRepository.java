@@ -2,7 +2,7 @@ package repositories;
 
 import model.Player;
 import org.hibernate.SessionFactory;
-import repositories.interfaces.PlayersRepositoryProtocol;
+import repositories.protocols.PlayersRepositoryProtocol;
 
 import java.util.List;
 
