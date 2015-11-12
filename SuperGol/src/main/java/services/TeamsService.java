@@ -2,15 +2,18 @@ package services;
 
 import model.Team;
 import repositories.TeamsRepository;
+import services.protocols.TeamsServiceProtocol;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.jws.WebService;
 import java.util.List;
 
 @Path("/teams")
 @Produces("application/json")
-public class TeamsService {
+@WebService(endpointInterface = "services.protocols.TeamsServiceProtocol")
+public class TeamsService implements TeamsServiceProtocol {
 
     private TeamsRepository repository;
 

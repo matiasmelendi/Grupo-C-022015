@@ -2,15 +2,18 @@ package services;
 
 import model.Player;
 import repositories.PlayersRepository;
+import services.protocols.PlayersServiceProtocol;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
+import javax.jws.WebService;
 import java.util.List;
 
 @Path("/players")
 @Produces("application/json")
-public class PlayersService {
+@WebService(endpointInterface = "services.protocols.PlayersServiceProtocol")
+public class PlayersService implements PlayersServiceProtocol {
 
     private PlayersRepository repository;
 

@@ -2,7 +2,9 @@ package services;
 
 import model.Tourney;
 import repositories.TourniesRepository;
+import services.protocols.TourniesServiceProtocol;
 
+import javax.jws.WebService;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -11,7 +13,8 @@ import java.util.List;
 
 @Path("/tournies")
 @Produces("application/json")
-public class TourniesService {
+@WebService(endpointInterface = "services.protocols.TourniesServiceProtocol")
+public class TourniesService implements TourniesServiceProtocol {
 
     private TourniesRepository repository;
 
