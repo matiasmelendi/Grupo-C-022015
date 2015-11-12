@@ -3,13 +3,13 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
-  <display-name>Super Gol</display-name>
-
+    <display-name>Super Gol</display-name>
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
             classpath*:/META-INF/spring-persistence-context.xml,
-            classpath*:/META-INF/spring-services-context.xml
+            classpath*:/META-INF/spring-services-context.xml,
+            classpath*:/META-INF/cxf/cxf.xml
         </param-value>
     </context-param>
 
