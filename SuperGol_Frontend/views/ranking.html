@@ -7,58 +7,37 @@
 <div class="workspace" ng-controller="RankingCtrl">
 
     <div class="ranking center">
-
-        <!-- Tourneys -->
-        <div class="form-group">
-            <h3 for="tournies">{{ 'TOURNEY_SELECT' | translate }}:</h3>
-            <select class="form-control" id="tournies" >
-                <option ng-repeat="tourney in tournies">{{ tourney.name }}</option>
-            </select>
+        <div class="ranking-show">
+            <div class="tourneys center">
+                <div class="form-group">
+                    <h3 for="tourneys">{{ 'TOURNEY_SELECT' | translate }}:</h3>
+                    <select class="form-control" id="tourneys">
+                        <option ng-repeat="tourney in tourneys">{{ tourney.name }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="ranking center">
+                <table class="table table-bordered black-text">
+                    <thead class="white">
+                        <tr>
+                            <th>{{ 'TEAM' | translate }}</th>
+                            <th>{{ 'POINTS' | translate }}</th>
+                        </tr>
+                    </thead>
+                    <tbody class="dark-green">
+                        <tr dir-paginate="team in teams | itemsPerPage: 9">
+                            <td> {{ team.name }} </td>
+                            <td> 0 </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <dir-pagination-controls
+                    max-size="9"
+                    direction-links="false"
+                    boundary-links="true">
+            </dir-pagination-controls>
         </div>
-
-        <!-- Ranking table -->
-        <table class="table table-bordered table-striped black-text">
-            <thead>
-            <tr>
-                <th>{{ 'TEAM' | translate }}</th>
-                <th>{{ 'POINTS' | translate }}</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>John</td>
-                <td>Doe</td>
-            </tr>
-            <tr>
-                <td>Mary</td>
-                <td>Moe</td>
-            </tr>
-            <tr>
-                <td>July</td>
-                <td>Dooley</td>
-            </tr>
-            <tr>
-                <td>July</td>
-                <td>Dooley</td>
-            </tr>
-            <tr>
-                <td>July</td>
-                <td>Dooley</td>
-            </tr>
-            <tr>
-                <td>July</td>
-                <td>Dooley</td>
-            </tr>
-            <tr>
-                <td>July</td>
-                <td>Dooley</td>
-            </tr>
-            <tr>
-                <td>July</td>
-                <td>Dooley</td>
-            </tr>
-            </tbody>
-        </table>
     </div>
 
 </div>

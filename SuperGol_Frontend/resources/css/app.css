@@ -26,6 +26,10 @@ html, body {
     background-color: #083208;
 }
 
+.white {
+    background-color: #FFFFFF;
+}
+
 .black-text {
     color: #000000;
 }
@@ -98,7 +102,20 @@ input.ng-valid.ng-dirty {
 /* Ranking */
 
 .ranking {
-    width: 60%;
+    height: 100%;
+    width: 80%;
+}
+
+.ranking-show {
+    background: green;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 10px;
+    height: 100%;
+}
+
+.tourneys {
+    width: 50%;
 }
 
 /* End Ranking*/
