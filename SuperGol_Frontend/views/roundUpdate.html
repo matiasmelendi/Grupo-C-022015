@@ -27,7 +27,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="round in rounds">
+                        <tr dir-paginate="round in rounds | itemsPerPage: 8">
                             <td> {{ round.localTeam }} </td>
                             <td> <input type="text" name='points' class="form-control"/> </td>
                             <td> VS </td>
@@ -37,12 +37,11 @@
                     </tbody>
                 </table>
             </div>
-            <pagination
-                ng-model="rounds"
-                total-items="8"
-                max-size="maxSize"
-                boundary-links="true">
-            </pagination>
+            <dir-pagination-controls
+                    max-size="8"
+                    direction-links="false"
+                    boundary-links="true">
+            </dir-pagination-controls>
         </form>
     </div>
 </div>

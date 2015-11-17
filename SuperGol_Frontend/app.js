@@ -1,1 +1,1 @@
-var app = angular.module('superGol', ['ngRoute', 'pascalprecht.translate']);
+var app = angular.module('superGol', ['ngRoute', 'pascalprecht.translate', 'angularUtils.directives.dirPagination']);
