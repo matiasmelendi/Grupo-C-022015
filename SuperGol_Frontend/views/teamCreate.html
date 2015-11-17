@@ -18,7 +18,7 @@
 
     <div class="team-information">
         <div class="player-selector">
-            <h4>Available Players</h4>
+            <h4>{{ 'AVAILABLE_PLAYERS' | translate }}</h4>
             <div class="players center">
                 <div class="list-group black-text" ng-repeat="availablePlayer in allPlayers | orderBy:'name'">
                     <button type="button" class="list-group-item" ng-click="addPlayer(availablePlayer)">
@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="player-selector">
-            <h4>Selected Players</h4>
+            <h4>{{ 'SELECTED_PLAYERS' | translate }}</h4>
             <div class="players center">
                 <div class="list-group black-text" ng-repeat="selectedPlayer in team.players() | orderBy:'name'">
                     <button type="button" class="list-group-item" ng-click="removePlayer(selectedPlayer)">
@@ -40,20 +40,20 @@
             </div>
         </div>
         <div class="team-formation">
-            <h4>Current Formation</h4>
+            <h4>{{ 'FORMATION' | translate }}</h4>
             <div class="formation center">
                 <ul class="list-group">
-                    <h5>Goalkeeper</h5>
+                    <h5>{{ 'GOALKEEPERS' | translate }}</h5>
                     <li ng-class="team.fullGoalkeepers() ? 'list-group-item-danger' : 'list-group-item-success'" class="list-group-item formation-info">{{ team.goalkeepers() }}/1</li>
-                    <h5>Defenders</h5>
+                    <h5>{{ 'DEFENDERS' | translate }}</h5>
                     <li ng-class="team.fullDefenders() ? 'list-group-item-danger' : 'list-group-item-success'" class="list-group-item formation-info">{{ team.defenders() }}/3</li>
-                    <h5>Midfielders</h5>
+                    <h5>{{ 'MIDFIELDERS' | translate }}</h5>
                     <li ng-class="team.fullMidfielders() ? 'list-group-item-danger' : 'list-group-item-success'" class="list-group-item formation-info">{{ team.midfielders() }}/4</li>
-                    <h5>Forwards</h5>
+                    <h5>{{ 'FORWARDS' | translate }}</h5>
                     <li ng-class="team.fullForwards() ? 'list-group-item-danger' : 'list-group-item-success'" class="list-group-item formation-info">{{ team.forwards() }}/3</li>
                 </ul>
             </div>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>Create!</a>
+            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>{{ 'CREATE' | translate }}</a>
         </div>
     </div>
 </div>

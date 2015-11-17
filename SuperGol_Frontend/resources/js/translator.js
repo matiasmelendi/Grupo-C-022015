@@ -21,6 +21,11 @@ app.config(function($translateProvider) {
 
             /* Tourney */
             TOURNEY_CREATION: 'Tourney Creation',
+            TOURNEY_NAME: 'Tourney Name',
+            TOURNEY_MIN_AMOUNT: 'Minimum amount of teams',
+            TOURNEY_MAX_AMOUNT: 'Maximum amount of teams',
+            AVAILABLE_TEAMS: 'Available Teams',
+            SELECTED_TEAMS: 'Selected Teams',
             TOURNEY_EDITION: 'Tourney Edition',
 
             /* Team */
@@ -28,6 +33,13 @@ app.config(function($translateProvider) {
             TEAM_EDITION: 'Team Edition',
             TEAM_NAME: 'Team name',
             SELECT_LOGO: 'Select a Logo',
+            AVAILABLE_PLAYERS: 'Available Players',
+            SELECTED_PLAYERS: 'Selected Players',
+            FORMATION: 'Current Formation',
+            GOALKEEPERS: 'Goalkeepers',
+            DEFENDERS: 'Defenders',
+            MIDFIELDERS: 'Midfielders',
+            FORWARDS: 'Forwards',
 
             /* Round update */
             ROUND_UPDATE: 'Round update',
@@ -61,6 +73,11 @@ app.config(function($translateProvider) {
 
             /* Tourney */
             TOURNEY_CREATION: 'Creacion de Torneo',
+            TOURNEY_NAME: 'Nombre del Torneo',
+            TOURNEY_MIN_AMOUNT: 'Min. cantidad de equipos',
+            TOURNEY_MAX_AMOUNT: 'Max. cantidad de equipos',
+            AVAILABLE_TEAMS: 'Equipos disponibles',
+            SELECTED_TEAMS: 'Equipos seleccionados',
             TOURNEY_EDITION: 'Edicion de Torneo',
 
             /* Team */
@@ -68,6 +85,13 @@ app.config(function($translateProvider) {
             TEAM_EDITION: 'Edicion de Equipo',
             TEAM_NAME: 'Nombre del equipo',
             SELECT_LOGO: 'Seleccione un Logo',
+            AVAILABLE_PLAYERS: 'Jugadores disponibles',
+            SELECTED_PLAYERS: 'Jugadores seleccionados',
+            FORMATION: 'Formacion Actual',
+            GOALKEEPERS: 'Arqueros',
+            DEFENDERS: 'Defensores',
+            MIDFIELDERS: 'Mediocampistas',
+            FORWARDS: 'Delanteros',
 
             /* Round update */
             ROUND_UPDATE: 'Actualizacion de Fecha',
