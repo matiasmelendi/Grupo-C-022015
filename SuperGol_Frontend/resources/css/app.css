@@ -224,6 +224,10 @@ input.ng-valid.ng-dirty {
     float: left;
 }
 
+.tourney-select {
+    margin-top: 20px;
+}
+
 .setup {
     background: green;
     height: 53%;

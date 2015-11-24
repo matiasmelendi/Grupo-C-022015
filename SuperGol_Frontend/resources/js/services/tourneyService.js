@@ -3,31 +3,29 @@ app.service('TourneyService', function( $http, $q ) {
     /* Service API */
     return {
         all: all,
-        getById: getById,
-        create: create
+        create: create,
+        edit: edit
     };
 
     function all() {
          return $http({
              method: "get",
-             url: "/tournies/all",
-         });
-    }
-
-    function getById(id) {
-         return $http({
-             method: "get",
-             url: "/tournies",
-             params: {
-                id: id
-             }
+             url: "/tourney/all",
          });
     }
 
     function create(tourney) {
         return $http({
              method: "post",
-             url: "/tournies/create",
+             url: "/tourney/create",
+             data: tourney
+        });
+    }
+
+    function edit(tourney) {
+        return $http({
+             method: "post",
+             url: "/tourney/edit",
              data: tourney
         });
     }
