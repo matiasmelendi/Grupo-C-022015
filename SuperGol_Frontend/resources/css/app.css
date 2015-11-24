@@ -131,8 +131,23 @@ input.ng-valid.ng-dirty {
 }
 
 .rounds-form {
-    height: 450px;
+    height: 85%;
     width: 90%;
+}
+
+.round-paginator {
+    height: 15%;
+}
+
+.upload {
+    float: left;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: -200px;
+}
+
+.form-horizontal {
+    height: 100%;
 }
 
 /* End Round update */
