@@ -1,4 +1,12 @@
-app.controller('RankingCtrl', ['$scope', function($scope) {
+app.controller('RankingCtrl', ['$scope', 'TourneyService', 'TeamService', function($scope, TourneyService, TeamService) {
+
+    /**
+
+    $scope.tourneyID = 0;
+    $scope.tourneys = TourneyService.all();
+    $scope.teams = TeamService.rankingFor(tourneyID);
+
+    **/
 
     $scope.tourneys = [
         new Tourney().name = "123",

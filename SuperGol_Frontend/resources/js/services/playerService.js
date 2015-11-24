@@ -1,23 +1,24 @@
-app.service('Players', function( $http, $q ) {
+app.service('PlayerService', function( $http, $q ) {
 
     /* Service API */
     return {
-        all: all
+        all: all,
+        create: create
     };
 
     function all() {
-         $http({
+         return $http({
              method: "get",
              url: "/players/all",
-         })
-         .then(
-            function(response) {
-                return response;
-            },
-            function(response) {
-                console.log("Error calling the Backend...");
-            }
-         );
+         });
+    }
+
+    function create(player) {
+        return $http({
+            method: "post",
+            url: "/players/create",
+            data: player
+        });
     }
 
 });

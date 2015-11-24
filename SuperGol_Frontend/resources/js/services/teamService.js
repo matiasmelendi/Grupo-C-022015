@@ -1,39 +1,35 @@
-app.service('Teams', function( $http, $q ) {
+app.service('TeamService', function( $http, $q ) {
 
     /* Service API */
     return {
         all: all,
-        ranking: ranking
+        rankingFor: rankingFor,
+        create: create
     };
 
     function all() {
-         $http({
+         return $http({
              method: "get",
              url: "/teams/all",
-         })
-         .then(
-            function(response) {
-                return response;
-            },
-            function(response) {
-                console.log("Error calling the Backend...");
-            }
-         );
+         });
     }
 
-    function ranking() {
-         $http({
+    function rankingFor(tourneyID) {
+         return $http({
              method: "get",
              url: "/teams/ranking",
-         })
-         .then(
-            function(response) {
-                return response;
-            },
-            function(response) {
-                console.log("Error calling the Backend...");
-            }
-         );
+             params: {
+                tourneyID: tourneyID
+             }
+         });
+    }
+
+    function create(team) {
+        return $http({
+            method: "post",
+            url: "/teams/create",
+            data: team
+        });
     }
 
 });
