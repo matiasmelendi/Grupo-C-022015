@@ -1,2 +1,12 @@
 language: java
 script: cd SuperGol && mvn test
+
+language: node_js
+node_js:
+    - "0.10"
+before_script:
+    - cd SuperGol_Frontend
+    - sudo npm install
+script:
+    - gulp tests-js-models --verbose
+    - gulp tests-angular --verbose

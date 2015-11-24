@@ -23,10 +23,11 @@ gulp.task('tests-js-models', function () {
 });
 
 gulp.task('tests-angular', function () {
-    var filesForTest = ['resources/js/angular.js',
-                        'resources/js/angular-mocks.js',
-                        'resources/js/angular-route.js',
-                        'resources/js/angular-translate.min.js',
+    var filesForTest = ['node_modules/angular/angular.min.js',
+                        'node_modules/angular-mocks/angular-mocks.js',
+                        'node_modules/angular-route/angular-route.min.js',
+                        'node_modules/angular-translate/dist/angular-translate.min.js',
+                        'node_modules/angular-utils-pagination/dirPagination.js',
                         'app.js',
                         'resources/js/models/*.js' ,
                         'resources/js/controllers/*.js',
