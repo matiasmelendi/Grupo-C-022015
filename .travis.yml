@@ -9,5 +9,4 @@ script:
     - mvn test
     - cd ..
     - cd SuperGol_Frontend
-    - gulp tests-js-models --verbose
-    - gulp tests-angular --verbose
+    - gulp travis
