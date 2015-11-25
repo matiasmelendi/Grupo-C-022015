@@ -2,11 +2,7 @@ language: java
 
 before_script:
     - cd SuperGol_Frontend && npm install
-    - cd ..
 
 script: 
-    - cd SuperGol
-    - mvn test
-    - cd ..
-    - cd SuperGol_Frontend
-    - gulp travis
+    - cd ../SuperGol && mvn test
+    - cd ../SuperGol_Frontend && gulp travis
