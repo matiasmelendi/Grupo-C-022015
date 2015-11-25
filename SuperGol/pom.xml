@@ -54,10 +54,6 @@
       <!-- 2.3.5 or 2.4.1 -->
       <version>${cxf.version}</version>
       <exclusions>
-        <exclusion>
-          <groupId>org.eclipse.jetty</groupId>
-          <artifactId>jetty-server</artifactId>
-        </exclusion>
           <exclusion>
               <groupId>org.springframework</groupId>
               <artifactId>spring-context</artifactId>
@@ -178,11 +174,36 @@
     </dependency>
 
     <!-- End Persistence Dependencies -->
+
+
+    <!-- Jackson -->
+
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-jaxrs</artifactId>
+      <version>1.9.13</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-xc</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+
+    <!-- /Jackson -->
+
   </dependencies>
 
   <properties>
-    <spring.version>4.2.1.RELEASE</spring.version>
-    <cxf.version>2.7.3</cxf.version>
+    <spring.version>4.1.7.RELEASE</spring.version>
+    <cxf.version>2.7.18</cxf.version>
+    <jackson.version>1.8.2</jackson.version>
   </properties>
 
   <build>

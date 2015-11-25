@@ -8,8 +8,7 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>
             classpath*:/META-INF/spring-persistence-context.xml,
-            classpath*:/META-INF/spring-services-context.xml,
-            classpath*:/META-INF/cxf/cxf.xml
+            classpath*:/META-INF/spring-services-context.xml
         </param-value>
     </context-param>
 
@@ -25,5 +24,17 @@
     <session-config>
         <session-timeout>7200</session-timeout>
     </session-config>
+
+    <servlet>
+        <servlet-name>SuperGolServlet</servlet-name>
+        <display-name>SuperGol Servlet</display-name>
+        <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+        <load-on-startup>0</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SuperGolServlet</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
+    </servlet-mapping>
 
 </web-app>

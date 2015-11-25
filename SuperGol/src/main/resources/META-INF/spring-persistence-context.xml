@@ -3,10 +3,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:tx="http://www.springframework.org/schema/tx"
-       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <tx:annotation-driven transaction-manager="persistence.transactionManager"	proxy-target-class="true" />
@@ -74,18 +72,6 @@
         <constructor-arg>
             <ref bean="persistence.dataSource" />
         </constructor-arg>
-    </bean>
-
-    <bean id="persistence.teams" class="repositories.TeamsRepository" >
-        <property name="sessionFactory" ref="persistence.sessionFactory" />
-    </bean>
-
-    <bean id="persistence.players" class="repositories.PlayersRepository" >
-        <property name="sessionFactory" ref="persistence.sessionFactory" />
-    </bean>
-
-    <bean id="persistence.tournies" class="repositories.TourniesRepository" >
-        <property name="sessionFactory" ref="persistence.sessionFactory" />
     </bean>
 
 </beans>
