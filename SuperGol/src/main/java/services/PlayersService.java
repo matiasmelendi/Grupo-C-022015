@@ -3,9 +3,7 @@ package services;
 import model.Player;
 import repositories.PlayersRepository;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import java.util.List;
 
 @Path("/players")
@@ -21,9 +19,22 @@ public class PlayersService {
     @Path("/all")
     @Produces("application/json")
     public List<Player> all() {
-        return repository.all();
+        return this.repository.all();
     }
 
+    @DELETE
+    @Path("/{id}")
+    @Produces("application/json")
+    public void delete(@PathParam("id") Integer id) {
+        this.repository.delete(id);
+    }
+
+    @GET
+    @Path("/{id}")
+    @Produces("application/json")
+    public Player find(@PathParam("id") Integer id) {
+        return this.repository.find(id);
+    }
 
     //*******************************************************
     //           Only used by spring only
