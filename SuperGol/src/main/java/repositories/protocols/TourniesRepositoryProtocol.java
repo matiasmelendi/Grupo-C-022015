@@ -1,5 +1,6 @@
 package repositories.protocols;
 
+import model.Fixture;
 import model.Tourney;
 
 import java.util.List;
@@ -8,5 +9,7 @@ public interface TourniesRepositoryProtocol {
 
     List<Tourney> all();
 
-    Tourney getById(Integer id);
+    Tourney find(Integer id);
+
+    Fixture rankingForATourney(Integer id);
 }

@@ -1,5 +1,6 @@
 package services;
 
+import model.Fixture;
 import model.Tourney;
 import repositories.TourniesRepository;
 
@@ -27,10 +28,15 @@ public class TourniesService {
 
     @GET
     @Path("/{id}")
-    public Tourney getById(@PathParam("id") Integer id) {
-        return this.repository.getById(id);
+    public Tourney find(@PathParam("id") Integer id) {
+        return this.repository.find(id);
     }
 
+    @GET
+    @Path("/{id}/ranking")
+    public Fixture ranking(@PathParam("id") Integer id) {
+        return this.repository.rankingForATourney(id);
+    }
 
     //*******************************************************
     //           Only used by spring only

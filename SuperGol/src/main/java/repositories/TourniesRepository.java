@@ -1,5 +1,6 @@
 package repositories;
 
+import model.Fixture;
 import model.Tourney;
 import org.hibernate.SessionFactory;
 import repositories.protocols.TourniesRepositoryProtocol;
@@ -12,8 +13,12 @@ public class TourniesRepository implements TourniesRepositoryProtocol {
         return null;
     }
 
-    public Tourney getById(Integer id) {
+    public Tourney find(Integer id) {
         return null;
+    }
+
+    public Fixture rankingForATourney(Integer id){
+        return this.find(id).fixture();
     }
 
     private SessionFactory sessionFactory;
