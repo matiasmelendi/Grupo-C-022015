@@ -10,29 +10,19 @@
             <div class="rounds-form center">
                 <table class="table">
                     <thead>
-                    <tr >
-                        <th style="width: 30%">
-                            {{ 'LOCAL_TEAM' | translate }}
-                        </th>
-                        <th class="text-center" style="width: 8%">
-                            {{ 'POINTS' | translate }}
-                        </th>
-                        <th class="text-center"> - </th>
-                        <th class="text-center" style="width: 8%">
-                            {{ 'POINTS' | translate }}
-                        </th>
-                        <th class="text-right" style="width: 30%">
-                            {{ 'AWAY_TEAM' | translate }}
-                        </th>
-                    </tr>
+                        <tr>
+                            <th class="text-center" style="width: 90%;">
+                                {{ 'PLAYERS' | translate }}
+                            </th>
+                            <th class="text-center">
+                                {{ 'GOALS' | translate }}
+                            </th>
+                        </tr>
                     </thead>
                     <tbody>
-                        <tr dir-paginate="round in rounds | itemsPerPage: 8">
-                            <td> {{ round.localTeam }} </td>
-                            <td> <input type="text" name='points' class="form-control"/> </td>
-                            <td> VS </td>
-                            <td><input type="text" name='points' class="form-control"/> </td>
-                            <td> {{ round.awayTeam }} </td>
+                        <tr dir-paginate="player in allPlayers | itemsPerPage: 8">
+                            <td> {{ player.name }} </td>
+                            <td><input type="text" name='goals' class="form-control"/> </td>
                         </tr>
                     </tbody>
                 </table>
@@ -43,7 +33,7 @@
                         direction-links="false"
                         boundary-links="true">
                 </dir-pagination-controls>
-                <a href="#" class="btn btn-primary upload">Automatic Upload</a>
+                <a class="btn btn-primary upload">Automatic Upload</a>
             </div>
         </form>
     </div>

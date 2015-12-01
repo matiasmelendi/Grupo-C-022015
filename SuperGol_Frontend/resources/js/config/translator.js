@@ -45,9 +45,8 @@ app.config(function($translateProvider) {
             /* Round update */
             ROUND_UPDATE: 'Round update',
             SCORES_TITLE: 'Set the scores of the Round Number ',
-            LOCAL_TEAM: 'Local Team',
-            AWAY_TEAM: 'Away Team',
-            POINTS: 'Points',
+            PLAYERS: 'Players',
+            GOALS: 'Goals',
 
             /* Ranking */
             TOURNEY_SELECT: 'Select a Tourney'
@@ -98,9 +97,8 @@ app.config(function($translateProvider) {
             /* Round update */
             ROUND_UPDATE: 'Actualizacion de Fecha',
             SCORES_TITLE: 'Ingrese el puntaje para la Fecha Numero ',
-            LOCAL_TEAM: 'Equipo Local',
-            AWAY_TEAM: 'Equipo Visitante',
-            POINTS: 'Puntos',
+            PLAYERS: 'Jugadores',
+            GOALS: 'Goles',
 
             /* Ranking */
             TOURNEY_SELECT: 'Seleccione un Torneo'
