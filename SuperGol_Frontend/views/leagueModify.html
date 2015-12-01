@@ -10,7 +10,7 @@
         <div class="setup">
             <div class="setup-info center">
                 <select class="form-control tourney-select">
-                    <option ng-repeat="tourney in tourneys" ng-click="select(item)">{{ tourney.name }}</option>
+                    <option ng-repeat="tourney in tourneys" ng-click="select(tourney)">{{ tourney.name }}</option>
                 </select>
                 <input type="text" name='team-name' ng-model="tourney.minimumAmountOfTeams" placeholder="{{ 'TOURNEY_MIN_AMOUNT' | translate }}" class="form-control"/>
                 <input type="text" name='team-name' ng-model="tourney.maximumAmountOfTeams" placeholder="{{ 'TOURNEY_MAX_AMOUNT' | translate }}" class="form-control"/>

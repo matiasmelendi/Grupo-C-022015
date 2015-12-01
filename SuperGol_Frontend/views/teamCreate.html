@@ -4,14 +4,14 @@
     </div>
 </div>
 
-<div class="workspace" ng-controller="TeamCtrl">
+<div class="workspace" ng-controller="TeamCreationCtrl">
 
     <div class="team-roster">
         <div class="team-roster-input center">
-            <input type="text" name='team-name' ng-model="team.name" placeholder="{{ 'TEAM_NAME' | translate }}" class="form-control"/>
+            <input type="text" name='team-name' ng-model="newTeam.name" placeholder="{{ 'TEAM_NAME' | translate }}" class="form-control"/>
         </div>
         <div class="team-logo">
-            <img src="http://www.tagetik.com/intouch2015/user.png" class="img-thumbnail" alt="Team Logo">
+            <img src="http://www.tagetik.com/intouch2015/user.png" class="img-thumbnail" alt="Team Logo" ng-model="newTeam.logo">
         </div>
         <a href="" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {{ 'SELECT_LOGO' | translate }}</a>
     </div>
@@ -44,16 +44,16 @@
             <div class="formation center">
                 <ul class="list-group">
                     <h5>{{ 'GOALKEEPERS' | translate }}</h5>
-                    <li ng-class="team.fullGoalkeepers() ? 'list-group-item-danger' : 'list-group-item-success'" class="list-group-item formation-info">{{ team.goalkeepers() }}/1</li>
+                    <li ng-class="newTeam.fullGoalkeepers() ? 'list-group-item-danger' : 'list-group-item-success'" class="list-group-item formation-info">{{ newTeam.goalkeepers() }}/1</li>
                     <h5>{{ 'DEFENDERS' | translate }}</h5>
-                    <li ng-class="team.fullDefenders() ? 'list-group-item-danger' : 'list-group-item-success'" class="list-group-item formation-info">{{ team.defenders() }}/3</li>
+                    <li ng-class="newTeam.fullDefenders() ? 'list-group-item-danger' : 'list-group-item-success'" class="list-group-item formation-info">{{ newTeam.defenders() }}/3</li>
                     <h5>{{ 'MIDFIELDERS' | translate }}</h5>
-                    <li ng-class="team.fullMidfielders() ? 'list-group-item-danger' : 'list-group-item-success'" class="list-group-item formation-info">{{ team.midfielders() }}/4</li>
+                    <li ng-class="newTeam.fullMidfielders() ? 'list-group-item-danger' : 'list-group-item-success'" class="list-group-item formation-info">{{ newTeam.midfielders() }}/4</li>
                     <h5>{{ 'FORWARDS' | translate }}</h5>
-                    <li ng-class="team.fullForwards() ? 'list-group-item-danger' : 'list-group-item-success'" class="list-group-item formation-info">{{ team.forwards() }}/3</li>
+                    <li ng-class="newTeam.fullForwards() ? 'list-group-item-danger' : 'list-group-item-success'" class="list-group-item formation-info">{{ newTeam.forwards() }}/3</li>
                 </ul>
             </div>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>{{ 'CREATE' | translate }}</a>
+            <a ng-click="createTeam()" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span>{{ 'CREATE' | translate }}</a>
         </div>
     </div>
 </div>

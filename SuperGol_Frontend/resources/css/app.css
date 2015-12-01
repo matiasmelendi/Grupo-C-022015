@@ -170,6 +170,14 @@ input.ng-valid.ng-dirty {
     width: 250px;
 }
 
+.team-roster-select {
+    width: 250px;
+    margin-bottom: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 40px;
+}
+
 .img-thumbnail {
     height: 180px;
 }

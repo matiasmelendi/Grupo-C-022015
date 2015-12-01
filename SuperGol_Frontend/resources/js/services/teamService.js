@@ -4,7 +4,8 @@ app.service('TeamService', function( $http, $q ) {
     return {
         all: all,
         rankingFor: rankingFor,
-        create: create
+        create: create,
+        edit: edit
     };
 
     function all() {
@@ -28,6 +29,14 @@ app.service('TeamService', function( $http, $q ) {
         return $http({
             method: "post",
             url: "/teams/create",
+            data: team
+        });
+    }
+
+    function edit(team) {
+        return $http({
+            method: "post",
+            url: "/teams/edit",
             data: team
         });
     }
