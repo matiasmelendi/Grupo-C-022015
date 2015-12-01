@@ -1,7 +1,13 @@
-app.controller('HomeCtrl', ['$scope', '$location', function($scope, $location) {
+app.controller('HomeCtrl', ['$scope', '$location', 'RegisterService', function($scope, $location, RegisterService) {
+
+    $scope.user = {
+        username: "",
+        password: "",
+        repassword: ""
+    };
 
     $scope.cleanUserData = function () {
-        $scope.user = { username: "", password: "" };
+        $scope.user = { username: "", password: "", repassword: "" };
     };
 
     $scope.isSignIn = false;
@@ -19,8 +25,30 @@ app.controller('HomeCtrl', ['$scope', '$location', function($scope, $location) {
         $scope.isLogIn = false;
     };
 
-    $scope.submit = function () {
-        $location.path('/userhome');
+    $scope.login = function () {
+        RegisterService.login($scope.user).then(
+            function successCallback(response) {
+                $location.path('/userhome');
+            },
+            function errorCallback(response) {
+                console.log('Error.');
+            }
+        );
+    };
+
+    $scope.register = function () {
+        if($scope.user.password.equals($scope.user.repassword)) {
+            RegisterService.register($scope.user).then(
+                function successCallback(response) {
+                    $location.path('/userhome');
+                },
+                function errorCallback(response) {
+                    console.log('Error.');
+                }
+            );
+        } else {
+            // Error.
+        }
     };
 
 }]);
