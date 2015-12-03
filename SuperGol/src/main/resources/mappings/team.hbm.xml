@@ -2,12 +2,10 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="field" default-cascade="save-update">
-    <class name="model.Team">
-        <id column="ID" name="id">
+    <class name="model.Team" table="teams">
+        <id column="ID" name="id"/>
 
-        </id>
-
-        <property name="name" />
+        <property name="name" column="name"/>
 
         <list name="matchResults" table="match_results_by_match">
             <key column="id" />
@@ -15,7 +13,7 @@
             <one-to-many class="model.MatchResult" />
         </list>
 
-        <many-to-one name="creator" class="model.User" />
+        <many-to-one name="creator" column="creator" class="model.User" />
         <one-to-one name="formation" class="model.Formation" />
     </class>
 </hibernate-mapping>

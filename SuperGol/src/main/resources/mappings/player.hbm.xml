@@ -2,19 +2,17 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="field" default-cascade="save-update">
-    <class name="model.Player">
-        <id column="ID" name="id">
+    <class name="model.Player" table="players">
+        <id column="ID" name="id"/>
 
-        </id>
-
-        <property name="name" />
-        <property name="isCaptain" />
+        <property name="name" column="name" />
+        <property name="isCaptain" column="isCaptain" />
         <property name="position" column="position">
             <type name="org.hibernate.type.EnumType">
                 <param name="enumClass">model.Position</param>
             </type>
         </property>
 
-        <many-to-one name="team" class="model.Team" />
+        <many-to-one name="team" column="team" class="model.Team" />
     </class>
 </hibernate-mapping>

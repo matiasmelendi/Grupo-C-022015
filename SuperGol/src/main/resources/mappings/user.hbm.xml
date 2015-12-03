@@ -3,13 +3,11 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="field" default-cascade="save-update">
 
-    <class name="model.User">
-        <id column="ID" name="id">
+    <class name="model.User" table="users">
+        <id column="ID" name="id"/>
 
-        </id>
-
-        <property name="username" />
-        <property name="password" />
+        <property name="username" column="username"/>
+        <property name="password" column="password"/>
 
         <list name="scores" table="tourney_scores">
             <key column="tourney_scores_id" />

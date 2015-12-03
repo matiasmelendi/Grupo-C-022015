@@ -2,13 +2,11 @@
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="field" default-cascade="save-update">
-    <class name="model.MatchResult">
-        <id column="ID" name="id">
+    <class name="model.MatchResult" table="match_results">
+        <id column="ID" name="id"/>
 
-        </id>
-
-        <property name="localPoints" />
-        <property name="awayPoints" />
+        <property column="localPoints" name="localPoints" />
+        <property column="awayPoints" name="awayPoints" />
 
         <list name="localScorers" table="scorers">
             <key column="scorers_id" />

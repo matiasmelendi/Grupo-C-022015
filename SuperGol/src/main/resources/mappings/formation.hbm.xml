@@ -3,9 +3,8 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="field" default-cascade="save-update">
 
-    <class name="model.Formation">
-        <id column="ID" name="id">
-        </id>
+    <class name="model.Formation" table="formations">
+        <id column="ID" name="id"/>
 
         <list name="players" table="formation_players">
             <key column="formation_players_id" />
