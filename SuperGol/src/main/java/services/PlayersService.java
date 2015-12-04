@@ -25,14 +25,14 @@ public class PlayersService {
     @DELETE
     @Path("/{id}")
     @Produces("application/json")
-    public void delete(@PathParam("id") Integer id) {
+    public void delete(@PathParam("id") Double id) {
         this.repository.delete(id);
     }
 
     @GET
     @Path("/{id}")
     @Produces("application/json")
-    public Player find(@PathParam("id") Integer id) {
+    public Player find(@PathParam("id") Double id) {
         return this.repository.find(id);
     }
 
