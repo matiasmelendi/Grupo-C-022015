@@ -5,9 +5,9 @@
     <class name="model.Match" table="matches">
         <id column="ID" name="id"/>
 
-        <property name="matchResultSet" />
+        <property name="matchResultSet" column="match_result_set"/>
 
-        <many-to-one name="localTeam" class="model.Team" />
-        <many-to-one name="awayTeam" class="model.Team" />
+        <one-to-one name="localTeam" class="model.Team" fetch="join"/>
+        <one-to-one name="awayTeam"  class="model.Team" fetch="join"/>
     </class>
 </hibernate-mapping>

@@ -6,13 +6,13 @@
     <class name="model.Formation" table="formations">
         <id column="ID" name="id"/>
 
-        <list name="players" table="formation_players">
+        <list name="players" table="formation_players" fetch="join">
             <key column="formation_players_id" />
             <list-index column="index" />
             <many-to-many column="player_id" class="model.Player"/>
         </list>
 
-        <list name="allowedPlayers" table="allowed_players" cascade="all">
+        <list name="allowedPlayers" table="allowed_players" cascade="all" fetch="join">
             <key column="allowed_players_id" />
             <list-index column="position" />
             <element type="java.lang.Integer" />

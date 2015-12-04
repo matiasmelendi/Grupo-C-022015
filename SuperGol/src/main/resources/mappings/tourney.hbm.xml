@@ -9,7 +9,7 @@
         <property name="minNumberOfTeams" column="min_number_of_teams"/>
         <property name="maxNumberOfTeams" column="max_number_of_teams"/>
 
-        <list name="teams" table="tourney_teams">
+        <list name="teams" table="tourney_teams" fetch="join">
             <key column="tourney_teams_id" />
             <list-index column="index" />
             <many-to-many column="team_id" class="model.Team"/>

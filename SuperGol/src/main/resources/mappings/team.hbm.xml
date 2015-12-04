@@ -7,13 +7,13 @@
 
         <property name="name" column="name"/>
 
-        <list name="matchResults" table="match_results_by_match">
-            <key column="id" />
+        <list name="matchResults" table="match_results" lazy="false">
+            <key column="ID" />
             <list-index column="match_id"/>
             <one-to-many class="model.MatchResult" />
         </list>
 
-        <many-to-one name="creator" column="creator" class="model.User" />
-        <one-to-one name="formation" class="model.Formation" />
+        <many-to-one name="creator" column="creator" class="model.User" fetch="join"/>
+        <one-to-one name="formation" class="model.Formation" fetch="join"/>
     </class>
 </hibernate-mapping>

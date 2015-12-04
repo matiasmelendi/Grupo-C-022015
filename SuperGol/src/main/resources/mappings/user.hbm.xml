@@ -9,12 +9,12 @@
         <property name="username" column="username"/>
         <property name="password" column="password"/>
 
-        <list name="scores" table="tourney_scores">
+        <list name="scores" table="tourney_scores" fetch="join">
             <key column="tourney_scores_id" />
             <list-index column="tourney_id" />
             <element type="java.lang.Integer" />
         </list>
 
-        <one-to-one name="team" class="model.Team" />
+        <one-to-one name="team" class="model.Team" fetch="join"/>
     </class>
 </hibernate-mapping>
