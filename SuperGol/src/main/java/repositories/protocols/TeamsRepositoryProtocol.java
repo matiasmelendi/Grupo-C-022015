@@ -10,9 +10,9 @@ public interface TeamsRepositoryProtocol {
 
     List<Team> ranking();
 
-    void update(Integer id);
+    void update(Team team);
 
-    void delete(Integer id);
+    void delete(Double id);
 
-    Team find(Integer id);
+    Team find(Double id);
 }
