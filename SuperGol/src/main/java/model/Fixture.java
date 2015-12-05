@@ -1,5 +1,7 @@
 package model;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,4 +46,51 @@ public class Fixture {
         return this.rounds;
     }
 
+
+    private double id;
+
+    public Fixture(){
+
+    }
+
+    public Integer getAmountOfRounds() {
+        return amountOfRounds;
+    }
+
+    public void setAmountOfRounds(Integer amountOfRounds) {
+        this.amountOfRounds = amountOfRounds;
+    }
+
+    public Integer getHalfTourney() {
+        return halfTourney;
+    }
+
+    public void setHalfTourney(Integer halfTourney) {
+        this.halfTourney = halfTourney;
+    }
+
+    public List<Round> getRounds() {
+        return rounds;
+    }
+
+    public void setRounds(List<Round> rounds) {
+        this.rounds = rounds;
+    }
+
+    @JsonIgnore
+    public Tourney getTourney() {
+        return tourney;
+    }
+
+    public void setTourney(Tourney tourney) {
+        this.tourney = tourney;
+    }
+
+    public double getId() {
+        return id;
+    }
+
+    public void setId(double id) {
+        this.id = id;
+    }
 }
