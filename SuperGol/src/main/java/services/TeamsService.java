@@ -32,13 +32,6 @@ public class TeamsService {
         return this.repository.find(id);
     }
 
-    @GET
-    @Path("/ranking")
-    @Produces("application/json")
-    public List<Team> ranking() {
-        return this.repository.ranking();
-    }
-
 
     //*******************************************************
     //           Only used by spring only
