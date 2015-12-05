@@ -9,7 +9,7 @@ public interface TourniesRepositoryProtocol {
 
     List<Tourney> all();
 
-    Tourney find(Integer id);
+    Tourney find(Double id);
 
-    Fixture rankingForATourney(Integer id);
+    Fixture rankingForATourney(Double id);
 }

@@ -11,7 +11,6 @@ import javax.ws.rs.Produces;
 import java.util.List;
 
 @Path("/tournies")
-@Produces("application/json")
 public class TourniesService {
 
     private TourniesRepository repository;
@@ -22,19 +21,22 @@ public class TourniesService {
 
     @GET
     @Path("/all")
+    @Produces("application/json")
     public List<Tourney> all() {
         return this.repository.all();
     }
 
     @GET
     @Path("/{id}")
-    public Tourney find(@PathParam("id") Integer id) {
+    @Produces("application/json")
+    public Tourney find(@PathParam("id") Double id) {
         return this.repository.find(id);
     }
 
     @GET
     @Path("/{id}/ranking")
-    public Fixture ranking(@PathParam("id") Integer id) {
+    @Produces("application/json")
+    public Fixture ranking(@PathParam("id") Double id) {
         return this.repository.rankingForATourney(id);
     }
 
