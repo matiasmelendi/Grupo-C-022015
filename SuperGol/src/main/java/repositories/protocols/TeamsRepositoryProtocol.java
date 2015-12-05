@@ -8,8 +8,6 @@ public interface TeamsRepositoryProtocol {
 
     List<Team> all();
 
-    List<Team> ranking();
-
     void update(Team team);
 
     void delete(Double id);
