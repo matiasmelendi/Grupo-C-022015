@@ -1,5 +1,7 @@
 package model;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import java.util.List;
 
 public class MatchResult {
@@ -75,6 +77,7 @@ public class MatchResult {
         this.awayPoints = awayPoints;
     }
 
+    @JsonIgnore
     public Match getMatch() {
         return match;
     }

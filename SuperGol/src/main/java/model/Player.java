@@ -1,5 +1,7 @@
 package model;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 public class Player {
 
     private String name;
@@ -107,6 +109,7 @@ public class Player {
         this.name = name;
     }
 
+    @JsonIgnore
     public Team getTeam() {
         return team;
     }
