@@ -1,8 +1,15 @@
 INSERT INTO formations(ID) VALUES (1)
 
 
+INSERT INTO tournies(ID, name, min_number_of_teams, max_number_of_teams) VALUES (1, 'Champions League', 2, 16)
+
+
 INSERT INTO teams(ID, name) VALUES (1, 'Pepes Team 1')
 INSERT INTO teams(ID, name) VALUES (2, 'Pepes Team 2')
+
+
+INSERT INTO tourney_teams(tourney_id, index, team_id) VALUES (1, 0, 1)
+INSERT INTO tourney_teams(tourney_id, index, team_id) VALUES (1, 1, 2)
 
 
 INSERT INTO players(ID, name, is_captain, position, team) VALUES (1, 'Pepe 1', true, 1, 1)
