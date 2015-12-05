@@ -1,3 +1,6 @@
+INSERT INTO formations(ID) VALUES (1)
+
+
 INSERT INTO teams(ID, name) VALUES (1, 'Pepes Team 1')
 INSERT INTO teams(ID, name) VALUES (2, 'Pepes Team 2')
 
@@ -19,11 +22,26 @@ INSERT INTO players(ID, name, is_captain, position, team) VALUES (13, 'Pepe 13',
 INSERT INTO players(ID, name, is_captain, position, team) VALUES (14, 'Pepe 14', true, 3, 2)
 
 
+INSERT INTO formation_players(formation_id, index, player_id) VALUES (1, 0, 1)
+INSERT INTO formation_players(formation_id, index, player_id) VALUES (1, 1, 2)
+INSERT INTO formation_players(formation_id, index, player_id) VALUES (1, 2, 3)
+INSERT INTO formation_players(formation_id, index, player_id) VALUES (1, 3, 4)
+INSERT INTO formation_players(formation_id, index, player_id) VALUES (1, 4, 5)
+INSERT INTO formation_players(formation_id, index, player_id) VALUES (1, 5, 6)
+INSERT INTO formation_players(formation_id, index, player_id) VALUES (1, 6, 7)
+
+
+INSERT INTO allowed_players(formation_id, position, number_of_allowed_players_by_position) VALUES (1, 0, 1)
+INSERT INTO allowed_players(formation_id, position, number_of_allowed_players_by_position) VALUES (1, 1, 4)
+INSERT INTO allowed_players(formation_id, position, number_of_allowed_players_by_position) VALUES (1, 2, 3)
+INSERT INTO allowed_players(formation_id, position, number_of_allowed_players_by_position) VALUES (1, 3, 3)
+
+
 INSERT INTO matches(ID, match_result_set) VALUES (1, true)
 
 
-INSERT INTO match_results(ID, local_points, away_points, match_id, local_scorers, away_scorers) VALUES (1, 0, 0, 1, 1, 2)
+INSERT INTO match_results(ID, local_points, away_points, match_id) VALUES (1, 0, 0, 1)
 
 
-INSERT INTO scorers(ID, index, player_id) VALUES (1, 0, 1)
-INSERT INTO scorers(ID, index, player_id) VALUES (2, 0, 2)
+INSERT INTO scorers(match_result_id, index, player_id) VALUES (1, 0, 1)
+INSERT INTO scorers(match_result_id, index, player_id) VALUES (1, 1, 2)
