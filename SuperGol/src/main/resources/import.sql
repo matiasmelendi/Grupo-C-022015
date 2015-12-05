@@ -43,5 +43,5 @@ INSERT INTO matches(ID, match_result_set) VALUES (1, true)
 INSERT INTO match_results(ID, local_points, away_points, match_id) VALUES (1, 0, 0, 1)
 
 
-INSERT INTO scorers(match_result_id, index, player_id) VALUES (1, 0, 1)
-INSERT INTO scorers(match_result_id, index, player_id) VALUES (1, 1, 2)
+INSERT INTO local_scorers(match_result_id, index, player_id) VALUES (1, 0, 1)
+INSERT INTO away_scorers(match_result_id, index, player_id) VALUES (1, 0, 8)

@@ -8,13 +8,13 @@
         <property column="local_points" name="localPoints" />
         <property column="away_points" name="awayPoints" />
 
-        <list name="localScorers" table="scorers" fetch="join" lazy="false" >
+        <list name="localScorers" table="local_scorers" fetch="join" lazy="false" >
             <key column="match_result_id" />
             <list-index column="index" />
             <many-to-many column="player_id" class="model.Player"/>
         </list>
 
-        <list name="awayScorers" table="scorers" fetch="join" lazy="false" >
+        <list name="awayScorers" table="away_scorers" fetch="join" lazy="false" >
             <key column="match_result_id" />
             <list-index column="index" />
             <many-to-many column="player_id" class="model.Player"/>
