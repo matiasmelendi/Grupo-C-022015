@@ -8,12 +8,12 @@
         <property name="name" column="name"/>
 
         <list name="matchResults" table="match_results" lazy="false">
-            <key column="ID" />
+            <key column="team_id" />
             <list-index column="match_id"/>
             <one-to-many class="model.MatchResult" />
         </list>
 
-        <many-to-one name="creator" column="creator" class="model.User" fetch="join"/>
+        <many-to-one name="creator" column="creator" class="model.User" fetch="join" lazy="false"/>
         <one-to-one name="formation" class="model.Formation" fetch="join"/>
     </class>
 </hibernate-mapping>
