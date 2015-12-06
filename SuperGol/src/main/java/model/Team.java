@@ -2,6 +2,7 @@ package model;
 
 import exceptions.AbsentCaptain;
 import exceptions.PositionFull;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -107,6 +108,7 @@ public class Team {
         this.name = name;
     }
 
+    @JsonIgnore
     public User getCreator() {
         return creator;
     }
