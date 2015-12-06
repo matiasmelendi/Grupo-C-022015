@@ -63,3 +63,7 @@ INSERT INTO round_matches(round_id, index, match_id) VALUES (1, 0, 1)
 
 INSERT INTO round_teams(round_id, index, team_id) VALUES (1, 0, 1)
 INSERT INTO round_teams(round_id, index, team_id) VALUES (1, 1, 2)
+
+
+INSERT INTO users(ID, username, password, team) VALUES (1, 'Pepito 1', '1234', 1)
+INSERT INTO users(ID, username, password, team) VALUES (2, 'Pepito 2', '1234', 2)

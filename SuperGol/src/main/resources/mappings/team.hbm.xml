@@ -13,7 +13,7 @@
             <one-to-many class="model.MatchResult" />
         </list>
 
-        <many-to-one name="creator" column="creator" class="model.User" fetch="join" lazy="false"/>
+        <one-to-one name="creator" class="model.User" fetch="join" lazy="false" property-ref="team"/>
         <one-to-one name="formation" class="model.Formation" fetch="join"/>
     </class>
 </hibernate-mapping>
