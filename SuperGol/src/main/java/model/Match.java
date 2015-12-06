@@ -2,6 +2,7 @@ package model;
 
 import exceptions.MatchIsDraw;
 import exceptions.NoMatchResultFound;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 import java.util.List;
 
@@ -54,10 +55,12 @@ public class Match {
         this.matchResultSet();
     }
 
+    @JsonIgnore
     public Boolean isDrawMatch() {
         return this.localTeam().pointsOnMatch(this).equals(this.awayTeam().pointsOnMatch(this));
     }
 
+    @JsonIgnore
     public Boolean isLocalTeam(Team team){
         return team.equals(this.localTeam());
     }
