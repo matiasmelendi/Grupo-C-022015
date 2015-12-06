@@ -7,7 +7,7 @@ public class Player {
     private String name;
     private Position position;
     private Team team;
-    private Boolean isCaptain;
+    private Boolean captain;
 
     /**
      * Class' constructor.
@@ -20,7 +20,7 @@ public class Player {
         this.name = name;
         this.position = position;
         this.team = team;
-        this.isCaptain = Boolean.FALSE;
+        this.captain = Boolean.FALSE;
     }
 
     /**
@@ -36,14 +36,14 @@ public class Player {
      * Makes this player become a Captain.
      */
     public void becomeCaptain() {
-        this.isCaptain = Boolean.TRUE;
+        this.captain = Boolean.TRUE;
     }
 
     /**
      * Makes this player a normal model.Player.
      */
     public void unassignCaptain() {
-        this.isCaptain = Boolean.FALSE;
+        this.captain = Boolean.FALSE;
     }
 
     /**
@@ -51,8 +51,8 @@ public class Player {
      *
      * @return If this player is Captain.
      */
-    public Boolean isCaptain() {
-        return this.isCaptain;
+    public Boolean captain() {
+        return this.captain;
     }
 
     /**
@@ -89,7 +89,7 @@ public class Player {
         return this.name().equals(anotherPlayer.name()) &&
                this.position().equals(anotherPlayer.position()) &&
                this.team().equals(anotherPlayer.team()) &&
-               this.isCaptain().equals(anotherPlayer.isCaptain());
+               this.captain().equals(anotherPlayer.captain());
     }
 
     //*******************************
@@ -126,12 +126,12 @@ public class Player {
         this.position = position;
     }
 
-    public Boolean getIsCaptain() {
-        return isCaptain;
+    public Boolean getCaptain() {
+        return captain;
     }
 
-    public void setIsCaptain(Boolean isCaptain) {
-        this.isCaptain = isCaptain;
+    public void setCaptain(Boolean captain) {
+        this.captain = captain;
     }
 
     public double getId() {

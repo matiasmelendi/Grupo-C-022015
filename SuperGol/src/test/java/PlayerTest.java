@@ -40,7 +40,7 @@ public class PlayerTest {
 
         exCaptain.unassignCaptain();
 
-        assertFalse(exCaptain.isCaptain());
+        assertFalse(exCaptain.captain());
     }
 
     private Player captain(){

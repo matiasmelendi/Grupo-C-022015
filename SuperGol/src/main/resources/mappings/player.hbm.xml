@@ -6,7 +6,7 @@
         <id column="ID" name="id"/>
 
         <property name="name" column="name" />
-        <property name="isCaptain" column="is_captain" />
+        <property name="captain" column="captain" />
         <property name="position" column="position">
             <type name="org.hibernate.type.EnumType">
                 <param name="enumClass">model.Position</param>

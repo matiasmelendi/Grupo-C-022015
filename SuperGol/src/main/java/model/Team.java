@@ -33,7 +33,7 @@ public class Team {
 
     public Player captain() throws AbsentCaptain {
         for(Player player : this.players()){
-            if(player.isCaptain()) { return player; }
+            if(player.captain()) { return player; }
         }
         throw new AbsentCaptain();
     }
