@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field" default-cascade="save-update">
+    <class name="model.Round" table="rounds">
+        <id column="ID" name="id"/>
+
+        <property name="number" column="number" />
+        <property name="halfTourney" column="half_tourney" />
+
+        <list name="matches" table="round_matches" fetch="join" lazy="false">
+            <key column="round_id" />
+            <list-index column="index" />
+            <many-to-many column="match_id" class="model.Match" />
+        </list>
+
+        <list name="teams" table="round_teams" lazy="false">
+            <key column="round_id" />
+            <list-index column="index" />
+            <many-to-many column="team_id" class="model.Team" />
+        </list>
+    </class>
+</hibernate-mapping>

@@ -77,4 +77,50 @@ public class Round {
         return this.matches;
     }
 
+
+    private double id;
+
+    public Round(){
+
+    }
+
+    public Integer getNumber() {
+        return number;
+    }
+
+    public void setNumber(Integer number) {
+        this.number = number;
+    }
+
+    public List<Match> getMatches() {
+        return matches;
+    }
+
+    public void setMatches(List<Match> matches) {
+        this.matches = matches;
+    }
+
+    public List<Team> getTeams() {
+        return teams;
+    }
+
+    public void setTeams(List<Team> teams) {
+        this.teams = teams;
+    }
+
+    public Integer getHalfTourney() {
+        return halfTourney;
+    }
+
+    public void setHalfTourney(Integer halfTourney) {
+        this.halfTourney = halfTourney;
+    }
+
+    public double getId() {
+        return id;
+    }
+
+    public void setId(double id) {
+        this.id = id;
+    }
 }
