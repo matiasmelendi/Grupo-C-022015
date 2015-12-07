@@ -5,8 +5,8 @@
     <class name="model.Fixture" table="fixtures">
         <id column="ID" name="id"/>
 
-        <property name="amountOfRounds" column="amount_of_rounds" />
-        <property name="halfTourney" column="half_tourney" />
+        <property name="amountOfRounds" column="amountOfRounds" />
+        <property name="halfTourney" column="halfTourney" />
         <one-to-one name="tourney" class="model.Tourney" />
 
         <list name="rounds" table="fixture_rounds" fetch="join" lazy="false">

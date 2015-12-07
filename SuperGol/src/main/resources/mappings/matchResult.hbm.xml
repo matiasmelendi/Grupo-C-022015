@@ -5,8 +5,8 @@
     <class name="model.MatchResult" table="match_results">
         <id column="ID" name="id"/>
 
-        <property column="local_points" name="localPoints" />
-        <property column="away_points" name="awayPoints" />
+        <property name="localPoints" column="localPoints" />
+        <property name="awayPoints" column="awayPoints" />
 
         <list name="localScorers" table="local_scorers" fetch="join" lazy="false" >
             <key column="match_result_id" />

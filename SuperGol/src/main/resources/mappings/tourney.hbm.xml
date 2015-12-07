@@ -6,8 +6,8 @@
         <id column="ID" name="id"/>
 
         <property name="name" column="name"/>
-        <property name="minNumberOfTeams" column="min_number_of_teams"/>
-        <property name="maxNumberOfTeams" column="max_number_of_teams"/>
+        <property name="minNumberOfTeams" column="minNumberOfTeams"/>
+        <property name="maxNumberOfTeams" column="maxNumberOfTeams"/>
 
         <list name="teams" table="tourney_teams" fetch="join" lazy="false">
             <key column="tourney_id" />

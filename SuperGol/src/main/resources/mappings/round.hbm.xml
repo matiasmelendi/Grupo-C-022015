@@ -6,7 +6,7 @@
         <id column="ID" name="id"/>
 
         <property name="number" column="number" />
-        <property name="halfTourney" column="half_tourney" />
+        <property name="halfTourney" column="halfTourney" />
 
         <list name="matches" table="round_matches" fetch="join" lazy="false">
             <key column="round_id" />

@@ -5,7 +5,7 @@
     <class name="model.Match" table="matches">
         <id column="ID" name="id"/>
 
-        <property name="matchResultSet" column="match_result_set"/>
+        <property name="matchResultSet" column="matchResultSet"/>
 
         <one-to-one name="localTeam" class="model.Team" fetch="join"/>
         <one-to-one name="awayTeam"  class="model.Team" fetch="join"/>

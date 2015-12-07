@@ -1,7 +1,7 @@
 INSERT INTO formations(ID) VALUES (1)
 
 
-INSERT INTO tournies(ID, name, min_number_of_teams, max_number_of_teams) VALUES (1, 'Champions League', 2, 16)
+INSERT INTO tournies(ID, name, minNumberOfTeams, maxNumberOfTeams) VALUES (1, 'Champions League', 2, 16)
 
 
 INSERT INTO teams(ID, name, formation) VALUES (1, 'Pepes Team 1', 1)
@@ -44,18 +44,18 @@ INSERT INTO allowed_players(formation_id, position, number_of_allowed_players_by
 INSERT INTO allowed_players(formation_id, position, number_of_allowed_players_by_position) VALUES (1, 3, 3)
 
 
-INSERT INTO matches(ID, match_result_set) VALUES (1, true)
+INSERT INTO matches(ID, matchResultSet) VALUES (1, true)
 
 
-INSERT INTO match_results(ID, local_points, away_points, match_id, team_id) VALUES (1, 0, 0, 1, 1)
-INSERT INTO match_results(ID, local_points, away_points, match_id, team_id) VALUES (2, 0, 0, 1, 2)
+INSERT INTO match_results(ID, localPoints, awayPoints, match_id, team_id) VALUES (1, 0, 0, 1, 1)
+INSERT INTO match_results(ID, localPoints, awayPoints, match_id, team_id) VALUES (2, 0, 0, 1, 2)
 
 
 INSERT INTO local_scorers(match_result_id, index, player_id) VALUES (1, 0, 1)
 INSERT INTO away_scorers(match_result_id, index, player_id) VALUES (1, 0, 2)
 
 
-INSERT INTO rounds(ID, number, half_tourney) VALUES (1, 0, 0)
+INSERT INTO rounds(ID, number, halfTourney) VALUES (1, 0, 0)
 
 
 INSERT INTO round_matches(round_id, index, match_id) VALUES (1, 0, 1)
