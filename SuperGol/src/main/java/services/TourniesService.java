@@ -4,10 +4,7 @@ import model.Fixture;
 import model.Tourney;
 import repositories.TourniesRepository;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import java.util.List;
 
 @Path("/tournies")
@@ -38,6 +35,22 @@ public class TourniesService {
     @Produces("application/json")
     public Fixture ranking(@PathParam("id") Double id) {
         return this.repository.rankingForATourney(id);
+    }
+
+    @POST
+    @Path("/")
+    @Consumes("application/json")
+    @Produces("application/x-www-form-urlencoded")
+    public void create(Tourney tourney) {
+        this.repository.save(tourney);
+    }
+
+    @PUT
+    @Path("/")
+    @Consumes("application/json")
+    @Produces("application/x-www-form-urlencoded")
+    public void update(Tourney tourney) {
+        this.repository.update(tourney);
     }
 
     //*******************************************************
