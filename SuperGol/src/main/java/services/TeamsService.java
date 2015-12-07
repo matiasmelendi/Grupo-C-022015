@@ -29,13 +29,14 @@ public class TeamsService {
         return this.repository.find(id);
     }
 
+    /*
     @DELETE
     @Path("/{id}")
     @Produces("application/json")
     public void delete(@PathParam("id") Double id) {
         this.repository.delete(id);
     }
-
+    */
 
     @PUT
     @Path("/")
