@@ -29,14 +29,13 @@ public class TeamsService {
         return this.repository.find(id);
     }
 
-    /*
-    @DELETE
-    @Path("/{id}")
-    @Produces("application/json")
-    public void delete(@PathParam("id") Double id) {
-        this.repository.delete(id);
+    @POST
+    @Path("/")
+    @Consumes("application/json")
+    @Produces("application/x-www-form-urlencoded")
+    public void create(Team team) {
+        this.repository.save(team);
     }
-    */
 
     @PUT
     @Path("/")
