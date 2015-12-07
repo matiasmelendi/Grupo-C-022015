@@ -22,13 +22,6 @@ public class PlayersService {
         return this.repository.all();
     }
 
-    @DELETE
-    @Path("/{id}")
-    @Produces("application/json")
-    public void delete(@PathParam("id") Double id) {
-        this.repository.delete(id);
-    }
-
     @GET
     @Path("/{id}")
     @Produces("application/json")
