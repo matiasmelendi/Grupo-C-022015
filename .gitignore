@@ -16,3 +16,6 @@ hs_err_pid*
 SuperGol/.idea
 *.iml
 SuperGol/target
+
+# Config files
+SuperGol/src/main/resources/META-INF/jdbc.properties

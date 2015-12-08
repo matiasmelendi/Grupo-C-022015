@@ -1,4 +1,5 @@
 import exceptions.PositionFull;
+import model.*;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import static org.junit.Assert.*;
 
 public class ScoringRulesTest {
 
-    /** When NoGoals rule */
+    /** When model.NoGoals rule */
     @Test
     public void whenNoGoalsRuleIsAppliedTheTeamGetTwoPoints(){
         ScoringRule rule = new NoGoals();
@@ -64,7 +65,7 @@ public class ScoringRulesTest {
         assertFalse(rule.appliesTo(looserTwo, match));
     }
 
-    /** When WinnerOfTheMatch rule */
+    /** When model.WinnerOfTheMatch rule */
     @Test
     public void whenWinnerOfTheMatchRuleIsAppliedTheTeamGetThreePoints(){
         ScoringRule rule = new WinnerOfTheMatch();
@@ -116,7 +117,7 @@ public class ScoringRulesTest {
         assertFalse(rule.appliesTo(looserTwo, match));
     }
 
-    /** When MidfielderForwardScored rule */
+    /** When model.MidfielderForwardScored rule */
     @Test
     public void whenMidfielderForwardScoredRuleIsAppliedTheTeamGetThreePoints(){
         ScoringRule rule = new MidfielderForwardScored();
@@ -178,7 +179,7 @@ public class ScoringRulesTest {
         assertFalse(rule.appliesTo(teamWithDefenderScorers, match));
     }
 
-    /** When DrawMatch rule */
+    /** When model.DrawMatch rule */
     @Test
     public void whenDrawMatchRuleIsAppliedTheTeamGetThreePoints(){
         ScoringRule rule = new DrawMatch();
@@ -200,7 +201,7 @@ public class ScoringRulesTest {
         assertFalse(rule.appliesTo(anyTeam(), matchWithWinner()));
     }
 
-    /** When DefenderScored rule */
+    /** When model.DefenderScored rule */
     @Test
     public void whenDefenderScoredRuleIsAppliedTheTeamGetThreePoints(){
         ScoringRule rule = new DefenderScored();
@@ -284,7 +285,7 @@ public class ScoringRulesTest {
         try{
             team.addPlayer(player);
         }catch (PositionFull e){
-            fail("Position is Full you can't add another player");
+            fail("model.Position is Full you can't add another player");
         }
 
         return team;

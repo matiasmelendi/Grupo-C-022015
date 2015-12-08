@@ -1,5 +1,6 @@
 import exceptions.FullTourney;
 import exceptions.PositionFull;
+import model.*;
 import org.junit.Test;
 
 import java.util.*;
@@ -131,7 +132,7 @@ public class SuperGolTest {
         try{
             tourney.addTeam(team);
         }catch (FullTourney e){
-            fail("Tourney is Full you can't add another team");
+            fail("model.Tourney is Full you can't add another team");
         }
     }
 
@@ -151,7 +152,7 @@ public class SuperGolTest {
         try {
             team.addPlayer(player);
         } catch (PositionFull e) {
-            fail("Position is Full you can't add another player");
+            fail("model.Position is Full you can't add another player");
         }
 
         return team;
