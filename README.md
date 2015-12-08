@@ -1,7 +1,27 @@
 [![Build Status](https://travis-ci.org/matiasmelendi/Grupo-C-022015.svg?branch=master)](https://travis-ci.org/matiasmelendi/Grupo-C-022015)
 # Grupo-C-022015
-Repositorio del trabajo práctico de Desarrollo de Aplicaciones
 
+## Backend
 
-Para levantar la aplicación java (backend): ```mvn jetty:run``` .
-Luego de esto el servidor queda levantado y escuchando en el puerto 8080
+To install the Application, you should execute the following command in your Command Line: 
+
+    cd SuperGol
+    mvn jetty:run
+
+To run tests you should execute:
+
+    cd SuperGol
+    mvn test
+
+## Frontend
+
+To install the Application Frontend, you should execute the following commands in your Command Line:
+
+    cd SuperGol_Frontend
+    sudo npm install
+    gulp run
+
+To run the Frontend tests, once NPM is installed, you can run:
+
+    cd SuperGol_Frontend
+    gulp tests
