@@ -4,9 +4,7 @@ app.config(function($translateProvider) {
 
             /* Home */
             HOME_MESSAGE: 'Join, choose, play and win!',
-            LOG_IN: 'Log in',
-            SIGN_IN: 'Sign in',
-            START: 'Start!',
+            LOG_IN: 'Log in with Google+',
 
             /* Options */
             TOURNEY: 'Tourney',
@@ -56,9 +54,7 @@ app.config(function($translateProvider) {
 
             /* Home */
             HOME_MESSAGE: 'Unite, elegi y gana!',
-            LOG_IN: 'Ingresa',
-            SIGN_IN: 'Registrate',
-            START: 'Comienza!',
+            LOG_IN: 'Ingresa con Google+',
 
             /* Options */
             TOURNEY: 'Torneo',
