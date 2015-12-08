@@ -1,4 +1,7 @@
 import exceptions.FullTourney;
+import model.Team;
+import model.Tourney;
+import model.UtilFixtureBuilder;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -76,7 +79,7 @@ public class UtilFixtureBuilderTest {
      * Returns any tourney with X amount of Teams.
      *
      * @param amountOfTeams Amount of Teams.
-     * @return A Tourney with X amount of Teams.
+     * @return A model.Tourney with X amount of Teams.
      * @throws FullTourney
      */
     private Tourney anyTourneyWith(Integer amountOfTeams) throws FullTourney {

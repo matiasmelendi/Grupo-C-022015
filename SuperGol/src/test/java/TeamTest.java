@@ -1,5 +1,6 @@
 import exceptions.AbsentCaptain;
 import exceptions.PositionFull;
+import model.*;
 import org.junit.Test;
 import java.util.ArrayList;
 import java.util.List;
@@ -183,7 +184,7 @@ public class TeamTest {
         try{
             team.addPlayer(player);
         }catch (PositionFull e){
-            fail("Position is Full you can't add another player");
+            fail("model.Position is Full you can't add another player");
         }
 
         return team;

@@ -1,4 +1,6 @@
 import exceptions.FullTourney;
+import model.Team;
+import model.Tourney;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -82,7 +84,7 @@ public class TourneyTest {
         try{
             tourney.addTeam(team);
         }catch (FullTourney e){
-            fail("Tourney is Full you can't add another team");
+            fail("model.Tourney is Full you can't add another team");
         }
 
         return tourney;

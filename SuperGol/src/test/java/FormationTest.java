@@ -1,5 +1,9 @@
 import exceptions.PlayerNotFound;
 import exceptions.PositionFull;
+import model.Formation;
+import model.Player;
+import model.Position;
+import model.Team;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -202,7 +206,7 @@ public class FormationTest {
         try{
             formation.addPlayer(player);
         }catch (PositionFull e){
-            fail("Position is Full you can't add another player");
+            fail("model.Position is Full you can't add another player");
         }
 
         return formation;

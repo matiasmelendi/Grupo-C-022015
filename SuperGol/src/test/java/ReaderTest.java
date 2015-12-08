@@ -1,4 +1,6 @@
 import exceptions.UpdateGoalsFromFileFailure;
+import model.Player;
+import model.Reader;
 import org.junit.Test;
 
 import java.io.File;

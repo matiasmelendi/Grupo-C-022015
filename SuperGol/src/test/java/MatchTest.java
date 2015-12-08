@@ -1,5 +1,6 @@
 import exceptions.MatchIsDraw;
 import exceptions.NoMatchResultFound;
+import model.*;
 import org.junit.Test;
 
 import java.util.ArrayList;

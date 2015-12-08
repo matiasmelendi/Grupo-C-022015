@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping default-access="field" default-cascade="save-update">
+
+    <class name="model.Formation" table="formations">
+        <id column="ID" name="id"/>
+
+        <list name="players" table="formation_players" fetch="join" lazy="false">
+            <key column="formation_id" />
+            <list-index column="index" />
+            <many-to-many column="player_id" class="model.Player"/>
+        </list>
+
+        <list name="allowedPlayers" table="allowed_players" fetch="join" lazy="false">
+            <key column="formation_id" />
+            <list-index column="position" />
+            <element type="java.lang.Integer" column="number_of_allowed_players_by_position" />
+        </list>
+
+    </class>
+</hibernate-mapping>

@@ -1,3 +1,6 @@
+import model.Player;
+import model.Position;
+import model.Team;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -37,7 +40,7 @@ public class PlayerTest {
 
         exCaptain.unassignCaptain();
 
-        assertFalse(exCaptain.isCaptain());
+        assertFalse(exCaptain.captain());
     }
 
     private Player captain(){
@@ -52,7 +55,7 @@ public class PlayerTest {
     }
 
     private Player anyPlayerWithPosition(Position position) {
-        return new Player("Player Name", position, anyTeam());
+        return new Player("model.Player Name", position, anyTeam());
     }
 
     private Team anyTeam() {
