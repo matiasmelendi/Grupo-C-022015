@@ -13,6 +13,12 @@
         <div class="team-logo">
             <img src="http://www.tagetik.com/intouch2015/user.png" class="img-thumbnail" alt="Team Logo" ng-model="newTeam.logo">
         </div>
+        <input type="file"
+               ngf-select
+               ng-model="teamLogo"
+               name="file"
+               ngf-max-size="2MB"
+               required>
         <a href="" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {{ 'SELECT_LOGO' | translate }}</a>
     </div>
 

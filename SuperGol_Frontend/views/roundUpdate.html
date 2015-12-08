@@ -33,7 +33,13 @@
                         direction-links="false"
                         boundary-links="true">
                 </dir-pagination-controls>
-                <a class="btn btn-primary upload">Automatic Upload</a>
+                <input type="file"
+                       ngf-select
+                       ng-model="csv"
+                       name="file"
+                       ngf-max-size="2MB"
+                       required>
+                <a ng-click='uploadCSV(csv)' class="btn btn-primary upload">Submit CSV</a>
             </div>
         </form>
     </div>

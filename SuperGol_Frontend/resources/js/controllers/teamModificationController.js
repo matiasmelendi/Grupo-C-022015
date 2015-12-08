@@ -38,6 +38,7 @@ app.controller('TeamModificationCtrl', ['$scope', 'TeamService', 'PlayerService'
     };
 
     $scope.editTeam = function () {
+        $scope.selectedTeam.logo = $scope.teamLogo;
         TeamService.edit($scope.selectedTeam).then(
             function successCallback(response) {
                 console.log('Success.');

@@ -31,6 +31,7 @@ app.controller('TeamCreationCtrl', ['$scope', 'TeamService', 'PlayerService', fu
     };
 
     $scope.createTeam = function () {
+        $scope.newTeam.logo = $scope.teamLogo;
         TeamService.create($scope.newTeam).then(
             function successCallback(response) {
                 console.log('Success.');
