@@ -1,4 +1,4 @@
-app.service('UploadService', function( Upload ) {
+app.service('UploadService', function($rootScope, Upload) {
 
     /* Service API */
     return {
@@ -7,7 +7,7 @@ app.service('UploadService', function( Upload ) {
 
     function uploadCSV(file) {
         file.upload = Upload.upload({
-            url: '/uploadCSV',
+            url: $rootScope.appConfiguration.commonPath + '/uploadCSV',
             data: {file: file}
         });
         return file.upload;

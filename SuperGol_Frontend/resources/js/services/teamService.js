@@ -1,4 +1,4 @@
-app.service('TeamService', function( $http, $q ) {
+app.service('TeamService', function($rootScope, $http, $q) {
 
     /* Service API */
     return {
@@ -11,14 +11,14 @@ app.service('TeamService', function( $http, $q ) {
     function all() {
          return $http({
              method: "get",
-             url: "/teams/all",
+             url: $rootScope.appConfiguration.commonPath + "/teams/all",
          });
     }
 
     function rankingFor(tourneyID) {
          return $http({
              method: "get",
-             url: "/teams/ranking",
+             url: $rootScope.appConfiguration.commonPath + "/teams/ranking",
              params: {
                 tourneyID: tourneyID
              }
@@ -28,7 +28,7 @@ app.service('TeamService', function( $http, $q ) {
     function create(team) {
         return $http({
             method: "post",
-            url: "/teams/create",
+            url: $rootScope.appConfiguration.commonPath + "/teams/create",
             data: team
         });
     }
@@ -36,7 +36,7 @@ app.service('TeamService', function( $http, $q ) {
     function edit(team) {
         return $http({
             method: "post",
-            url: "/teams/edit",
+            url: $rootScope.appConfiguration.commonPath + "/teams/edit",
             data: team
         });
     }

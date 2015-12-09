@@ -1,4 +1,4 @@
-app.service('TourneyService', function( $http, $q ) {
+app.service('TourneyService', function($rootScope, $http, $q) {
 
     /* Service API */
     return {
@@ -10,14 +10,14 @@ app.service('TourneyService', function( $http, $q ) {
     function all() {
          return $http({
              method: "get",
-             url: "/tourney/all",
+             url: $rootScope.appConfiguration.commonPath + "/tourney/all",
          });
     }
 
     function create(tourney) {
         return $http({
              method: "post",
-             url: "/tourney/create",
+             url: $rootScope.appConfiguration.commonPath + "/tourney/create",
              data: tourney
         });
     }
@@ -25,7 +25,7 @@ app.service('TourneyService', function( $http, $q ) {
     function edit(tourney) {
         return $http({
              method: "post",
-             url: "/tourney/edit",
+             url: $rootScope.appConfiguration.commonPath + "/tourney/edit",
              data: tourney
         });
     }
