@@ -1,5 +1,6 @@
 package persistence;
 
+import model.Fixture;
 import model.Team;
 import model.Tourney;
 import org.hibernate.SessionFactory;
@@ -90,6 +91,19 @@ public class TourniesPersistenceTest extends AbstractTransactionalJUnit4SpringCo
         Tourney storedTourney = tourniesRepository.find(tourney.getId());
 
         assertEquals("Another tourney name", storedTourney.name());
+    }
+
+    @Test
+    @Transactional
+    public void testATourneyCouldReturnYourFixture() {
+        Tourney tourney = new Tourney("Tourney test", 0, 4);
+        tourniesRepository.save(tourney);
+
+        Fixture generatedFixtureFromDB = tourniesRepository.rankingForATourney(tourney.getId());
+
+        sessionFactory.getCurrentSession().flush();
+
+        assertEquals(tourney.fixture(), generatedFixtureFromDB);
     }
 
     private List<Tourney> tourniesOnDatabase(){
