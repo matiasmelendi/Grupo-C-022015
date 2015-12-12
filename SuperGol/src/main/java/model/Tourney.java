@@ -52,6 +52,12 @@ public class Tourney {
         return this.fixture().rounds();
     }
 
+    @Override
+    public boolean equals(Object _anotherTourney){
+        Tourney anotherTourney = (Tourney) _anotherTourney;
+
+        return this.name().equals(anotherTourney.name());
+    }
 
     //*******************************
     //It's only used for hibernate.
