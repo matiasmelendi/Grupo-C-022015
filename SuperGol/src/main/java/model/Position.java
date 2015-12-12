@@ -1,5 +1,8 @@
 package model;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public enum Position {
     GOALKEEPER(0),
     DEFENDER(1),
@@ -14,5 +17,17 @@ public enum Position {
 
     public int value() {
         return value;
+    }
+
+    private static Map<Integer, Position> map = new HashMap<Integer, Position>();
+
+    static {
+        for (Position position : Position.values()) {
+            map.put(position.value(), position);
+        }
+    }
+
+    public static Position valueOf(int value) {
+        return map.get(value);
     }
 }
