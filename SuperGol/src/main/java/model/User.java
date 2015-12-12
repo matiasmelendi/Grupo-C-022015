@@ -38,6 +38,13 @@ public class User {
         this.scores.add((int) tourney.getId(), newScore);
     }
 
+    @Override
+    public boolean equals(Object _anotherUser){
+        User anotherUser = (User) _anotherUser;
+
+        return this.username().equals(anotherUser.username());
+    }
+
     //*******************************
     //It's only used for hibernate.
     //*******************************
