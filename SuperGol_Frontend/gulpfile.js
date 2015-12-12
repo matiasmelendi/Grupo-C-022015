@@ -20,7 +20,7 @@ gulp.task('tests-js-models', function () {
     return gulp.src(filesForTest)
         .pipe(watch(filesForTest))
         .pipe(jasmineBrowser.specRunner())
-        .pipe(jasmineBrowser.server({port: 8081}));
+        .pipe(jasmineBrowser.server({port: 8080}));
 });
 
 gulp.task('tests-angular', function () {
@@ -36,7 +36,7 @@ gulp.task('tests-angular', function () {
     return gulp.src(filesForTest)
         .pipe(watch(filesForTest))
         .pipe(jasmineBrowser.specRunner())
-        .pipe(jasmineBrowser.server({port: 8081}));
+        .pipe(jasmineBrowser.server({port: 8080}));
 });
 
 gulp.task('travis', function () {
