@@ -46,6 +46,12 @@ public class Fixture {
         return this.rounds;
     }
 
+    @Override
+    public boolean equals(Object _anotherFixture){
+        Fixture anotherFixture = (Fixture) _anotherFixture;
+
+        return this.getTourney().equals(anotherFixture.getTourney());
+    }
 
     private double id;
 
