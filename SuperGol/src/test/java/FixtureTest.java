@@ -23,6 +23,24 @@ public class FixtureTest {
         assertEquals(10, this.fixture.rounds().size());
     }
 
+    @Test
+    public void twoFixturesWillBeEqualsWhenAreFromSameTourney() throws FullTourney {
+        Tourney tourney = anyTourneyWith(1);
+
+        Fixture fixture1 = new Fixture(tourney);
+        Fixture fixture2 = new Fixture(tourney);
+
+        assertEquals(fixture1, fixture2);
+    }
+
+    @Test
+    public void twoFixturesWillBeDifferentWhenAreFromDifferentTournies() throws FullTourney {
+        Fixture fixture1 = new Fixture(new Tourney("T1",0,2));
+        Fixture fixture2 = new Fixture(new Tourney("T2",0,2));
+
+        assertNotEquals(fixture1, fixture2);
+    }
+
     /**
      * Returns any tourney with X amount of Teams.
      *
