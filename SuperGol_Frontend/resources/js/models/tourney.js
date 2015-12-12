@@ -35,12 +35,13 @@ Tourney.prototype = {
         return validMinAmountOfTeams && validMaxAmountOfTeams;
     },
 
-    configureFromJson(jsonTourney) {
+    configureFromJson: function(jsonTourney) {
         this.id = jsonTourney.id;
         this.name = jsonTourney.name;
         this.minNumberOfTeams = jsonTourney.minNumberOfTeams;
         this.maxNumberOfTeams = jsonTourney.maxNumberOfTeams;
         this.teams = jsonTourney.teams;
+        return this;
     }
 
 };
