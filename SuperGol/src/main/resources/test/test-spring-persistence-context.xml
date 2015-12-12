@@ -86,6 +86,10 @@
         <property name="sessionFactory" ref="persistence.sessionFactory" />
     </bean>
 
+    <bean id="persistence.users" class="repositories.UsersRepository" >
+        <property name="sessionFactory" ref="persistence.sessionFactory" />
+    </bean>
+
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
         <property name="dataSource" ref="persistence.dataSource"/>
     </bean>
