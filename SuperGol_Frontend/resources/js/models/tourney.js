@@ -1,8 +1,9 @@
 function Tourney() {
 
+    this.id = 0;
     this.name = "";
-    this.minimumAmountOfTeams = "";
-    this.maximumAmountOfTeams = "";
+    this.minNumberOfTeams = "";
+    this.maxNumberOfTeams = "";
     this.teams = [];
 
 }
@@ -10,7 +11,7 @@ function Tourney() {
 Tourney.prototype = {
 
     canAddATeam: function() {
-        return this.amountOfTeams() < this.maximumAmountOfTeams;
+        return this.amountOfTeams() < this.maxNumberOfTeams;
     },
 
     addTeam: function(team) {
@@ -26,6 +27,20 @@ Tourney.prototype = {
 
     amountOfTeams: function() {
         return this.teams.length;
+    },
+
+    valid: function() {
+        var validMinAmountOfTeams = this.amountOfTeams() >= this.minNumberOfTeams;
+        var validMaxAmountOfTeams = this.amountOfTeams() <= this.maxNumberOfTeams;
+        return validMinAmountOfTeams && validMaxAmountOfTeams;
+    },
+
+    configureFromJson(jsonTourney) {
+        this.id = jsonTourney.id;
+        this.name = jsonTourney.name;
+        this.minNumberOfTeams = jsonTourney.minNumberOfTeams;
+        this.maxNumberOfTeams = jsonTourney.maxNumberOfTeams;
+        this.teams = jsonTourney.teams;
     }
 
 };

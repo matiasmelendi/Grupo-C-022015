@@ -5,7 +5,7 @@ describe("Tourney", function() {
 
     beforeEach(function() {
         tourney = new Tourney();
-        tourney.maximumAmountOfTeams = 1;
+        tourney.maxNumberOfTeams = 1;
         team = new Team();
     });
 
@@ -34,6 +34,17 @@ describe("Tourney", function() {
 
         tourney.removeTeam(team);
         expect(tourney.amountOfTeams()).toBe(0);
+    });
+
+    it("is valid", function() {
+        tourney.addTeam(team);
+        expect(tourney.valid()).toBe(true);
+    });
+
+    it("is not valid", function() {
+        tourney.addTeam(team);
+        tourney.addTeam(team);
+        expect(tourney.valid()).toBe(false);
     });
 
 });

@@ -1,48 +1,51 @@
 app.controller('TourneyModificationCtrl', ['$scope', 'TeamService', 'TourneyService', function($scope, TeamService, TourneyService) {
 
-    TourneyService.all().then(
-        function successCallback(response) {
-            $scope.tourneys = response;
-        },
-        function errorCallback(response) {
-            console.log('Error.');
-        }
-    );
+    $scope.minAmountOfTeams = 2;
 
     TeamService.all().then(
         function successCallback(response) {
-            $scope.allTeams = response;
+            $scope.allTeams = response.data;
+            $scope.maxAmountOfTeams = $scope.allTeams.length;
         },
         function errorCallback(response) {
-            console.log('Error.');
+            // Error.
+        }
+    );
+
+    TourneyService.all().then(
+        function successCallback(response) {
+            $scope.tourneys = response.data;
+            $scope.selectedTourney = new Tourney().configureFromJson($scope.tourneys[0]);
+        },
+        function errorCallback(response) {
+            // Error.
         }
     );
 
     $scope.editTourney = function () {
         TourneyService.edit($scope.selectedTourney).then(
             function successCallback(response) {
-                console.log('Success.');
+                $scope.editionSuccess = true;
             },
             function errorCallback(response) {
-                console.log('Error.');
+                // Error.
             }
         );
     };
 
-    $scope.select = function(team) {
-        $scope.selectedTourney = team;
-        // filterAlreadySelectedTeams();
+    $scope.select = function(tourney) {
+        $scope.selectedTourney = new Tourney().configureFromJson(tourney);
     };
 
     $scope.addTeam = function(team) {
-        if($scope.tourney.canAddATeam()) {
-            $scope.tourney.addTeam(team);
+        if($scope.selectedTourney.canAddATeam()) {
+            $scope.selectedTourney.addTeam(team);
             removeTeam(team);
         }
     };
 
     $scope.removeTeam = function(team) {
-        $scope.tourney.removeTeam(team);
+        $scope.selectedTourney.removeTeam(team);
         $scope.allTeams.push(team);
     };
 

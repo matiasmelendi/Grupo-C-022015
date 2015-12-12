@@ -2,9 +2,12 @@ app.controller('TourneyCreationCtrl', ['$scope', 'TeamService', 'TourneyService'
 
     $scope.newTourney = new Tourney();
 
+    $scope.minAmountOfTeams = 2;
+
     TeamService.all().then(
         function successCallback(response) {
-            $scope.allTeams = response;
+            $scope.allTeams = response.data;
+            $scope.maxAmountOfTeams = $scope.allTeams.length;
         },
         function errorCallback(response) {
             console.log('Error.');
@@ -23,14 +26,14 @@ app.controller('TourneyCreationCtrl', ['$scope', 'TeamService', 'TourneyService'
     };
 
     $scope.addTeam = function(team) {
-        if($scope.tourney.canAddATeam()) {
-            $scope.tourney.addTeam(team);
+        if($scope.newTourney.canAddATeam()) {
+            $scope.newTourney.addTeam(team);
             removeTeam(team);
         }
     };
 
     $scope.removeTeam = function(team) {
-        $scope.tourney.removeTeam(team);
+        $scope.newTourney.removeTeam(team);
         $scope.allTeams.push(team);
     };
 

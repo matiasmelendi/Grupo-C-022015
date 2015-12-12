@@ -20,7 +20,7 @@ app.config(function($translateProvider) {
 
             /* Tourney */
             TOURNEY_CREATION: 'Tourney Creation',
-            TOURNEY_NAME: 'Tourney Name',
+            TOURNEY_NAME: 'Tourney Name (Min. 4)',
             TOURNEY_MIN_AMOUNT: 'Minimum amount of teams',
             TOURNEY_MAX_AMOUNT: 'Maximum amount of teams',
             AVAILABLE_TEAMS: 'Available Teams',
@@ -70,7 +70,7 @@ app.config(function($translateProvider) {
 
             /* Tourney */
             TOURNEY_CREATION: 'Creacion de Torneo',
-            TOURNEY_NAME: 'Nombre del Torneo',
+            TOURNEY_NAME: 'Nombre del Torneo (Min. 4)',
             TOURNEY_MIN_AMOUNT: 'Min. cantidad de equipos',
             TOURNEY_MAX_AMOUNT: 'Max. cantidad de equipos',
             AVAILABLE_TEAMS: 'Equipos disponibles',

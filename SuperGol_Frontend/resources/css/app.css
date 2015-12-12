@@ -34,12 +34,20 @@ html, body {
     color: #000000;
 }
 
-input.ng-invalid.ng-dirty {
+input.ng-valid {
     border: 1px solid #00ff00;
 }
 
-input.ng-valid.ng-dirty {
+input.ng-invalid {
     border: 1px solid #ff0000;
+}
+
+input.ng-error {
+    border: 1px solid #ff0000;
+}
+
+input.btn[disabled] {
+    color: grey;
 }
 
 .center {
@@ -82,6 +90,10 @@ input.ng-valid.ng-dirty {
 
 .workspace {
     height: 520px;
+}
+
+.simple-form {
+    height: 100%;
 }
 
 /* End Common */

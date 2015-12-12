@@ -5,37 +5,59 @@
 </div>
 
 <div class="workspace" ng-controller="TourneyModificationCtrl">
-
-    <div class="tourney-setup">
-        <div class="setup">
-            <div class="setup-info center">
-                <select class="form-control tourney-select">
-                    <option ng-repeat="tourney in tourneys" ng-click="select(tourney)">{{ tourney.name }}</option>
-                </select>
-                <input type="text" name='team-name' ng-model="tourney.minimumAmountOfTeams" placeholder="{{ 'TOURNEY_MIN_AMOUNT' | translate }}" class="form-control"/>
-                <input type="text" name='team-name' ng-model="tourney.maximumAmountOfTeams" placeholder="{{ 'TOURNEY_MAX_AMOUNT' | translate }}" class="form-control"/>
+    <form name="tourneyCreationForm" novalidate class="simple-form">
+        <div class="tourney-setup">
+            <div class="setup">
+                <div class="setup-info center">
+                    <select class="form-control tourney-select">
+                        <option ng-repeat="tourney in tourneys"
+                            ng-click="select(tourney)">{{ tourney.name }}
+                        </option>
+                    </select>
+                    <input type="number"
+                        name="minNumberOfTeams"
+                        min="{{ minAmountOfTeams }}"
+                        max="{{ selectedTourney.maxNumberOfTeams }}"
+                        ng-model="selectedTourney.minNumberOfTeams"
+                        placeholder="{{ 'TOURNEY_MIN_AMOUNT' | translate }}"
+                        class="form-control"
+                        required />
+                    <input type="number"
+                        name="maxNumberOfTeams"
+                        min="{{ selectedTourney.minNumberOfTeams }}"
+                        max="{{ maxAmountOfTeams }}"
+                        ng-model="selectedTourney.maxNumberOfTeams"
+                        placeholder="{{ 'TOURNEY_MAX_AMOUNT' | translate }}"
+                        class="form-control"
+                        required />
+                </div>
+                <button type="submit"
+                        class="btn btn-primary"
+                        ng-disabled="{{ !selectedTourney.valid() }}"
+                        ng-click="editTourney()">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    {{ 'SAVE' | translate }}
+                </button>
             </div>
-            <a href="#" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {{ 'SAVE' | translate }}</a>
         </div>
-    </div>
 
-    <div class="tourney-selectors">
-        <div class="tourney-selector">
-            <h4>{{ 'AVAILABLE_TEAMS' | translate }}</h4>
-            <div class="team-selector center">
-                <div class="list-group black-text" ng-repeat="availableTeam in allTeams | orderBy:'name'">
-                    <button type="button" class="list-group-item" ng-click="addTeam(availableTeam)">{{ availableTeam.name }}</button>
+        <div class="tourney-selectors">
+            <div class="tourney-selector">
+                <h4>{{ 'AVAILABLE_TEAMS' | translate }}</h4>
+                <div class="team-selector center">
+                    <div class="list-group black-text" ng-repeat="availableTeam in allTeams | orderBy:'name'">
+                        <button type="button" class="list-group-item" ng-click="addTeam(availableTeam)">{{ availableTeam.name }}</button>
+                    </div>
+                </div>
+            </div>
+            <div class="tourney-selector">
+                <h4>{{ 'SELECTED_TEAMS' | translate }}</h4>
+                <div class="team-selector center">
+                    <div class="list-group black-text" ng-repeat="selectedTeam in selectedTourney.teams | orderBy:'name'">
+                        <button type="button" class="list-group-item" ng-click="removeTeam(selectedTeam)">{{ selectedTeam.name }}</button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="tourney-selector">
-            <h4>{{ 'SELECTED_TEAMS' | translate }}</h4>
-            <div class="team-selector center">
-                <div class="list-group black-text" ng-repeat="selectedTeam in tourney.teams | orderBy:'name'">
-                    <button type="button" class="list-group-item" ng-click="removeTeam(selectedTeam)">{{ selectedTeam.name }}</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
+    </form>
 </div>

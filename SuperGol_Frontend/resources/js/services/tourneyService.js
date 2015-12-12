@@ -9,23 +9,23 @@ app.service('TourneyService', function($rootScope, $http, $q) {
 
     function all() {
          return $http({
-             method: "get",
-             url: $rootScope.appConfiguration.commonPath + "/tourney/all",
+             method: "GET",
+             url: $rootScope.appConfiguration.commonPath + "/tournies/all",
          });
     }
 
     function create(tourney) {
         return $http({
-             method: "post",
-             url: $rootScope.appConfiguration.commonPath + "/tourney/create",
+             method: "POST",
+             url: $rootScope.appConfiguration.commonPath + "/tournies/",
              data: tourney
         });
     }
 
     function edit(tourney) {
         return $http({
-             method: "post",
-             url: $rootScope.appConfiguration.commonPath + "/tourney/edit",
+             method: "PUT",
+             url: $rootScope.appConfiguration.commonPath + "/tournies/",
              data: tourney
         });
     }
