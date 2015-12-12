@@ -77,6 +77,22 @@ public class TourneyTest {
         assertEquals(2, aTourneyWithTeams.rounds().size());
     }
 
+    @Test
+    public void twoTourniesWithTheSameNameAreEquals(){
+        Tourney aTourney = new Tourney("Tourney", 2, 4);
+        Tourney anotherTourney = new Tourney("Tourney", 0, 3);
+
+        assertEquals(aTourney, anotherTourney);
+    }
+
+    @Test
+    public void twoTourniesWithDifferentNamesAreNotEquals(){
+        Tourney aTourney = new Tourney("Tourney", 2, 4);
+        Tourney anotherTourney = new Tourney("Another Tourney", 2, 4);
+
+        assertNotEquals(aTourney, anotherTourney);
+    }
+
     /*
     * Helper methods
     * */
