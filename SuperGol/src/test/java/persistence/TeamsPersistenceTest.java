@@ -1,3 +1,5 @@
+package persistence;
+
 import model.Team;
 import org.hibernate.SessionFactory;
 import org.junit.Test;
