@@ -6,7 +6,7 @@
     <class name="model.User" table="users">
         <id column="ID" name="id"/>
 
-        <property name="username" column="username"/>
+        <property name="username" column="username" unique="true"/>
         <property name="password" column="password"/>
 
         <list name="scores" table="tourney_scores" fetch="join">
