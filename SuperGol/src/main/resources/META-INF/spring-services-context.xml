@@ -20,6 +20,7 @@
             <ref bean="services.players" />
             <ref bean="services.teams" />
             <ref bean="services.tournies" />
+            <ref bean="services.users" />
         </jaxrs:serviceBeans>
         <jaxrs:extensionMappings>
             <entry key="json" value="application/json" />
@@ -46,5 +47,8 @@
         <property name="repository" ref="persistence.tournies" />
     </bean>
 
+    <bean id="services.users" class="services.UsersService">
+        <property name="repository" ref="persistence.users" />
+    </bean>
 
 </beans>
