@@ -1,7 +1,6 @@
 package persistence;
 
 import model.Fixture;
-import model.Team;
 import model.Tourney;
 import org.hibernate.SessionFactory;
 import org.junit.Test;
@@ -24,7 +23,6 @@ import static org.junit.Assert.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:test/test-spring-persistence-context.xml" })
 public class TourniesPersistenceTest extends AbstractTransactionalJUnit4SpringContextTests {
-
 
     @Autowired
     private SessionFactory sessionFactory;
