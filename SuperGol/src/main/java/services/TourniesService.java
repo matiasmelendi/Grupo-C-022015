@@ -26,14 +26,14 @@ public class TourniesService {
     @GET
     @Path("/{id}")
     @Produces("application/json")
-    public Tourney find(@PathParam("id") Double id) {
+    public Tourney find(@PathParam("id") Integer id) {
         return this.repository.find(id);
     }
 
     @GET
     @Path("/{id}/ranking")
     @Produces("application/json")
-    public Fixture ranking(@PathParam("id") Double id) {
+    public Fixture ranking(@PathParam("id") Integer id) {
         return this.repository.rankingForATourney(id);
     }
 

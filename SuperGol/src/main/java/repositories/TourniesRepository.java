@@ -6,7 +6,7 @@ import repositories.protocols.TourniesRepositoryProtocol;
 
 public class TourniesRepository extends GenericRepository<Tourney> implements TourniesRepositoryProtocol {
 
-    public Fixture rankingForATourney(Double id){
+    public Fixture rankingForATourney(Integer id){
         return this.find(id).fixture();
     }
 

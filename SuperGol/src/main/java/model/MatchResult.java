@@ -39,7 +39,6 @@ public class MatchResult {
     //*******************************
     //It's only used for hibernate.
     //*******************************
-    private double id;
 
     public MatchResult(){
 
@@ -86,12 +85,15 @@ public class MatchResult {
         this.match = match;
     }
 
-    public double getId() {
+    private int id;
+
+    public int getId() {
         return id;
     }
 
-    public void setId(double id) {
+    public void setId(int id) {
         this.id = id;
     }
+
 
 }

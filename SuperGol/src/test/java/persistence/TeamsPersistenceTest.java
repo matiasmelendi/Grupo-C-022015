@@ -99,7 +99,7 @@ public class TeamsPersistenceTest extends AbstractTransactionalJUnit4SpringConte
 
         for (Map row : rows) {
             Team team = new Team();
-            team.setId((Double)(row.get("ID")));
+            team.setId((Integer)(row.get("ID")));
             team.setName((String) row.get("NAME"));
             teams.add(team);
         }

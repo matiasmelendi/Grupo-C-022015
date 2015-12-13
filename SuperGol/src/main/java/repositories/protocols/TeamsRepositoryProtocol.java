@@ -10,7 +10,7 @@ public interface TeamsRepositoryProtocol {
 
     void update(Team team);
 
-    void delete(Double id);
+    void delete(Integer id);
 
-    Team find(Double id);
+    Team find(Integer id);
 }

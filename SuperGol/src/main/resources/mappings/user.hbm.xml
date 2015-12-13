@@ -4,9 +4,9 @@
 <hibernate-mapping default-access="field" default-cascade="save-update">
 
     <class name="model.User" table="users">
-        <id column="ID" name="id"/>
+        <id column="ID" name="id" type="int"> <generator class="increment"/> </id>
 
-        <property name="username" column="username"/>
+        <property name="username" column="username" unique="true"/>
         <property name="password" column="password"/>
 
         <list name="scores" table="tourney_scores" fetch="join">
@@ -15,6 +15,6 @@
             <element type="java.lang.Integer" />
         </list>
 
-        <many-to-one name="team" column="team" unique="true" class="model.Team" fetch="join"/>
+        <many-to-one name="team" column="team" not-null="false" unique="true" class="model.Team" fetch="join"/>
     </class>
 </hibernate-mapping>

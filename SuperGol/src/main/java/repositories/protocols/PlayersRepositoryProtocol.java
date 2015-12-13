@@ -8,8 +8,8 @@ public interface PlayersRepositoryProtocol {
 
     List<Player> all();
 
-    void delete(Double id);
+    void delete(Integer id);
 
-    Player find(Double id);
+    Player find(Integer id);
 
 }

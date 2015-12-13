@@ -95,7 +95,6 @@ public class Player {
     //*******************************
     //It's only used for hibernate.
     //*******************************
-    private double id;
 
     public Player(){
 
@@ -134,12 +133,15 @@ public class Player {
         this.captain = captain;
     }
 
-    public double getId() {
+    private int id;
+
+    public int getId() {
         return id;
     }
 
-    public void setId(double id) {
+    public void setId(int id) {
         this.id = id;
     }
+
 
 }
