@@ -33,6 +33,14 @@ public class UsersService {
         this.repository.update(user);
     }
 
+    @POST
+    @Path("/find-or-create")
+    @Consumes("application/json")
+    @Produces("application/x-www-form-urlencoded")
+    public User findOrCreate(User user) {
+        return this.repository.findOrCreate(user);
+    }
+
     //*******************************************************
     //           Only used by spring only
     //*******************************************************

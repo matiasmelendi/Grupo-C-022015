@@ -105,6 +105,45 @@ public class UsersPersistenceTest extends AbstractTransactionalJUnit4SpringConte
         sessionFactory.getCurrentSession().flush();
     }
 
+    @Test
+    @Transactional
+    public void testFindByUsernameWithoutUsersShouldReturnNothing(){
+
+        assertEquals(null, usersRepository.findByUsername("Any username"));
+    }
+
+    @Test
+    @Transactional
+    public void testFindByUsernameShouldReturnTheUserWhenExists(){
+        User user = new User("User test", "1234", new Team("Test team"));
+
+        usersRepository.save(user);
+        sessionFactory.getCurrentSession().flush();
+
+        assertEquals(user, usersRepository.findByUsername("User test"));
+    }
+
+    @Test
+    @Transactional
+    public void testFindOrCreateShouldReturnTheUserWhenExists(){
+        User user = new User("User test", "1234", new Team("Test team"));
+
+        usersRepository.save(user);
+        sessionFactory.getCurrentSession().flush();
+
+        assertEquals(user, usersRepository.findOrCreate(user));
+    }
+
+    @Test
+    @Transactional
+    public void testFindOrCreateShouldCreateTheUserWhenItDoesNotExistsAndReturnIt(){
+        User user = new User("User test", "1234", new Team("Test team"));
+
+        assertEquals(user, usersRepository.findOrCreate(user));
+        assertEquals(1, usersOnDatabase().size());
+        assertTrue(usersOnDatabase().contains(user));
+    }
+
     private List<User> usersOnDatabase(){
 
         String query = "SELECT * FROM users";
