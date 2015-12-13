@@ -13,7 +13,7 @@ public class UsersService {
     @GET
     @Path("/{id}")
     @Produces("application/json")
-    public User find(@PathParam("id") Double id){
+    public User find(@PathParam("id") Integer id){
         return this.repository.find(id);
     }
 

@@ -25,7 +25,7 @@ public class PlayersService {
     @GET
     @Path("/{id}")
     @Produces("application/json")
-    public Player find(@PathParam("id") Double id) {
+    public Player find(@PathParam("id") Integer id) {
         return this.repository.find(id);
     }
 

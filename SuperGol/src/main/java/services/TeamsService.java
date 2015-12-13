@@ -25,7 +25,7 @@ public class TeamsService {
     @GET
     @Path("/{id}")
     @Produces("application/json")
-    public Team find(@PathParam("id") Double id){
+    public Team find(@PathParam("id") Integer id){
         return this.repository.find(id);
     }
 
