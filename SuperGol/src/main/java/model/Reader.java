@@ -1,9 +1,11 @@
 package model;
 
 import com.opencsv.CSVReader;
+import exceptions.FileHasNoHeaderID;
 import exceptions.UpdateGoalsFromFileFailure;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
@@ -21,6 +23,18 @@ public class Reader {
             throw new UpdateGoalsFromFileFailure();
         }
         return result;
+    }
+
+    public static Integer getHeaderID(File file) throws IOException, FileHasNoHeaderID {
+        CSVReader reader = new CSVReader(new FileReader(file));
+        try{
+
+            String[] header = reader.readNext();
+            return Integer.valueOf(header[0]);
+
+        } catch (NullPointerException e){
+            throw new FileHasNoHeaderID();
+        }
     }
 
     private static void addPlayerScore(Map<Player, Integer> result, CSVReader reader) throws IOException {
