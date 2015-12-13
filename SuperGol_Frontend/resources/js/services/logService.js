@@ -1,27 +1,17 @@
-app.service('LogService', function( $rootScope, store ) {
+app.service('LogService', function( $rootScope, GenericService ) {
 
     var userLogged;
 
     /* Service API */
     return {
-        logIn: logIn,
-        logOff: logOff,
-        someoneLogged: someoneLogged
+        findOrCreate: findOrCreate
     };
 
-    function someoneLogged() {
-        return userLogged;
-    }
-
-    function logIn() {
-        userLogged = true;
-        $rootScope.$broadcast('event', true);
-    }
-
-
-    function logOff() {
-        userLogged = false;
-        $rootScope.$broadcast('event', true);
+    function findOrCreate(email, token) {
+        return GenericService.doPost('/users/find-or-create', {
+            username: "",
+            password: ""
+        }, {});
     }
 
 });

@@ -1,4 +1,4 @@
-app.service('TourneyService', function($rootScope, $http, $q) {
+app.service('TourneyService', function(GenericService) {
 
     /* Service API */
     return {
@@ -8,26 +8,15 @@ app.service('TourneyService', function($rootScope, $http, $q) {
     };
 
     function all() {
-         return $http({
-             method: "GET",
-             url: $rootScope.appConfiguration.commonPath + "/tournies/all",
-         });
+         return GenericService.doGet('/tournies/all', {}, {});
     }
 
     function create(tourney) {
-        return $http({
-             method: "POST",
-             url: $rootScope.appConfiguration.commonPath + "/tournies/",
-             data: tourney
-        });
+        return GenericService.doPost('/tournies/', tourney, {});
     }
 
     function edit(tourney) {
-        return $http({
-             method: "PUT",
-             url: $rootScope.appConfiguration.commonPath + "/tournies/",
-             data: tourney
-        });
+        return GenericService.doPut('/tournies/', data, {});
     }
 
 });

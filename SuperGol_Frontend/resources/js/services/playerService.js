@@ -1,4 +1,4 @@
-app.service('PlayerService', function($rootScope, $http, $q) {
+app.service('PlayerService', function(GenericService) {
 
     /* Service API */
     return {
@@ -6,10 +6,7 @@ app.service('PlayerService', function($rootScope, $http, $q) {
     };
 
     function all() {
-         return $http({
-             method: "GET",
-             url: $rootScope.appConfiguration.commonPath + "/players/all"
-         });
+         return GenericService.doGet('/players/all', {}, {});
     }
 
 });

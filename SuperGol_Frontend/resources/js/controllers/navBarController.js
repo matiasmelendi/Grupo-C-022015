@@ -1,10 +1,14 @@
-app.controller('NavBarCtrl', ['$scope', '$rootScope', '$translate', 'auth', 'store', 'LogService', function($scope, $rootScope, $translate, auth, store, LogService) {
+app.controller('NavBarCtrl', ['$scope', '$rootScope', '$translate', 'auth', 'store', function($scope, $rootScope, $translate, auth, store) {
 
-    $scope.userLogged = LogService.someoneLogged();
+    $scope.store = store;
 
-    $rootScope.$on('event', function() {
-        $scope.userLogged = LogService.someoneLogged();
-    });
+    $scope.userIsLogged = function () {
+        return $scope.store.get('currentUser') != null;
+    };
+
+    $scope.userHasTeam = function () {
+        return $scope.store.get('currentUser').hasATeam();
+    };
 
     $scope.changeLanguage = function (langKey) {
         $translate.use(langKey);
@@ -14,7 +18,7 @@ app.controller('NavBarCtrl', ['$scope', '$rootScope', '$translate', 'auth', 'sto
         auth.signout();
         store.remove('profile');
         store.remove('token');
-        LogService.logOff();
+        store.remove('currentUser');
     };
 
 }]);
