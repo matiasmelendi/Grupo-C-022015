@@ -62,11 +62,21 @@ public class Tourney {
     //*******************************
     //It's only used for hibernate.
     //*******************************
-    private double id;
 
     public Tourney(){
 
     }
+
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 
     public String getName() {
         return name;
@@ -98,14 +108,6 @@ public class Tourney {
 
     public void setTeams(List<Team> teams) {
         this.teams = teams;
-    }
-
-    public double getId() {
-        return id;
-    }
-
-    public void setId(double id) {
-        this.id = id;
     }
 
 }

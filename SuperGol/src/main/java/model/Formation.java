@@ -74,7 +74,6 @@ public class Formation {
     //*******************************
     //It's only used for hibernate.
     //*******************************
-    private double id;
 
     public Formation(){
 
@@ -96,11 +95,14 @@ public class Formation {
         this.allowedPlayers = allowedPlayers;
     }
 
-    public double getId() {
+    private int id;
+
+    public int getId() {
         return id;
     }
 
-    public void setId(double id) {
+    public void setId(int id) {
         this.id = id;
     }
+
 }

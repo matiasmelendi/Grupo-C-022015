@@ -4,7 +4,7 @@
 <hibernate-mapping default-access="field" default-cascade="save-update">
 
     <class name="model.Formation" table="formations">
-        <id column="ID" name="id"/>
+        <id column="ID" name="id" type="int"> <generator class="increment"/> </id>
 
         <list name="players" table="formation_players" fetch="join" lazy="false">
             <key column="formation_id" />
