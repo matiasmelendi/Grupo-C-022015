@@ -94,7 +94,7 @@ public class UsersPersistenceTest extends AbstractTransactionalJUnit4SpringConte
         assertEquals("Another username", storedUser.username());
     }
 
-    @Test(expected=org.springframework.dao.DuplicateKeyException.class)
+    @Test(expected=org.springframework.dao.DataIntegrityViolationException.class)
     @Transactional
     public void testUsernameIsUnique(){
         User user1 = new User("User test", "1234", new Team("Test team"));
@@ -154,9 +154,9 @@ public class UsersPersistenceTest extends AbstractTransactionalJUnit4SpringConte
 
         for (Map row : rows) {
             User user = new User();
-            user.setId((Double)(row.get("ID")));
+            user.setId((Integer)(row.get("ID")));
             user.setUsername((String) row.get("USERNAME"));
-            user.setTeam(teamsRepository.find((Double) row.get("TEAM")));
+            user.setTeam(teamsRepository.find((Integer) row.get("TEAM")));
             users.add(user);
         }
 

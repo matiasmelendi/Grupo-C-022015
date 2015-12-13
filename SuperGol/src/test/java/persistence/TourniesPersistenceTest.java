@@ -116,7 +116,7 @@ public class TourniesPersistenceTest extends AbstractTransactionalJUnit4SpringCo
 
         for (Map row : rows) {
             Tourney tourney = new Tourney();
-            tourney.setId((Double)(row.get("ID")));
+            tourney.setId((Integer)(row.get("ID")));
             tourney.setName((String) row.get("NAME"));
             tourney.setMinNumberOfTeams((Integer) row.get("minNumberOfTeams"));
             tourney.setMaxNumberOfTeams((Integer) row.get("maxNumberOfTeams"));

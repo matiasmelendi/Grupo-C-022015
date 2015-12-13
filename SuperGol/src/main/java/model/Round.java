@@ -77,9 +77,6 @@ public class Round {
         return this.matches;
     }
 
-
-    private double id;
-
     public Round(){
 
     }
@@ -116,11 +113,14 @@ public class Round {
         this.halfTourney = halfTourney;
     }
 
-    public double getId() {
+    private int id;
+
+    public int getId() {
         return id;
     }
 
-    public void setId(double id) {
+    public void setId(int id) {
         this.id = id;
     }
+
 }

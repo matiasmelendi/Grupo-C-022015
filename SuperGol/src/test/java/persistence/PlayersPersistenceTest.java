@@ -115,11 +115,11 @@ public class PlayersPersistenceTest extends AbstractTransactionalJUnit4SpringCon
 
         for (Map row : rows) {
             Player player = new Player();
-            player.setId((Double)(row.get("ID")));
+            player.setId((Integer)(row.get("ID")));
             player.setName((String) row.get("NAME"));
             player.setPosition(Position.valueOf((Integer)row.get("POSITION")));
             player.setCaptain((Boolean) row.get("CAPTAIN"));
-            player.setTeam(teamsRepository.find((Double) row.get("TEAM")));
+            player.setTeam(teamsRepository.find((Integer) row.get("TEAM")));
             players.add(player);
         }
 

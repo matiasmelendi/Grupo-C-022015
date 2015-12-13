@@ -3,7 +3,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="field" default-cascade="save-update">
     <class name="model.MatchResult" table="match_results">
-        <id column="ID" name="id"/>
+        <id column="ID" name="id" type="int"> <generator class="increment"/> </id>
 
         <property name="localPoints" column="localPoints" />
         <property name="awayPoints" column="awayPoints" />

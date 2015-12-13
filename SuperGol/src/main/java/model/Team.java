@@ -86,7 +86,6 @@ public class Team {
     //*******************************
     //It's only used for hibernate.
     //*******************************
-    private double id;
 
     public Team(){
 
@@ -125,12 +124,15 @@ public class Team {
         this.matchResults = matchResults;
     }
 
-    public double getId() {
+    private int id;
+
+    public int getId() {
         return id;
     }
 
-    public void setId(double id) {
+    public void setId(int id) {
         this.id = id;
     }
+
 
 }
