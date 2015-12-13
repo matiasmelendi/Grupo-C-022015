@@ -1,7 +1,7 @@
 function Team() {
 
     this.name = '';
-    this.logo = '';
+    this.logo = null;
     this.formation = new Formation(3, 4, 3);
 
 };
@@ -15,6 +15,13 @@ Team.prototype = {
     addPlayer: function(player) {
         if (this.canAddPlayer(player))
             this.formation.addPlayer(player);
+    },
+
+    isFull: function() {
+        return this.formation.fullGoalkeepers()
+            && this.formation.fullDefenders()
+            && this.formation.fullMidfielders()
+            && this.formation.fullForwards();
     },
 
     removePlayer: function(player) {

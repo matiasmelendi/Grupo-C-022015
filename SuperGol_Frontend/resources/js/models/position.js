@@ -1,13 +1,13 @@
-function Position(number) {
+function Position(name) {
 
-    this.number = number;
+    this.name = name;
 
 };
 
 Position.prototype = {
 
     equals: function(anotherPosition) {
-        return this.number == anotherPosition.number;
+        return this.name == anotherPosition.name;
     }
 
 };

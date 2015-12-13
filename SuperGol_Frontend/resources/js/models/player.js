@@ -1,6 +1,6 @@
-function Player(name, positionNumber) {
+function Player(name, positionName) {
 
     this.name = name;
-    this.position = new Position(positionNumber);
+    this.position = new Position(positionName);
 
 };

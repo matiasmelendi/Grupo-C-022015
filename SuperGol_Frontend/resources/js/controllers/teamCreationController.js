@@ -4,10 +4,17 @@ app.controller('TeamCreationCtrl', ['$scope', 'TeamService', 'PlayerService', fu
 
     PlayerService.all().then(
         function successCallback(response) {
-            $scope.allPlayers = response;
+            var jsonPlayers = response.data;
+            var allPlayers = [];
+            for(var i = 0; i < jsonPlayers.length; i++) {
+                var currentPlayer = jsonPlayers[i];
+                var newPlayer = new Player(currentPlayer.name, currentPlayer.position);
+                allPlayers.push(newPlayer);
+            }
+            $scope.allPlayers = allPlayers;
         },
         function errorCallback(response) {
-            console.log('Error.');
+            console.log(response);
         }
     );
 
@@ -31,13 +38,13 @@ app.controller('TeamCreationCtrl', ['$scope', 'TeamService', 'PlayerService', fu
     };
 
     $scope.createTeam = function () {
-        $scope.newTeam.logo = $scope.teamLogo;
         TeamService.create($scope.newTeam).then(
             function successCallback(response) {
                 console.log('Success.');
+                $scope.newTeam = new Team();
             },
             function errorCallback(response) {
-                console.log('Error.');
+                console.log(response);
             }
         );
     };

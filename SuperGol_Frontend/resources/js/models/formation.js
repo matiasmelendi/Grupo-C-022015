@@ -2,10 +2,10 @@ function Formation(allowedDefenders, allowedMidfielders, allowedForwards) {
 
     this.players = new Array();
     this.positions = new HashTable();
-    this.positions.put(new Position(1), 1);
-    this.positions.put(new Position(2), allowedDefenders);
-    this.positions.put(new Position(3), allowedMidfielders);
-    this.positions.put(new Position(4), allowedForwards);
+    this.positions.put(new Position('GOALKEEPER'), 1);
+    this.positions.put(new Position('DEFENDER'), allowedDefenders);
+    this.positions.put(new Position('MIDFIELDER'), allowedMidfielders);
+    this.positions.put(new Position('FORWARD'), allowedForwards);
 
 }
 
@@ -45,35 +45,35 @@ Formation.prototype = {
     },
 
     goalkeepers: function() {
-        return this.playersOnPosition(new Position(1)).length;
+        return this.playersOnPosition(new Position('GOALKEEPER')).length;
     },
 
     fullGoalkeepers: function() {
-        return this.fullPosition(this.goalkeepers(), new Position(1));
+        return this.fullPosition(this.goalkeepers(), new Position('GOALKEEPER'));
     },
 
     defenders: function() {
-        return this.playersOnPosition(new Position(2)).length;
+        return this.playersOnPosition(new Position('DEFENDER')).length;
     },
 
     fullDefenders: function() {
-        return this.fullPosition(this.defenders(), new Position(2));
+        return this.fullPosition(this.defenders(), new Position('DEFENDER'));
     },
 
     midfielders: function() {
-        return this.playersOnPosition(new Position(3)).length;
+        return this.playersOnPosition( new Position('MIDFIELDER')).length;
     },
 
     fullMidfielders: function() {
-        return this.fullPosition(this.midfielders(), new Position(3));
+        return this.fullPosition(this.midfielders(),  new Position('MIDFIELDER'));
     },
 
     forwards: function() {
-        return this.playersOnPosition(new Position(4)).length;
+        return this.playersOnPosition(new Position('FORWARD')).length;
     },
 
     fullForwards: function() {
-        return this.fullPosition(this.forwards(), new Position(4));
+        return this.fullPosition(this.forwards(), new Position('FORWARD'));
     },
 
     fullPosition: function(checkingPosition, position) {

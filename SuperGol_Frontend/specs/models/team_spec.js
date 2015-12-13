@@ -1,7 +1,7 @@
 describe("Team", function() {
 
     var team;
-    var goalkeeper = new Player('David', 1);
+    var goalkeeper = new Player('David', 'GOALKEEPER');
 
     beforeEach(function() {
         team = new Team();
@@ -14,7 +14,7 @@ describe("Team", function() {
 
     it("should not have name and logo", function() {
         expect(team.name).toEqual('');
-        expect(team.logo).toEqual('');
+        expect(team.logo).toBeNull();
     });
 
     it("should not have any players when created", function() {
