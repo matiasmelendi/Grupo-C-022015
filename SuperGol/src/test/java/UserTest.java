@@ -31,6 +31,22 @@ public class UserTest {
         assertEquals(pepe.scoreFor(aTourney), Integer.valueOf(15));
     }
 
+    @Test
+    public void twoUsersShouldBeEqualsWhenUsernameAreTheSame(){
+        User userOne = new User("USER","", null);
+        User userTwo = new User("USER","123", null);
+
+        assertEquals(userOne, userTwo);
+    }
+
+    @Test
+    public void twoUsersShouldBeDifferentWhenUsernameAreNotTheSame(){
+        User userOne = new User("USER1","", null);
+        User userTwo = new User("USER2","", null);
+
+        assertNotEquals(userOne, userTwo);
+    }
+
     private void addTeamToTourney(Team team, Tourney tourney){
         try{
             tourney.addTeam(team);
