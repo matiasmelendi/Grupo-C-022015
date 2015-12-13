@@ -36,7 +36,7 @@ public class UsersService {
     @POST
     @Path("/find-or-create")
     @Consumes("application/json")
-    @Produces("application/x-www-form-urlencoded")
+    @Produces("application/json")
     public User findOrCreate(User user) {
         return this.repository.findOrCreate(user);
     }
