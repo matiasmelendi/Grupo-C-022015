@@ -159,7 +159,10 @@ public class TeamTest {
     }
 
     private Player anyPlayer(){
-        return new Player("Pepe", Position.DEFENDER, anyTeam());
+        Player player = new Player("Pepe", Position.DEFENDER);
+        player.addTeam(anyTeam());
+
+        return player;
     }
 
     private Team anyTeam(){
@@ -167,7 +170,8 @@ public class TeamTest {
     }
 
     private Player messi(){
-        Player messi = new Player("Leo Messi", Position.FORWARD, anyTeam());
+        Player messi = new Player("Leo Messi", Position.FORWARD);
+        messi.addTeam(anyTeam());
         messi.becomeCaptain();
 
         return messi;

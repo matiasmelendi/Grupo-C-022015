@@ -238,7 +238,10 @@ public class FormationTest {
     }
 
     private Player anyPlayer(){
-        return new Player("Pepe", Position.DEFENDER, anyTeam());
+        Player player = new Player("Pepe", Position.DEFENDER);
+        player.addTeam(anyTeam());
+
+        return player;
     }
 
     private Formation aFormation(){

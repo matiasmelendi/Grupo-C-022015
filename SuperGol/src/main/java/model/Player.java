@@ -2,11 +2,14 @@ package model;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Player {
 
     private String name;
     private Position position;
-    private Team team;
+    private List<Team> teams;
     private Boolean captain;
 
     /**
@@ -14,13 +17,16 @@ public class Player {
      *
      * @param name     Name of the model.Player.
      * @param position model.Position of the model.Player.
-     * @param team     model.Team of the model.Player.
      */
-    public Player(String name, Position position, Team team) {
+    public Player(String name, Position position) {
         this.name = name;
         this.position = position;
-        this.team = team;
+        this.teams = new ArrayList<Team>();
         this.captain = Boolean.FALSE;
+    }
+
+    public void addTeam(Team team){
+        this.teams.add(team);
     }
 
     /**
@@ -78,8 +84,8 @@ public class Player {
      *
      * @return This player team.
      */
-    public Team team() {
-        return this.team;
+    public List<Team> teams() {
+        return this.teams;
     }
 
     @Override
@@ -88,7 +94,6 @@ public class Player {
 
         return this.name().equals(anotherPlayer.name()) &&
                this.position().equals(anotherPlayer.position()) &&
-               this.team().equals(anotherPlayer.team()) &&
                this.captain().equals(anotherPlayer.captain());
     }
 
@@ -109,12 +114,12 @@ public class Player {
     }
 
     @JsonIgnore
-    public Team getTeam() {
-        return team;
+    public List<Team> getTeams() {
+        return teams;
     }
 
-    public void setTeam(Team team) {
-        this.team = team;
+    public void setTeams(List<Team> teams) {
+        this.teams = teams;
     }
 
     public Position getPosition() {

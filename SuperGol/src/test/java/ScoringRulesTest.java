@@ -131,7 +131,8 @@ public class ScoringRulesTest {
         List<Player> emptyListOfScorers = new ArrayList<Player>();
         List<Player> listOfScorers = new ArrayList<Player>();
         Team teamWithMidfielderScorers = new Team("With Midfielder Scorers");
-        Player midfielderScorer = new Player("Pepe", Position.MIDFIELDER, teamWithMidfielderScorers);
+        Player midfielderScorer = new Player("Pepe", Position.MIDFIELDER);
+        midfielderScorer.addTeam(teamWithMidfielderScorers);
         addPlayerToTeam(teamWithMidfielderScorers, midfielderScorer);
 
         listOfScorers.add(midfielderScorer);
@@ -149,7 +150,8 @@ public class ScoringRulesTest {
         List<Player> emptyListOfScorers = new ArrayList<Player>();
         List<Player> listOfScorers = new ArrayList<Player>();
         Team teamWithForwardScorers = new Team("With Forward Scorers");
-        Player forwardScorer = new Player("Pepe", Position.FORWARD, teamWithForwardScorers);
+        Player forwardScorer = new Player("Pepe", Position.FORWARD);
+        forwardScorer.addTeam(teamWithForwardScorers);
         addPlayerToTeam(teamWithForwardScorers, forwardScorer);
 
         listOfScorers.add(forwardScorer);
@@ -167,7 +169,8 @@ public class ScoringRulesTest {
         List<Player> emptyListOfScorers = new ArrayList<Player>();
         List<Player> listOfScorers = new ArrayList<Player>();
         Team teamWithDefenderScorers = new Team("With Defender Scorers");
-        Player defenderScorer = new Player("Pepe", Position.DEFENDER, teamWithDefenderScorers);
+        Player defenderScorer = new Player("Pepe", Position.DEFENDER);
+        defenderScorer.addTeam(teamWithDefenderScorers);
         addPlayerToTeam(teamWithDefenderScorers, defenderScorer);
 
         listOfScorers.add(defenderScorer);
@@ -215,7 +218,8 @@ public class ScoringRulesTest {
         List<Player> emptyListOfScorers = new ArrayList<Player>();
         List<Player> listOfScorers = new ArrayList<Player>();
         Team teamWithDefenderScorers = new Team("With Defender Scorers");
-        Player defenderScorer = new Player("Pepe", Position.DEFENDER, teamWithDefenderScorers);
+        Player defenderScorer = new Player("Pepe", Position.DEFENDER);
+        defenderScorer.addTeam(teamWithDefenderScorers);
         addPlayerToTeam(teamWithDefenderScorers, defenderScorer);
 
         listOfScorers.add(defenderScorer);
@@ -233,7 +237,8 @@ public class ScoringRulesTest {
         List<Player> emptyListOfScorers = new ArrayList<Player>();
         List<Player> listOfScorers = new ArrayList<Player>();
         Team teamWithGoalkeeperScorers = new Team("With Goalkeeper Scorer");
-        Player goalkeeperScorer = new Player("Pepe", Position.GOALKEEPER, teamWithGoalkeeperScorers);
+        Player goalkeeperScorer = new Player("Pepe", Position.GOALKEEPER);
+        goalkeeperScorer.addTeam(teamWithGoalkeeperScorers);
         addPlayerToTeam(teamWithGoalkeeperScorers, goalkeeperScorer);
 
         listOfScorers.add(goalkeeperScorer);
@@ -250,7 +255,10 @@ public class ScoringRulesTest {
     }
 
     private Player anyPlayer(){
-        return new Player("Pepe", Position.DEFENDER, anyTeam());
+        Player player = new Player("Pepe", Position.DEFENDER);
+        player.addTeam(anyTeam());
+
+        return player;
     }
 
     private Match drawMatch() {
