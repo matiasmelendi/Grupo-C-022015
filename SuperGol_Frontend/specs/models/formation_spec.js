@@ -16,10 +16,10 @@ describe("Formation", function() {
     });
 
     it("should allow to add a goalkeeper, 3 defenders, 4 midfielders and 3 forwards when created", function() {
-        var goalkeeperPosition = new Position('GOALKEEPER');
-        var defenderPosition = new Position('DEFENDER');
-        var midfielderPosition = new Position('MIDFIELDER');
-        var forwardPosition = new Position('FORWARD');
+        var goalkeeperPosition = 'GOALKEEPER';
+        var defenderPosition = 'DEFENDER';
+        var midfielderPosition = 'MIDFIELDER';
+        var forwardPosition = 'FORWARD';
 
         expect(formation.allowedPlayersForPosition(goalkeeperPosition)).toBe(1);
         expect(formation.allowedPlayersForPosition(defenderPosition)).toBe(3);
