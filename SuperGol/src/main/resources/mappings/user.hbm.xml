@@ -12,7 +12,7 @@
         <list name="scores" table="tourney_scores" fetch="join">
             <key column="user_id" />
             <list-index column="tourney_id" />
-            <element type="java.lang.Integer" />
+            <element column="points" type="java.lang.Integer" />
         </list>
 
         <many-to-one name="team" column="team" not-null="false" unique="true" class="model.Team" fetch="join"/>

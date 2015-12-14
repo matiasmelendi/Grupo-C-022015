@@ -1,6 +1,6 @@
 package services;
 
-import model.Fixture;
+import model.Team;
 import model.Tourney;
 import repositories.TourniesRepository;
 
@@ -33,7 +33,7 @@ public class TourniesService {
     @GET
     @Path("/{id}/ranking")
     @Produces("application/json")
-    public Fixture ranking(@PathParam("id") Integer id) {
+    public List<Team> ranking(@PathParam("id") Integer id) {
         return this.repository.rankingForATourney(id);
     }
 

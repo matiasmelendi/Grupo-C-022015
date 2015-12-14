@@ -12,6 +12,10 @@ public class SuperGol {
         this.scoringRules = this.scoringRules();
     }
 
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
     public List<User> users(){
         return this.users;
     }
