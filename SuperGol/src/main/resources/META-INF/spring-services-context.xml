@@ -21,6 +21,7 @@
             <ref bean="services.teams" />
             <ref bean="services.tournies" />
             <ref bean="services.users" />
+            <ref bean="services.playerGoalsUpdateFromFile" />
         </jaxrs:serviceBeans>
         <jaxrs:extensionMappings>
             <entry key="json" value="application/json" />
@@ -49,6 +50,10 @@
 
     <bean id="services.users" class="services.UsersService">
         <property name="repository" ref="persistence.users" />
+    </bean>
+
+    <bean id="services.playerGoalsUpdateFromFile" class="services.PlayerGoalsUpdateFromFileService">
+        <property name="repository" ref="persistence.playerGoalsUpdateFromFile" />
     </bean>
 
 </beans>
