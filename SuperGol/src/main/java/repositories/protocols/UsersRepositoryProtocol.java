@@ -4,7 +4,7 @@ import model.User;
 
 public interface UsersRepositoryProtocol {
 
-    User find(Double id);
+    User find(Integer id);
 
     void update(User user);
 

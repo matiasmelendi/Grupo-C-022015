@@ -15,7 +15,7 @@ public abstract class GenericRepository<T> extends HibernateDaoSupport {
     }*/
 
     @Transactional
-    public void delete(Double id) {
+    public void delete(Integer id) {
         T obj = this.find(id);
         this.getHibernateTemplate().delete(obj);
     }
@@ -26,7 +26,7 @@ public abstract class GenericRepository<T> extends HibernateDaoSupport {
         return (List<T>) this.getHibernateTemplate().find("from " + this.persistentClass.getName() + " o");
     }
 
-    public T find(Double id) {
+    public T find(Integer id) {
         return this.getHibernateTemplate().get(this.persistentClass, id);
     }
 

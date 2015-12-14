@@ -3,7 +3,7 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping default-access="field" default-cascade="save-update">
     <class name="model.Fixture" table="fixtures">
-        <id column="ID" name="id"/>
+        <id column="ID" name="id" type="int"> <generator class="increment"/> </id>
 
         <property name="amountOfRounds" column="amountOfRounds" />
         <property name="halfTourney" column="halfTourney" />

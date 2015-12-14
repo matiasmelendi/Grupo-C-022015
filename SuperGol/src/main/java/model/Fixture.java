@@ -53,8 +53,6 @@ public class Fixture {
         return this.getTourney().equals(anotherFixture.getTourney());
     }
 
-    private double id;
-
     public Fixture(){
 
     }
@@ -92,11 +90,14 @@ public class Fixture {
         this.tourney = tourney;
     }
 
-    public double getId() {
+    private int id;
+
+    public int getId() {
         return id;
     }
 
-    public void setId(double id) {
+    public void setId(int id) {
         this.id = id;
     }
+
 }
