@@ -26,6 +26,14 @@ app.config(function($translateProvider) {
             AVAILABLE_TEAMS: 'Available Teams',
             SELECTED_TEAMS: 'Selected Teams',
             TOURNEY_EDITION: 'Tourney Edition',
+            TOURNEY_EMPTY_FIELD: 'The tourney must have a name',
+            TOURNEY_EMPTY_MIN_FIELD: 'The tourney must have a minimum amount of teams',
+            TOURNEY_EMPTY_MAX_FIELD: 'The tourney must have a maximum amount of teams',
+            TOURNEY_WRONG_INPUT_TYPE: 'Value must be a number',
+            TOURNEY_MIN_MIN_VALUE: 'The minimum value allowed is 2',
+            TOURNEY_MIN_MAX_VALUE: 'The maximum value allowed is the same as maximum amount of teams',
+            TOURNEY_MAX_MIN_VALUE: 'The minimum value allowed is the same as minimum amount of teams',
+            TOURNEY_MAX_MAX_VALUE: 'The maximum value allowed is amount of possible teams to choose',
 
             /* Team */
             TEAM_CREATION: 'Team Creation',
@@ -39,7 +47,7 @@ app.config(function($translateProvider) {
             DEFENDERS: 'Defenders',
             MIDFIELDERS: 'Midfielders',
             FORWARDS: 'Forwards',
-            EMPTY_FIELD: 'The team must have a name',
+            TEAM_EMPTY_FIELD: 'The team must have a name',
             SHORT_FIELD: 'The name is too short (4. min)',
 
             /* Round update */
@@ -78,6 +86,14 @@ app.config(function($translateProvider) {
             AVAILABLE_TEAMS: 'Equipos disponibles',
             SELECTED_TEAMS: 'Equipos seleccionados',
             TOURNEY_EDITION: 'Edicion de Torneo',
+            TOURNEY_EMPTY_FIELD: 'El torneo debe tener un nombre',
+            TOURNEY_EMPTY_MIN_FIELD: 'El torneo debe tener una cantidad minima de equipos',
+            TOURNEY_EMPTY_MAX_FIELD: 'El torneo debe tener una cantidad maxima de equipos',
+            TOURNEY_WRONG_INPUT_TYPE: 'El valor debe ser un numero',
+            TOURNEY_MIN_MIN_VALUE: 'El valor minimo permitido es 2',
+            TOURNEY_MIN_MAX_VALUE: 'El valor maximo permitido es igual a la cantidad maxima de equipos',
+            TOURNEY_MAX_MIN_VALUE: 'El valor minimo permitido es igual a la cantidad minima de equipos',
+            TOURNEY_MAX_MAX_VALUE: 'El valor maximo permitido es la cantidad de equipos disponibles',
 
             /* Team */
             TEAM_CREATION: 'Creacion de Equipo',
@@ -91,7 +107,7 @@ app.config(function($translateProvider) {
             DEFENDERS: 'Defensores',
             MIDFIELDERS: 'Mediocampistas',
             FORWARDS: 'Delanteros',
-            EMPTY_FIELD: 'El equipo debe tener un nombre',
+            TEAM_EMPTY_FIELD: 'El equipo debe tener un nombre',
             SHORT_FIELD: 'El nombre es muy corto (4. min)',
 
             /* Round update */

@@ -10,28 +10,57 @@
         <div class="tourney-setup">
             <div class="setup">
                 <div class="setup-info center">
-                    <input type="text"
-                        ng-model="newTourney.name"
-                        minlength="4"
-                        placeholder="{{ 'TOURNEY_NAME' | translate }}"
-                        class="form-control"
-                        required />
-                    <input type="number"
-                        name="minNumberOfTeams"
-                        min="{{ minAmountOfTeams }}"
-                        max="{{ newTourney.maxNumberOfTeams }}"
-                        ng-model="newTourney.minNumberOfTeams"
-                        placeholder="{{ 'TOURNEY_MIN_AMOUNT' | translate }}"
-                        class="form-control"
-                        required />
-                    <input type="number"
-                        name="maxNumberOfTeams"
-                        min="{{ newTourney.minNumberOfTeams }}"
-                        max="{{ maxAmountOfTeams }}"
-                        ng-model="newTourney.maxNumberOfTeams"
-                        placeholder="{{ 'TOURNEY_MAX_AMOUNT' | translate }}"
-                        class="form-control"
-                        required />
+                    <div class="tourney-setup-input" name="tourneyName">
+                        <input type="text"
+                            name="newTourneyName"
+                            ng-model="newTourney.name"
+                            minlength="4"
+                            placeholder="{{ 'TOURNEY_NAME' | translate }}"
+                            class="form-control"
+                            required />
+                        <div name="errorContainer">
+                            <div ng-messages="tourneyCreationForm.newTourneyName.$error" style="color:white">
+                                <div ng-message="required">{{ 'TOURNEY_EMPTY_FIELD' | translate }}</div>
+                                <div ng-message="minlength">{{ 'SHORT_FIELD' | translate }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tourney-setup-input" name="tourneyMin">
+                        <input type="number"
+                            name="minNumberOfTeams"
+                            min="{{ minAmountOfTeams }}"
+                            max="{{ newTourney.maxNumberOfTeams }}"
+                            ng-model="newTourney.minNumberOfTeams"
+                            placeholder="{{ 'TOURNEY_MIN_AMOUNT' | translate }}"
+                            class="form-control"
+                            required />
+                        <div name="errorContainer">
+                            <div ng-messages="tourneyCreationForm.minNumberOfTeams.$error" style="color:white">
+                                <div ng-message="required">{{ 'TOURNEY_EMPTY_MIN_FIELD' | translate }}</div>
+                                <div ng-message="number">{{ 'TOURNEY_WRONG_INPUT_TYPE' | translate }}</div>
+                                <div ng-message="min">{{ 'TOURNEY_MIN_MIN_VALUE' | translate }}</div>
+                                <div ng-message="max">{{ 'TOURNEY_MIN_MAX_VALUE' | translate }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tourney-setup-input" name="tourneyMax">
+                        <input type="number"
+                            name="maxNumberOfTeams"
+                            min="{{ newTourney.minNumberOfTeams }}"
+                            max="{{ maxAmountOfTeams }}"
+                            ng-model="newTourney.maxNumberOfTeams"
+                            placeholder="{{ 'TOURNEY_MAX_AMOUNT' | translate }}"
+                            class="form-control"
+                            required />
+                        <div name="errorContainer">
+                            <div ng-messages="tourneyCreationForm.maxNumberOfTeams.$error" style="color:white">
+                                <div ng-message="required">{{ 'TOURNEY_EMPTY_MAX_FIELD' | translate }}</div>
+                                <div ng-message="minlength">{{ 'TOURNEY_WRONG_INPUT_TYPE' | translate }}</div>
+                                <div ng-message="min">{{ 'TOURNEY_MAX_MIN_VALUE' | translate }}</div>
+                                <div ng-message="max">{{ 'TOURNEY_MAX_MAX_VALUE' | translate }}</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <button type="submit"
                     class="btn btn-primary"

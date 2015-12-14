@@ -5,7 +5,7 @@
 </div>
 
 <div class="workspace" ng-controller="TeamCreationCtrl">
-    <form name="tourneyCreationForm" novalidate class="simple-form">
+    <form name="teamCreationForm" novalidate class="simple-form">
         <div class="team-roster">
             <div class="team-roster-input center">
                 <input type="text"
@@ -17,8 +17,8 @@
                     required
                 />
                 <div class="team-roster-error-container">
-                    <div ng-messages="tourneyCreationForm.teamName.$error" style="color:white">
-                        <div ng-message="required">{{ 'EMPTY_FIELD' | translate }}</div>
+                    <div ng-messages="teamCreationForm.teamName.$error" style="color:white">
+                        <div ng-message="required">{{ 'TEAM_EMPTY_FIELD' | translate }}</div>
                         <div ng-message="minlength">{{ 'SHORT_FIELD' | translate }}</div>
                     </div>
                 </div>

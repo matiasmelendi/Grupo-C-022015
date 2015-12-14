@@ -248,13 +248,18 @@ input.btn[disabled] {
     float: left;
 }
 
+.tourney-setup-input {
+    height: 60px;
+    margin-bottom: 20px;
+}
+
 .tourney-select {
     margin-top: 20px;
 }
 
 .setup {
     background: green;
-    height: 53%;
+    height: 63%;
     border-radius: 10px;
     margin-left: 20px;
     margin-right: 20px;
@@ -262,12 +267,7 @@ input.btn[disabled] {
 
 .setup-info {
     width: 80%;
-    padding-top: 20px;
-}
-
-.setup-info input {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    padding-top: 30px;
 }
 
 .tourney-selectors {
