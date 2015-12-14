@@ -7,7 +7,7 @@
         <id column="ID" name="id" type="int"> <generator class="increment"/> </id>
 
         <property name="username" column="username" unique="true"/>
-        <property name="password" column="password"/>
+        <property name="password" column="password" type="text"/>
 
         <list name="scores" table="tourney_scores" fetch="join">
             <key column="user_id" />
