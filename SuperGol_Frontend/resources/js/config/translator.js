@@ -39,6 +39,8 @@ app.config(function($translateProvider) {
             DEFENDERS: 'Defenders',
             MIDFIELDERS: 'Midfielders',
             FORWARDS: 'Forwards',
+            EMPTY_FIELD: 'The team must have a name',
+            SHORT_FIELD: 'The name is too short (4. min)',
 
             /* Round update */
             ROUND_UPDATE: 'Round update',
@@ -89,6 +91,8 @@ app.config(function($translateProvider) {
             DEFENDERS: 'Defensores',
             MIDFIELDERS: 'Mediocampistas',
             FORWARDS: 'Delanteros',
+            EMPTY_FIELD: 'El equipo debe tener un nombre',
+            SHORT_FIELD: 'El nombre es muy corto (4. min)',
 
             /* Round update */
             ROUND_UPDATE: 'Actualizacion de Fecha',

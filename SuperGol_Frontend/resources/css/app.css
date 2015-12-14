@@ -178,8 +178,12 @@ input.btn[disabled] {
 
 .team-roster-input {
     padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     width: 250px;
+}
+
+.team-roster-error-container {
+    height: 20px;
 }
 
 .team-roster-select {

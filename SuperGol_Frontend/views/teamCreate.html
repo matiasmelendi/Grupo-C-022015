@@ -9,13 +9,19 @@
         <div class="team-roster">
             <div class="team-roster-input center">
                 <input type="text"
-                    name='team-name'
+                    name='teamName'
                     ng-model="newTeam.name"
                     minlength="4"
                     placeholder="{{ 'TEAM_NAME' | translate }}"
                     class="form-control"
                     required
                 />
+                <div class="team-roster-error-container">
+                    <div ng-messages="tourneyCreationForm.teamName.$error" style="color:white">
+                        <div ng-message="required">{{ 'EMPTY_FIELD' | translate }}</div>
+                        <div ng-message="minlength">{{ 'SHORT_FIELD' | translate }}</div>
+                    </div>
+                </div>
             </div>
             <div class="team-logo" ng-show="!newTeam.logo">
                 <img url="http://www.tagetik.com/intouch2015/user.png"
