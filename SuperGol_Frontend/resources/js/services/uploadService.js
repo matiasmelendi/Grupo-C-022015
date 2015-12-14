@@ -1,12 +1,17 @@
-app.service('UploadService', function(GenericService, $rootScope, Upload, store) {
+app.service('RoundService', function(GenericService, $rootScope, Upload, store) {
 
     /* Service API */
     return {
-        uploadCSV: uploadCSV
+        uploadCSV: uploadCSV,
+        uploadPlayerList: uploadPlayerList
     };
 
     function uploadCSV(file) {
         return GenericService.doPut('/rounds/update-from-csv', file, {});
+    };
+
+    function uploadPlayerList(data) {
+        return GenericService.doPost('/rounds/update-from-list', data, {});
     };
 
 });

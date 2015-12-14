@@ -5,42 +5,74 @@
 </div>
 
 <div class="workspace" ng-controller="RoundUpdateCtrl">
-    <div class="rounds-container center">
-        <form name="roundUpdate" class="form-horizontal" role="form" novalidate>
+    <form name="roundUpdate" novalidate class="simple-form">
+        <div class="rounds-container center">
+            <div class="upload-modes btn-group"
+                 style="margin-left: auto;
+                        margin-right: auto;
+                        padding-top: 10px;"
+                 data-toggle="buttons">
+                <label class="btn btn-default" ng-click="useManualMode()">
+                    <input type="radio"/>
+                    Manual
+                </label>
+                <label class="btn btn-default" ng-click="useAutomaticMode()">
+                    <input type="radio"/>
+                    Automatic
+                </label>
+            </div>
             <div class="rounds-form center">
                 <table class="table">
                     <thead>
-                        <tr>
-                            <th class="text-center" style="width: 90%;">
-                                {{ 'PLAYERS' | translate }}
-                            </th>
-                            <th class="text-center">
-                                {{ 'GOALS' | translate }}
-                            </th>
-                        </tr>
+                    <tr>
+                        <th class="text-center" style="width: 89%;">
+                            {{ 'PLAYERS' | translate }}
+                        </th>
+                        <th class="text-center">
+                            {{ 'GOALS' | translate }}
+                        </th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <tr dir-paginate="player in allPlayers | itemsPerPage: 8">
-                            <td> {{ player.name }} </td>
-                            <td><input type="text" name='goals' class="form-control"/> </td>
+                        <tr dir-paginate="score in playerGoals | itemsPerPage: 6">
+                            <td> {{ score.player.name }} </td>
+                            <td>
+                                <input type="number"
+                                   value="{{ score.goals }}"
+                                   min="0"
+                                   max="99"
+                                   maxlength="2"
+                                   ng-model="score.goals"
+                                   ng-disable="{{ automaticMode }}"
+                                   name='goals'
+                                   class="form-control"
+                                   required
+                                />
+                            </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <div class="round-paginator">
+                <button type="file"
+                        class="btn btn-primary"
+                        ngf-select
+                        ng-model="csv"
+                        required>
+                    CHOOSE A CSV
+                </button>
+                <span>File: {{csv.name}}</span>
                 <dir-pagination-controls
-                        max-size="8"
+                        max-size="6"
                         direction-links="false"
                         boundary-links="true">
                 </dir-pagination-controls>
-                <input type="file"
-                       ngf-select
-                       ng-model="csv"
-                       name="file"
-                       ngf-max-size="2MB"
-                       required>
-                <a ng-click='uploadCSV(csv)' class="btn btn-primary upload">Submit CSV</a>
+                <button type="submit"
+                        class="btn btn-primary"
+                        ng-click="submit()">
+                    SUBMIT
+                </button>
             </div>
-        </form>
-    </div>
+        </div>
+    </form>
 </div>
