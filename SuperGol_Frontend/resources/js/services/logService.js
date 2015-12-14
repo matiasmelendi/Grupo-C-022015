@@ -8,9 +8,9 @@ app.service('LogService', function( $rootScope, GenericService ) {
     };
 
     function findOrCreate(email, token) {
-        return GenericService.doPost('/users/find-or-create', {
-            username: "",
-            password: ""
+        return GenericService.doPostAcceptJson('/users/find-or-create', {
+            username: email,
+            password: token
         }, {});
     }
 

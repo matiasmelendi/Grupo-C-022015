@@ -7,7 +7,6 @@ app.controller('LogInCtrl', ['$scope', '$location', '$cookies', 'RegisterService
             LogService.findOrCreate(profile.email, token).then(
                 function success(response) {
                      store.set('currentUser', new User().configureFromJson(response.data));
-                     console.log(response.data);
                      $location.path('/userhome');
                 },
                 function error(response) {
