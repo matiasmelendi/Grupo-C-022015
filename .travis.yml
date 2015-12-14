@@ -1,2 +1,8 @@
 language: java
-script: cd SuperGol && mvn test
+
+before_script:
+    - cd SuperGol_Frontend && npm install
+
+script: 
+    - cd ../SuperGol && mvn test
+    - cd ../SuperGol_Frontend && gulp travis

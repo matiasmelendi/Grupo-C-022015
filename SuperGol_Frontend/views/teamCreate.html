@@ -1,0 +1,108 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <p>{{ 'TEAM_CREATION' | translate }}</p>
+    </div>
+</div>
+
+<div class="workspace" ng-controller="TeamCreationCtrl">
+    <form name="teamCreationForm" novalidate class="simple-form">
+        <div class="team-roster">
+            <div class="team-roster-input center">
+                <input type="text"
+                    name='teamName'
+                    ng-model="newTeam.name"
+                    minlength="4"
+                    placeholder="{{ 'TEAM_NAME' | translate }}"
+                    class="form-control"
+                    required
+                />
+                <div class="team-roster-error-container">
+                    <div ng-messages="teamCreationForm.teamName.$error" style="color:white">
+                        <div ng-message="required">{{ 'TEAM_EMPTY_FIELD' | translate }}</div>
+                        <div ng-message="minlength">{{ 'SHORT_FIELD' | translate }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="team-logo" ng-show="!newTeam.logo">
+                <img url="http://www.tagetik.com/intouch2015/user.png"
+                    style="width: 190px; height: 180px"
+                    class="img-thumbnail"
+                />
+            </div>
+            <div class="team-logo" ng-show="newTeam.logo">
+                <img class="img-thumbnail"
+                     ngf-src="newTeam.logo"
+                />
+            </div>
+            <button type="file"
+                class="btn btn-primary"
+                ngf-select
+                ng-model="newTeam.logo"
+                accept="image/png, image/jpeg, image/jpg"
+                ngf-resize="{width: 190, height: 180, centerCrop: true}"
+                required>
+                <span class="glyphicon glyphicon-plus"></span>
+                {{ 'SELECT_LOGO' | translate }}
+            </button>
+        </div>
+
+        <div class="team-information">
+            <div class="player-selector">
+                <h4>{{ 'AVAILABLE_PLAYERS' | translate }}</h4>
+                <div class="players center">
+                    <div class="list-group black-text" ng-repeat="availablePlayer in allPlayers | orderBy:'name'">
+                        <button type="button" class="list-group-item" ng-click="addPlayer(availablePlayer)">
+                            <span class="badge">{{ availablePlayer.position.name | shortName }}</span>
+                            {{ availablePlayer.name }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="player-selector">
+                <h4>{{ 'SELECTED_PLAYERS' | translate }}</h4>
+                <div class="players center">
+                    <div class="list-group black-text" ng-repeat="selectedPlayer in newTeam.players() | orderBy:'name'">
+                        <button type="button" class="list-group-item" ng-click="removePlayer(selectedPlayer)">
+                            <span class="badge">{{ selectedPlayer.position.name | shortName }}</span>
+                            {{ selectedPlayer.name }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="team-formation">
+                <h4>{{ 'FORMATION' | translate }}</h4>
+                <div class="formation center">
+                    <ul class="list-group">
+                        <h5>{{ 'GOALKEEPERS' | translate }}</h5>
+                        <li ng-class="newTeam.fullGoalkeepers() ? 'list-group-item-success' : 'list-group-item-danger'"
+                            class="list-group-item formation-info">
+                            {{ newTeam.goalkeepers() }}/1
+                        </li>
+                        <h5>{{ 'DEFENDERS' | translate }}</h5>
+                        <li ng-class="newTeam.fullDefenders() ? 'list-group-item-success' : 'list-group-item-danger'"
+                            class="list-group-item formation-info">
+                            {{ newTeam.defenders() }}/3
+                        </li>
+                        <h5>{{ 'MIDFIELDERS' | translate }}</h5>
+                        <li ng-class="newTeam.fullMidfielders() ? 'list-group-item-success' : 'list-group-item-danger'"
+                            class="list-group-item formation-info">
+                            {{ newTeam.midfielders() }}/4
+                        </li>
+                        <h5>{{ 'FORWARDS' | translate }}</h5>
+                        <li ng-class="newTeam.fullForwards() ? 'list-group-item-success' : 'list-group-item-danger'"
+                            class="list-group-item formation-info">
+                            {{ newTeam.forwards() }}/3
+                        </li>
+                    </ul>
+                </div>
+                <button type="submit"
+                        class="btn btn-primary"
+                        ng-disabled="{{ !newTeam.isFull() }}"
+                        ng-click="createTeam()">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    {{ 'CREATE' | translate }}
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
