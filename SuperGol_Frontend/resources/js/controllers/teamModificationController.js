@@ -1,4 +1,4 @@
-app.controller('TeamModificationCtrl', ['$scope', 'TeamService', 'PlayerService', 'store', function($scope, TeamService, PlayerService, store) {
+app.controller('TeamModificationCtrl', ['$scope', 'TeamService', 'PlayerService', 'store', 'SweetAlert', function($scope, TeamService, PlayerService, store, SweetAlert) {
 
     var currentUser = store.get('currentUser');
     $scope.userTeam = currentUser.team;
@@ -16,7 +16,11 @@ app.controller('TeamModificationCtrl', ['$scope', 'TeamService', 'PlayerService'
             $scope.allPlayers = allPlayers;
         },
         function errorCallback(response) {
-            console.log('Error.');
+            SweetAlert.swal({
+                title: "We have some problems! Sorry!",
+                text: "We are not being able to retrieve the players.",
+                type: "warning"
+            });
         }
     );
 
@@ -42,10 +46,18 @@ app.controller('TeamModificationCtrl', ['$scope', 'TeamService', 'PlayerService'
     $scope.editTeam = function () {
         TeamService.edit($scope.selectedTeam).then(
             function successCallback(response) {
-                console.log('Success.');
+                SweetAlert.swal({
+                    title: "Nice!",
+                    text: "Your team was edited!",
+                    type: "success"
+                });
             },
             function errorCallback(response) {
-                console.log('Error.');
+                SweetAlert.swal({
+                    title: "Oh no!",
+                    text: "Your team could not be edited!",
+                    type: "warning"
+                });
             }
         );
     };

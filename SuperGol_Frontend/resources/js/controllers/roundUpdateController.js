@@ -1,4 +1,4 @@
-app.controller('RoundUpdateCtrl', ['$scope', '$timeout', '$location', 'RoundService', 'PlayerService', function($scope, $timeout, $location, RoundService, PlayerService) {
+app.controller('RoundUpdateCtrl', ['$scope', '$timeout', '$location', 'RoundService', 'PlayerService', 'SweetAlert', function($scope, $timeout, $location, RoundService, PlayerService, SweetAlert) {
 
     $scope.useManualMode = function() {
         $scope.manualMode = true;
@@ -22,7 +22,11 @@ app.controller('RoundUpdateCtrl', ['$scope', '$timeout', '$location', 'RoundServ
             });
         },
         function errorCallback(response) {
-
+            SweetAlert.swal({
+                title: "We have some problems! Sorry!",
+                text: "We are not being able to retrieve the players.",
+                type: "warning"
+            });
         }
     );
 
@@ -31,9 +35,19 @@ app.controller('RoundUpdateCtrl', ['$scope', '$timeout', '$location', 'RoundServ
             console.log($scope.playerGoals);
             RoundService.uploadPlayerList($scope.playerGoals)
             .then(function successCallback(response) {
-                $location.path('/ranking');
+                SweetAlert.swal({
+                    title: "Nice!",
+                    text: "Your tourney was created!",
+                    type: "success"
+                }, function() {
+                    $location.path('/ranking');
+                });
             }, function errorCallback(response) {
-
+                SweetAlert.swal({
+                    title: "We have some problems! Sorry!",
+                    text: "We are not being able to update the CVS.",
+                    type: "warning"
+                });
             });
         } else {
             RoundService.uploadCSV($scope.csv)
@@ -42,9 +56,11 @@ app.controller('RoundUpdateCtrl', ['$scope', '$timeout', '$location', 'RoundServ
                     file.result = response.data;
                 });
             }, function (response) {
-                if(response.status > 0) {
-                    console.log(response.status + ': ' + response.data);
-                }
+                SweetAlert.swal({
+                    title: "We have some problems! Sorry!",
+                    text: "We are not being able to update the CVS.",
+                    type: "warning"
+                });
             });
         }
     }

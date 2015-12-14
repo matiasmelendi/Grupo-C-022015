@@ -1,4 +1,4 @@
-app.controller('TeamCreationCtrl', ['$scope', 'TeamService', 'PlayerService', 'store', function($scope, TeamService, PlayerService, store) {
+app.controller('TeamCreationCtrl', ['$scope', 'TeamService', 'PlayerService', 'store', 'SweetAlert', function($scope, TeamService, PlayerService, store, SweetAlert) {
 
     $scope.newTeam = new Team();
 
@@ -14,7 +14,11 @@ app.controller('TeamCreationCtrl', ['$scope', 'TeamService', 'PlayerService', 's
             $scope.allPlayers = allPlayers;
         },
         function errorCallback(response) {
-            console.log(response);
+            SweetAlert.swal({
+                title: "We have some problems! Sorry!",
+                text: "We are not being able to retrieve the players.",
+                type: "warning"
+            });
         }
     );
 
@@ -40,13 +44,23 @@ app.controller('TeamCreationCtrl', ['$scope', 'TeamService', 'PlayerService', 's
     $scope.createTeam = function () {
         TeamService.create($scope.newTeam).then(
             function successCallback(response) {
-                var currentUser = store.get('currentUser');
-                currentUser.team = $scope.newTeam;
-                store.put('currentUser', currentUser);
-                $location.path('/team/modify');
+                SweetAlert.swal({
+                    title: "Nice!",
+                    text: "Your team was created!",
+                    type: "success"
+                }, function() {
+                    var currentUser = store.get('currentUser');
+                    currentUser.team = $scope.newTeam;
+                    store.put('currentUser', currentUser);
+                    $location.path('/team/modify');
+                });
             },
             function errorCallback(response) {
-                console.log(response);
+                SweetAlert.swal({
+                    title: "Oh no!",
+                    text: "Your team could not be created!",
+                    type: "warning"
+                });
             }
         );
     };
