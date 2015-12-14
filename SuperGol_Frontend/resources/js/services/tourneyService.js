@@ -4,7 +4,8 @@ app.service('TourneyService', function(GenericService) {
     return {
         all: all,
         create: create,
-        edit: edit
+        edit: edit,
+        rankingFor: rankingFor
     };
 
     function all() {
@@ -17,6 +18,12 @@ app.service('TourneyService', function(GenericService) {
 
     function edit(tourney) {
         return GenericService.doPut('/tournies/', data, {});
+    }
+
+    function rankingFor(tourneyID) {
+         return GenericService.doGet('/tournies/id/ranking', {}, {
+            id: tourneyID
+         });
     }
 
 });

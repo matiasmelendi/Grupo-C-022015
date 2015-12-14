@@ -12,7 +12,7 @@
                 <div class="form-group">
                     <h3 for="tourneys">{{ 'TOURNEY_SELECT' | translate }}:</h3>
                     <select class="form-control" id="tourneys">
-                        <option ng-repeat="tourney in tourneys">{{ tourney.name }}</option>
+                        <option ng-repeat="tourney in tourneys" ng-click="select(tourney);">{{ tourney.name }}</option>
                     </select>
                 </div>
             </div>
