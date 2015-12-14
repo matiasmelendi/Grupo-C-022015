@@ -31,11 +31,11 @@ public class User {
     }
 
     public Integer scoreFor(Tourney aTourney){
-        return this.scores.get((int)aTourney.getId());
+        return this.scores.get(aTourney.getId());
     }
 
     public void updateScoreFor(Tourney tourney, Integer newScore){
-        this.scores.add((int) tourney.getId(), newScore);
+        this.scores.add(tourney.getId(), newScore);
     }
 
     @Override

@@ -1,6 +1,6 @@
 package repositories.protocols;
 
-import model.Fixture;
+import model.Team;
 import model.Tourney;
 
 import java.util.List;
@@ -11,5 +11,5 @@ public interface TourniesRepositoryProtocol {
 
     Tourney find(Integer id);
 
-    Fixture rankingForATourney(Integer id);
+    List<Team> rankingForATourney(Integer id);
 }
