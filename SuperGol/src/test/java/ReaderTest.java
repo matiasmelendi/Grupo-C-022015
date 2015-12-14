@@ -2,6 +2,7 @@ import exceptions.FileHasNoHeaderID;
 import exceptions.UpdateGoalsFromFileFailure;
 import model.Player;
 import model.Reader;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.File;
@@ -17,6 +18,11 @@ public class ReaderTest {
     private File validCSV = new File("src/test/support/playersScore_OK.csv");
     private File invalidCSV = new File("src/test/support/playersScore_NO_OK.csv");
     private File emptyCSV = new File("src/test/support/playersScore_empty.csv");
+
+    @Before
+    public void setUp(){
+        Reader.assignPlayersProvider(new PlayersProviderForTest());
+    }
 
     @Test
     public void ACorrectCSVShouldBeReadWithoutExceptions() {
