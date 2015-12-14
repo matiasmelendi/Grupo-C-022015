@@ -51,7 +51,7 @@ app.service('GenericService', function($rootScope, $http, $q, store) {
 
     function doPut(path, data, params) {
          return execute('PUT', path, {
-            'Accept': 'application/json',
+            'Accept': 'application/x-www-form-urlencoded',
             'Content-Type': 'application/json'
          }, data, params);
     }

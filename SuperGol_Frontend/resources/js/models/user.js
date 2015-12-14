@@ -10,10 +10,6 @@ function User() {
 
 User.prototype = {
 
-    hasATeam: function() {
-        return null != this.team;
-    },
-
     configureFromJson: function(jsonUser) {
         this.id = jsonUser.id;
         this.password = jsonUser.password;

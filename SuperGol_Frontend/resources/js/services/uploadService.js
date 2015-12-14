@@ -1,4 +1,4 @@
-app.service('UploadService', function($rootScope, Upload, store) {
+app.service('UploadService', function(GenericService, $rootScope, Upload, store) {
 
     /* Service API */
     return {
@@ -6,15 +6,7 @@ app.service('UploadService', function($rootScope, Upload, store) {
     };
 
     function uploadCSV(file) {
-        file.upload = Upload.upload({
-            url: $rootScope.appConfiguration.commonPath + '/uploadCSV',
-            data: {file: file},
-            headers: {
-                'SG-Username': store.get('profile').email,
-                'SG-Password': store.get('token')
-            }
-        });
-        return file.upload;
+        return GenericService.doPut('/rounds/update-from-csv', file, {});
     };
 
 });

@@ -25,9 +25,5 @@ app.config(function (authProvider) {
                    $location.path('/');
                }
            }
-           var profile = store.get('profile');
-           if  (profile) {
-               LogService.logIn();
-           }
        });
    });

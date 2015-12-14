@@ -3,11 +3,16 @@ app.controller('NavBarCtrl', ['$scope', '$rootScope', '$translate', 'auth', 'sto
     $scope.store = store;
 
     $scope.userIsLogged = function () {
-        return $scope.store.get('currentUser') != null;
+        return null != $scope.store.get('currentUser');
     };
 
     $scope.userHasTeam = function () {
-        return $scope.store.get('currentUser').hasATeam();
+        var currentUser = $scope.store.get('currentUser');
+        if(currentUser) {
+            return null != currentUser.team;
+        } else {
+            return false;
+        }
     };
 
     $scope.changeLanguage = function (langKey) {
