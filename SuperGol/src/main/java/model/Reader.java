@@ -1,15 +1,25 @@
 package model;
 
 import com.opencsv.CSVReader;
+import exceptions.FileHasNoHeaderID;
 import exceptions.UpdateGoalsFromFileFailure;
+import org.springframework.orm.hibernate3.HibernateTemplate;
+import repositories.PlayersRepository;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Reader {
+
+    private static HibernateTemplate playersProvider;
+
+    public static void assignPlayersProvider(HibernateTemplate provider){
+        playersProvider = provider;
+    }
 
     public static Map<Player, Integer> playersGoalsFromLastRound(File file) throws UpdateGoalsFromFileFailure {
         Map<Player, Integer> result = new HashMap<Player, Integer>();
@@ -21,6 +31,18 @@ public class Reader {
             throw new UpdateGoalsFromFileFailure();
         }
         return result;
+    }
+
+    public static Integer getHeaderID(File file) throws IOException, FileHasNoHeaderID {
+        CSVReader reader = new CSVReader(new FileReader(file));
+        try{
+
+            String[] header = reader.readNext();
+            return Integer.valueOf(header[0]);
+
+        } catch (NullPointerException e){
+            throw new FileHasNoHeaderID();
+        }
     }
 
     private static void addPlayerScore(Map<Player, Integer> result, CSVReader reader) throws IOException {
@@ -42,8 +64,8 @@ public class Reader {
     }
 
     private static Player playerById(Integer id) {
-        // TODO: To implement with DAO Services.
-        return new Player(id.toString(), null, null);
+
+        return playersProvider.get(Player.class, id);
     }
 
     private static Integer headerID(CSVReader reader) throws IOException {
