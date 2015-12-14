@@ -1,0 +1,35 @@
+{
+  "name": "SuperGol_Frontend",
+  "version": "1.0.0",
+  "description": "SuperGol_Frontend",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/matiasmelendi/Grupo-C-022015/tree/feature/frontend_development"
+  },
+  "author": "Grupo-C-022015",
+  "license": "ISC",
+  "devDependencies": {
+    "angular": "^1.4.8",
+    "angular-cookies": "^1.4.8",
+    "angular-messages": "^1.4.8",
+    "angular-mocks": "^1.4.8",
+    "angular-route": "^1.4.8",
+    "angular-translate": "^2.8.1",
+    "angular-utils-pagination": "^0.9.2",
+    "bootstrap": "^3.3.5",
+    "gulp": "^3.9.0",
+    "gulp-connect": "^2.2.0",
+    "gulp-jasmine": "^2.1.0",
+    "gulp-jasmine-browser": "^0.2.3",
+    "gulp-jasmine-phantom": "^2.0.1",
+    "gulp-watch": "^4.3.5",
+    "gulp-webserver": "^0.9.1",
+    "jshint-stylish": "^2.0.1",
+    "ng-file-upload": "^10.1.9",
+    "phantomjs": "^1.9.19"
+  }
+}

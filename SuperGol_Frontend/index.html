@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+        <meta content="UTF-8" http-equiv="encoding">
+        <title>SuperGol</title>
+        <link rel="stylesheet" type="text/css" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="resources/css/app.css" />
+        <link rel="icon" type="image/png" href="resources/images/soccer.ico" sizes="16x16">
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="node_modules/angular/angular.min.js"></script>
+        <script type="text/javascript" src="node_modules/angular-cookies/angular-cookies.min.js"></script>
+        <script type="text/javascript" src="node_modules/angular-messages/angular-messages.min.js"></script>
+        <script type="text/javascript" src="node_modules/angular-route/angular-route.min.js"></script>
+        <script type="text/javascript" src="node_modules/angular-translate/dist/angular-translate.min.js"></script>
+        <script type="text/javascript" src="node_modules/angular-utils-pagination/dirPagination.js"></script>
+        <script type="text/javascript" src="node_modules/ng-file-upload/dist/ng-file-upload.min.js"></script>
+
+        <!-- Google Authentication -->
+        <script type="text/javascript" src="resources/js/imports/auth0-lock.js"></script>
+        <script type="text/javascript" src="resources/js/imports/angular-storage.js"></script>
+        <script type="text/javascript" src="resources/js/imports/angular-jwt.js"></script>
+        <script type="text/javascript" src="resources/js/imports/auth0-angular.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <!-- Google Authentication /-->
+
+        <script type="text/javascript" src="app.js"></script>
+        <script type="text/javascript" src="resources/js/config/auth.js"></script>
+        <script type="text/javascript" src="resources/js/config/http.js"></script>
+        <script type="text/javascript" src="resources/js/config/routes.js"></script>
+        <script type="text/javascript" src="resources/js/config/translator.js"></script>
+        <script type="text/javascript" src="resources/js/models/hashtable.js"></script>
+        <script type="text/javascript" src="resources/js/models/position.js"></script>
+        <script type="text/javascript" src="resources/js/models/player.js"></script>
+        <script type="text/javascript" src="resources/js/models/formation.js"></script>
+        <script type="text/javascript" src="resources/js/models/team.js"></script>
+        <script type="text/javascript" src="resources/js/models/tourney.js"></script>
+        <script type="text/javascript" src="resources/js/models/round.js"></script>
+        <script type="text/javascript" src="resources/js/models/user.js"></script>
+        <script type="text/javascript" src="resources/js/services/genericService.js"></script>
+        <script type="text/javascript" src="resources/js/services/uploadService.js"></script>
+        <script type="text/javascript" src="resources/js/services/logService.js"></script>
+        <script type="text/javascript" src="resources/js/services/tourneyService.js"></script>
+        <script type="text/javascript" src="resources/js/services/playerService.js"></script>
+        <script type="text/javascript" src="resources/js/services/teamService.js"></script>
+        <script type="text/javascript" src="resources/js/services/registerService.js"></script>
+        <script type="text/javascript" src="resources/js/controllers/homeController.js"></script>
+        <script type="text/javascript" src="resources/js/controllers/logInController.js"></script>
+        <script type="text/javascript" src="resources/js/controllers/navBarController.js"></script>
+        <script type="text/javascript" src="resources/js/controllers/rankingController.js"></script>
+        <script type="text/javascript" src="resources/js/controllers/tourneyCreationController.js"></script>
+        <script type="text/javascript" src="resources/js/controllers/tourneyModificationController.js"></script>
+        <script type="text/javascript" src="resources/js/controllers/teamCreationController.js"></script>
+        <script type="text/javascript" src="resources/js/controllers/teamModificationController.js"></script>
+        <script type="text/javascript" src="resources/js/controllers/roundUpdateController.js"></script>
+        <script type="text/javascript" src="resources/js/directives/topNav.js"></script>
+        <script type="text/javascript" src="resources/js/filters/filters.js"></script>
+    </head>
+    <body ng-app="superGol" ng-cloak>
+        <top-nav></top-nav>
+        <div class="container-fluid text-center" ng-view>
+            <!-- Content -->
+        </div>
+    </body>
+</html>

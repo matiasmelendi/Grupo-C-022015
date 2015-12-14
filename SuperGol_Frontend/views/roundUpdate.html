@@ -1,0 +1,78 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <p>{{ 'ROUND_UPDATE' | translate }}</p>
+    </div>
+</div>
+
+<div class="workspace" ng-controller="RoundUpdateCtrl">
+    <form name="roundUpdate" novalidate class="simple-form">
+        <div class="rounds-container center">
+            <div class="upload-modes btn-group"
+                 style="margin-left: auto;
+                        margin-right: auto;
+                        padding-top: 10px;"
+                 data-toggle="buttons">
+                <label class="btn btn-default" ng-click="useManualMode()">
+                    <input type="radio"/>
+                    Manual
+                </label>
+                <label class="btn btn-default" ng-click="useAutomaticMode()">
+                    <input type="radio"/>
+                    Automatic
+                </label>
+            </div>
+            <div class="rounds-form center">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th class="text-center" style="width: 89%;">
+                            {{ 'PLAYERS' | translate }}
+                        </th>
+                        <th class="text-center">
+                            {{ 'GOALS' | translate }}
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr dir-paginate="score in playerGoals | itemsPerPage: 6">
+                            <td> {{ score.player.name }} </td>
+                            <td>
+                                <input type="number"
+                                   value="{{ score.goals }}"
+                                   min="0"
+                                   max="99"
+                                   maxlength="2"
+                                   ng-model="score.goals"
+                                   ng-disable="{{ automaticMode }}"
+                                   name='goals'
+                                   class="form-control"
+                                   required
+                                />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="round-paginator">
+                <button type="file"
+                        class="btn btn-primary"
+                        ngf-select
+                        ng-model="csv"
+                        required>
+                    CHOOSE A CSV
+                </button>
+                <span>File: {{csv.name}}</span>
+                <dir-pagination-controls
+                        max-size="6"
+                        direction-links="false"
+                        boundary-links="true">
+                </dir-pagination-controls>
+                <button type="submit"
+                        class="btn btn-primary"
+                        ng-click="submit()">
+                    SUBMIT
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
