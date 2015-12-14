@@ -15,6 +15,11 @@ app.controller('NavBarCtrl', ['$scope', '$rootScope', '$translate', 'auth', 'sto
         }
     };
 
+    $scope.atLeastOneTourney = function () {
+        var atLeastOneTourney = $scope.store.get('atLeastOneTourney');
+        return $scope.userIsLogged() && atLeastOneTourney;
+    }
+
     $scope.changeLanguage = function (langKey) {
         $translate.use(langKey);
     };

@@ -21,9 +21,7 @@ app.service('TourneyService', function(GenericService) {
     }
 
     function rankingFor(tourneyID) {
-         return GenericService.doGet('/tournies/id/ranking', {}, {
-            id: tourneyID
-         });
+         return GenericService.doGet('/tournies/' + tourneyID + '/ranking', {}, {});
     }
 
 });

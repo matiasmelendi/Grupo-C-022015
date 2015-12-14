@@ -12,11 +12,11 @@ app.service('TeamService', function(GenericService) {
     }
 
     function create(team) {
-        return GenericService.doPost('/teams/create', team, {});
+        return GenericService.doPost('/teams/', team, {});
     }
 
     function edit(team) {
-        return GenericService.doPost('/teams/edit', team, {});
+        return GenericService.doPut('/teams/', team, {});
     }
 
 });

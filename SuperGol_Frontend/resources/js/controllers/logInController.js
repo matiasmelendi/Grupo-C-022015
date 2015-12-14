@@ -1,4 +1,4 @@
-app.controller('LogInCtrl', ['$scope', '$location', '$cookies', 'RegisterService', 'auth', 'store', '$location', 'LogService', function($scope, $location, $cookies, RegisterService, auth, store, $location, LogService) {
+app.controller('LogInCtrl', ['$scope', '$location', '$cookies', 'RegisterService', 'TourneyService', 'auth', 'store', '$location', 'LogService', function($scope, $location, $cookies, RegisterService, TourneyService, auth, store, $location, LogService) {
 
     $scope.login = function () {
         auth.signin({}, function (profile, token) {
@@ -7,6 +7,7 @@ app.controller('LogInCtrl', ['$scope', '$location', '$cookies', 'RegisterService
             LogService.findOrCreate(profile.email, token).then(
                 function success(response) {
                      store.set('currentUser', new User().configureFromJson(response.data));
+                     saveAmountOfTourneys();
                      $location.path('/userhome');
                 },
                 function error(response) {
@@ -16,6 +17,16 @@ app.controller('LogInCtrl', ['$scope', '$location', '$cookies', 'RegisterService
         }, function () {
             // Error.
         });
+    };
+
+    function saveAmountOfTourneys(){
+        TourneyService.all().then(
+            function successCallback(response) {
+                 $scope.tourneys = response.data;
+                 store.set('atLeastOneTourney', $scope.tourneys.length > 0);
+            },
+            function errorCallback(response) {}
+        );
     };
 
 }]);

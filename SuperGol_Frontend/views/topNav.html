@@ -8,7 +8,7 @@
                 <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:;">{{ 'TOURNEY' | translate }} <b class="caret"></b></a>
                 <ul role="menu" class="dropdown-menu">
                     <li><a href="#/tourney/create">{{ 'CREATE' | translate }}</a></li>
-                    <li><a href="#/tourney/modify">{{ 'MODIFY' | translate }}</a></li>
+                    <li><a href="#/tourney/modify" ng-show="atLeastOneTourney()">{{ 'MODIFY' | translate }}</a></li>
                 </ul>
             </li>
             <li class="dropdown" ng-show="userIsLogged()">

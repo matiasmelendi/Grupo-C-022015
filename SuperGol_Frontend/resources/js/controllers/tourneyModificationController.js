@@ -1,4 +1,4 @@
-app.controller('TourneyModificationCtrl', ['$scope', 'TeamService', 'TourneyService', function($scope, TeamService, TourneyService) {
+app.controller('TourneyModificationCtrl', ['$scope', '$rootScope', 'TeamService', 'TourneyService', function($scope, $rootScope, TeamService, TourneyService) {
 
     $scope.minAmountOfTeams = 2;
 

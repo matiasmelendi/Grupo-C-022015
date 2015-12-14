@@ -1,6 +1,7 @@
-app.controller('TeamModificationCtrl', ['$scope', 'TeamService', 'PlayerService', function($scope, TeamService, PlayerService) {
+app.controller('TeamModificationCtrl', ['$scope', 'TeamService', 'PlayerService', 'store', function($scope, TeamService, PlayerService, store) {
 
-    $scope.userTeam = new Team();
+    var currentUser = store.get('currentUser');
+    $scope.userTeam = currentUser.team;
     // Filter
 
     PlayerService.all().then(

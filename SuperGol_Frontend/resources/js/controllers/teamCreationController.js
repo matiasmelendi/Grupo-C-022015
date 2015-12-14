@@ -1,4 +1,4 @@
-app.controller('TeamCreationCtrl', ['$scope', 'TeamService', 'PlayerService', function($scope, TeamService, PlayerService) {
+app.controller('TeamCreationCtrl', ['$scope', 'TeamService', 'PlayerService', 'store', function($scope, TeamService, PlayerService, store) {
 
     $scope.newTeam = new Team();
 
@@ -40,8 +40,10 @@ app.controller('TeamCreationCtrl', ['$scope', 'TeamService', 'PlayerService', fu
     $scope.createTeam = function () {
         TeamService.create($scope.newTeam).then(
             function successCallback(response) {
-                console.log('Success.');
-                $scope.newTeam = new Team();
+                var currentUser = store.get('currentUser');
+                currentUser.team = $scope.newTeam;
+                store.put('currentUser', currentUser);
+                $location.path('/team/modify');
             },
             function errorCallback(response) {
                 console.log(response);

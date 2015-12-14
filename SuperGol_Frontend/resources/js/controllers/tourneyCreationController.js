@@ -1,4 +1,4 @@
-app.controller('TourneyCreationCtrl', ['$scope', 'TeamService', 'TourneyService', function($scope, TeamService, TourneyService) {
+app.controller('TourneyCreationCtrl', ['$scope', '$location', 'store', 'TeamService', 'TourneyService', function($scope, $location, store, TeamService, TourneyService) {
 
     $scope.newTourney = new Tourney();
 
@@ -10,17 +10,18 @@ app.controller('TourneyCreationCtrl', ['$scope', 'TeamService', 'TourneyService'
             $scope.maxAmountOfTeams = $scope.allTeams.length;
         },
         function errorCallback(response) {
-            console.log('Error.');
+
         }
     );
 
     $scope.createTourney = function () {
         TourneyService.create($scope.newTourney).then(
             function successCallback(response) {
-                console.log('Success.');
+                store.set('atLeastOneTourney', true);
+                $location.path('/tourney/modify');
             },
             function errorCallback(response) {
-                console.log('Error.');
+
             }
         );
     };
