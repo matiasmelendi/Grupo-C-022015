@@ -6,6 +6,7 @@
         <id column="ID" name="id" type="int"> <generator class="increment"/> </id>
 
         <property name="name" column="name"/>
+        <property name="logo" column="logo" type="binary" length="100000"/>
 
         <list name="matchResults" table="match_results" fetch="join" lazy="false">
             <key column="team_id" />

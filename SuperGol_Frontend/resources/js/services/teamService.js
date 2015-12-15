@@ -1,4 +1,4 @@
-app.service('TeamService', function(GenericService) {
+app.service('TeamService', function(GenericService, Upload) {
 
     /* Service API */
     return {
@@ -12,7 +12,14 @@ app.service('TeamService', function(GenericService) {
     }
 
     function create(team) {
-        return GenericService.doPost('/teams/', team, {});
+        return Upload.dataUrl(team.logo, true).then(function (url) {
+            team.logo = getBase64DataFrom(url);
+            return GenericService.doPost('/teams/', team, {});
+        });
+    }
+
+    function getBase64DataFrom(url){
+        return url.split(",")[1];
     }
 
     function edit(team) {

@@ -13,6 +13,7 @@ public class Team {
     private String name;
     private User creator;
     private List<MatchResult> matchResults;
+    private byte[] logo;
 
     public Team(String teamName){
         this.name = teamName;
@@ -132,6 +133,14 @@ public class Team {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public byte[] getLogo() {
+        return logo;
+    }
+
+    public void setLogo(byte[] logo) {
+        this.logo = logo;
     }
 
 
