@@ -13,9 +13,13 @@ app.service('TeamService', function(GenericService, Upload) {
 
     function create(team) {
         return Upload.dataUrl(team.logo, true).then(function (url) {
-            team.logo = url;
+            team.logo = getBase64DataFrom(url);
             return GenericService.doPost('/teams/', team, {});
         });
+    }
+
+    function getBase64DataFrom(url){
+        return url.split(",")[1];
     }
 
     function edit(team) {
