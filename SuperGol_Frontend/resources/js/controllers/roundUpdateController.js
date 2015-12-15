@@ -41,15 +41,12 @@ app.controller('RoundUpdateCtrl', ['$scope', '$timeout', '$location', 'RoundServ
     };
 
     $scope.submit = function() {
-        var request = [];
-        $scope.playerGoals.forEach(function(score) {
-            var player = score.player;
-            var goals = score.goals;
-            request.push({
-                player: goals
-            });
-        });
+
         if($scope.manualMode) {
+            var request = [];
+            $scope.playerGoals.forEach(function(score){
+              request.push([score.player, score.goals]);
+            });
             RoundService.uploadPlayerList($scope.selectedTourney.id, request)
             .then(function successCallback(response) {
                 AlertService.successWithCallback("The round was updated!", function() {
