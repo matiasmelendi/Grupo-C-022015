@@ -1,11 +1,11 @@
 function Formation(allowedDefenders, allowedMidfielders, allowedForwards) {
 
     this.players = new Array();
-    this.positions = {}
-    this.positions['GOALKEEPER'] = 1;
-    this.positions['DEFENDER'] = allowedDefenders;
-    this.positions['MIDFIELDER'] = allowedMidfielders;
-    this.positions['FORWARD'] = allowedForwards;
+    this.allowedPlayers = {}
+    this.allowedPlayers['GOALKEEPER'] = 1;
+    this.allowedPlayers['DEFENDER'] = allowedDefenders;
+    this.allowedPlayers['MIDFIELDER'] = allowedMidfielders;
+    this.allowedPlayers['FORWARD'] = allowedForwards;
 
 }
 
@@ -20,7 +20,7 @@ Formation.prototype = {
     },
 
     allowedPlayersForPosition: function(position) {
-        return this.positions[position];
+        return this.allowedPlayers[position];
     },
 
     addPlayer: function(player) {
