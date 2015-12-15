@@ -26,7 +26,9 @@ INSERT INTO players(ID, name, captain, position, team) VALUES (10, 'Pepe 10', fa
 INSERT INTO players(ID, name, captain, position, team) VALUES (11, 'Pepe 11', false, 2, 2)
 INSERT INTO players(ID, name, captain, position, team) VALUES (12, 'Pepe 12', false, 3, 2)
 INSERT INTO players(ID, name, captain, position, team) VALUES (13, 'Pepe 13', false, 3, 2)
-INSERT INTO players(ID, name, captain, position, team) VALUES (14, 'Pepe 14', true, 3, 2)
+INSERT INTO players(ID, name, captain, position, team) VALUES (14, 'Pepe 14', true, 0, 2)
+INSERT INTO players(ID, name, captain, position, team) VALUES (15, 'Pepe 15', true, 0, 2)
+INSERT INTO players(ID, name, captain, position, team) VALUES (16, 'Pepe 16', true, 1, 2)
 
 
 INSERT INTO formation_players(formation_id, index, player_id) VALUES (1, 0, 1)
