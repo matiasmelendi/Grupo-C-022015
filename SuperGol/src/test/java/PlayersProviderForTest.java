@@ -8,7 +8,7 @@ public class PlayersProviderForTest extends HibernateTemplate {
 
     @Override
     public Player get(Class entityClass, Serializable id) throws DataAccessException {
-        return new Player(id.toString(), null, null);
+        return new Player(id.toString(), null);
     }
 
 }

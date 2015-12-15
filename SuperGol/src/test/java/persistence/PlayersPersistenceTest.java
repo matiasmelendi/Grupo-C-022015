@@ -54,7 +54,7 @@ public class PlayersPersistenceTest extends AbstractTransactionalJUnit4SpringCon
     @Test
     @Transactional
     public void testAPlayerCouldBeSaved() {
-        Player player = new Player("Player test", Position.DEFENDER, dummyTeam);
+        Player player = new Player("Player test", Position.DEFENDER);
 
         playersRepository.save(player);
 
@@ -67,7 +67,7 @@ public class PlayersPersistenceTest extends AbstractTransactionalJUnit4SpringCon
     @Test
     @Transactional
     public void testAPlayerCouldBeRemoved() {
-        Player player = new Player("Player test", Position.DEFENDER, dummyTeam);
+        Player player = new Player("Player test", Position.DEFENDER);
         playersRepository.save(player);
 
         playersRepository.delete(player.getId());
@@ -81,7 +81,7 @@ public class PlayersPersistenceTest extends AbstractTransactionalJUnit4SpringCon
     @Test
     @Transactional
     public void testAPlayerCouldBeFound() {
-        Player player = new Player("Player test", Position.DEFENDER, dummyTeam);
+        Player player = new Player("Player test", Position.DEFENDER);
         playersRepository.save(player);
         sessionFactory.getCurrentSession().flush();
 
@@ -93,7 +93,7 @@ public class PlayersPersistenceTest extends AbstractTransactionalJUnit4SpringCon
     @Test
     @Transactional
     public void testAPlayerCouldBeUpdated() {
-        Player player = new Player("Player test", Position.DEFENDER, dummyTeam);
+        Player player = new Player("Player test", Position.DEFENDER);
         playersRepository.save(player);
 
         player.setName("Another player name");
@@ -119,7 +119,7 @@ public class PlayersPersistenceTest extends AbstractTransactionalJUnit4SpringCon
             player.setName((String) row.get("NAME"));
             player.setPosition(Position.valueOf((Integer)row.get("POSITION")));
             player.setCaptain((Boolean) row.get("CAPTAIN"));
-            player.setTeam(teamsRepository.find((Integer) row.get("TEAM")));
+
             players.add(player);
         }
 

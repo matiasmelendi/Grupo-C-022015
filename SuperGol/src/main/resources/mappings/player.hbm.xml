@@ -13,6 +13,10 @@
             </type>
         </property>
 
-        <many-to-one name="team" column="team" class="model.Team" fetch="join" lazy="false"/>
+        <list name="teams" table="team_players" fetch="join" lazy="false">
+            <key column="player_id" />
+            <list-index column="index"/>
+            <many-to-many column="team_id" class="model.Team" />
+        </list>
     </class>
 </hibernate-mapping>

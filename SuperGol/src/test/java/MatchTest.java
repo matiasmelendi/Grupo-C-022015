@@ -138,8 +138,12 @@ public class MatchTest {
     }
 
     private Player anyPlayer(){
-        return new Player("Pepe", Position.DEFENDER, anyTeam());
+        Player player = new Player("Pepe", Position.DEFENDER);
+        player.addTeam(anyTeam());
+
+        return player;
     }
+
     private Team anyTeam(){
         return new Team("A team name");
     }

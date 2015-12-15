@@ -18,7 +18,6 @@ public class PlayerGoalsUpdateFromFile {
         this.lastUpdatedRound = lastUpdatedRound;
         this.setHeaderIDAndValidateIfValid(file, lastHeaderID);
         this.verifyIfTryingToUpdateAValidRound();
-        Reader.playersGoalsFromLastRound(file);
     }
 
     @Override

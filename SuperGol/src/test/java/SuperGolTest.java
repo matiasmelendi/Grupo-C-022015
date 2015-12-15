@@ -109,7 +109,8 @@ public class SuperGolTest {
         superGol.addUser(userTwo);
         superGol.addUser(userOne);
 
-        Player defender = new Player("Pepe", Position.DEFENDER, teamOne);
+        Player defender = new Player("Pepe", Position.DEFENDER);
+        defender.addTeam(teamOne);
         addPlayerToTeam(teamOne, defender);
 
         Round round = new Round(0, Arrays.asList(teamOne, teamTwo), 2);

@@ -55,7 +55,10 @@ public class PlayerTest {
     }
 
     private Player anyPlayerWithPosition(Position position) {
-        return new Player("model.Player Name", position, anyTeam());
+        Player player = new Player("model.Player Name", position);
+        player.addTeam(anyTeam());
+
+        return player;
     }
 
     private Team anyTeam() {
