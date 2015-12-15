@@ -5,6 +5,7 @@ import exceptions.FileHasNoHeaderID;
 import exceptions.UpdateGoalsFromFileFailure;
 import model.PlayerGoalsUpdateFromFile;
 import model.Reader;
+import model.Tourney;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,18 +17,21 @@ import java.util.List;
 public class PlayerGoalsUpdateFromFileRepository extends GenericRepository<PlayerGoalsUpdateFromFile> implements PlayerGoalsUpdateFromFileRepositoryProtocol {
 
     @Transactional
-    public void updateRoundFromCSV(File csvFile) throws CouldNotUpdateAPreviousRound, UpdateGoalsFromFileFailure, FileHasNoHeaderID {
+    public void updateRoundFromCSV(Integer tourneyID, File csvFile) throws CouldNotUpdateAPreviousRound, UpdateGoalsFromFileFailure, FileHasNoHeaderID {
 
         Reader.assignPlayersProvider(this.getHibernateTemplate());
         List<PlayerGoalsUpdateFromFile> results = (List<PlayerGoalsUpdateFromFile>) this.getHibernateTemplate().findByCriteria(DetachedCriteria.forClass(PlayerGoalsUpdateFromFile.class).addOrder(Order.desc("id")));
         PlayerGoalsUpdateFromFile nextRoundUpdate = null;
 
         try{
+
+            Tourney tourney = this.getHibernateTemplate().get(Tourney.class, tourneyID);
             PlayerGoalsUpdateFromFile lastUpdate = results.get(0);
             nextRoundUpdate = new PlayerGoalsUpdateFromFile(csvFile, lastUpdate.getRoundToBeUpdated(), lastUpdate.getRoundToBeUpdated()+1, lastUpdate.getHeaderFileIdentifier());
+            this.getAGameInstance().updateScoresForByPlayers(tourney, Reader.playersGoalsFromLastRound(csvFile));
 
         } catch (IndexOutOfBoundsException e){
-            nextRoundUpdate = new PlayerGoalsUpdateFromFile(csvFile, 0, 1, 000);
+            nextRoundUpdate = new PlayerGoalsUpdateFromFile(csvFile, -1, 0, -001);
         }finally {
             this.save(nextRoundUpdate);
         }
