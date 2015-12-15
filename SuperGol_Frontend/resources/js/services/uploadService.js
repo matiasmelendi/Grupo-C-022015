@@ -10,8 +10,8 @@ app.service('RoundService', function(GenericService, $rootScope, Upload, store) 
         return GenericService.doPut('/rounds/update-from-csv', file, {});
     };
 
-    function uploadPlayerList(data) {
-        return GenericService.doPost('/rounds/update-from-list', data, {});
+    function uploadPlayerList(id, data) {
+        return GenericService.doPost('/tournies/'+id+'/update-from-list', data, {});
     };
 
 });

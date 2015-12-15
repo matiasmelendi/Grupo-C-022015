@@ -1,11 +1,15 @@
 package services;
 
+import model.Player;
 import model.Team;
 import model.Tourney;
 import repositories.TourniesRepository;
 
 import javax.ws.rs.*;
+import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Path("/tournies")
 public class TourniesService {
@@ -51,6 +55,14 @@ public class TourniesService {
     @Produces("application/x-www-form-urlencoded")
     public void update(Tourney tourney) {
         this.repository.update(tourney);
+    }
+
+    @POST
+    @Path("/{id}/update-from-list")
+    @Consumes("application/json")
+    public void updateFromList(@PathParam("id") Integer id, Map<Player, Integer> scores){
+
+        this.repository.updateFromList(id, scores);
     }
 
     //*******************************************************
