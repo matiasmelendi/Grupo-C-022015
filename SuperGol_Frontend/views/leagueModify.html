@@ -67,7 +67,7 @@
             <div class="tourney-selector">
                 <h4>{{ 'AVAILABLE_TEAMS' | translate }}</h4>
                 <div class="team-selector center">
-                    <div class="list-group black-text" ng-repeat="availableTeam in allTeams | orderBy:'name'">
+                    <div class="list-group black-text" ng-repeat="availableTeam in filteredTeams | orderBy:'name'">
                         <button type="button" class="list-group-item" ng-click="addTeam(availableTeam)">{{ availableTeam.name }}</button>
                     </div>
                 </div>

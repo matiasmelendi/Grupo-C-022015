@@ -1,8 +1,6 @@
-app.controller('TeamModificationCtrl', ['$scope', 'TeamService', 'PlayerService', 'store', function($scope, TeamService, PlayerService, store) {
+app.controller('TeamModificationCtrl', ['$scope', 'TeamService', 'PlayerService', 'UtilsService', 'store', function($scope, TeamService, PlayerService, UtilsService, store) {
 
-    var currentUser = store.get('currentUser');
-    $scope.userTeam = currentUser.team;
-    // Filter
+    $scope.allPlayers = [];
 
     PlayerService.all().then(
         function successCallback(response) {
@@ -19,6 +17,21 @@ app.controller('TeamModificationCtrl', ['$scope', 'TeamService', 'PlayerService'
             console.log('Error.');
         }
     );
+
+    var currentUser = store.get('currentUser');
+    $scope.userTeam = currentUser.team;
+    $scope.filteredPlayers = filterPlayers();
+
+    $scope.editTeam = function () {
+        TeamService.edit($scope.selectedTeam).then(
+            function successCallback(response) {
+                console.log('Success.');
+            },
+            function errorCallback(response) {
+                console.log('Error.');
+            }
+        );
+    };
 
     $scope.addPlayer = function(player) {
         if($scope.userTeam.canAddPlayer(player)) {
@@ -39,15 +52,12 @@ app.controller('TeamModificationCtrl', ['$scope', 'TeamService', 'PlayerService'
         }
     };
 
-    $scope.editTeam = function () {
-        TeamService.edit($scope.selectedTeam).then(
-            function successCallback(response) {
-                console.log('Success.');
-            },
-            function errorCallback(response) {
-                console.log('Error.');
-            }
-        );
+
+
+    function filterPlayers() {
+        return UtilsService.filter($scope.allPlayers, $scope.userTeam, function(allPlayer, userPlayer){
+            return allPlayer.id == userPlayer.id;
+        })
     };
 
 }]);

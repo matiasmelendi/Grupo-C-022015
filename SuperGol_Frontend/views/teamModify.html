@@ -44,7 +44,7 @@
             <div class="player-selector">
                 <h4>{{ 'AVAILABLE_PLAYERS' | translate }}</h4>
                 <div class="players center">
-                    <div class="list-group black-text" ng-repeat="availablePlayer in allPlayers | orderBy:'name'">
+                    <div class="list-group black-text" ng-repeat="availablePlayer in filteredPlayers | orderBy:'name'">
                         <button type="button" class="list-group-item" ng-click="addPlayer(availablePlayer)">
                             <span class="badge">{{ availablePlayer.position | shortName }}</span>
                             {{ availablePlayer.name }}

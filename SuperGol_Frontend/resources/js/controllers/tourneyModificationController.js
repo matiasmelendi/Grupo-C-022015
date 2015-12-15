@@ -1,6 +1,7 @@
-app.controller('TourneyModificationCtrl', ['$scope', '$rootScope', 'TeamService', 'TourneyService', function($scope, $rootScope, TeamService, TourneyService) {
+app.controller('TourneyModificationCtrl', ['$scope', '$rootScope', 'TeamService', 'TourneyService', 'UtilsService', function($scope, $rootScope, TeamService, TourneyService, UtilsService) {
 
     $scope.minAmountOfTeams = 2;
+    $scope.allTeams = [];
 
     TeamService.all().then(
         function successCallback(response) {
@@ -16,6 +17,7 @@ app.controller('TourneyModificationCtrl', ['$scope', '$rootScope', 'TeamService'
         function successCallback(response) {
             $scope.tourneys = response.data;
             $scope.selectedTourney = new Tourney().configureFromJson($scope.tourneys[0]);
+            $scope.filteredTeams = filterTeams();
         },
         function errorCallback(response) {
             // Error.
@@ -35,6 +37,7 @@ app.controller('TourneyModificationCtrl', ['$scope', '$rootScope', 'TeamService'
 
     $scope.select = function(tourney) {
         $scope.selectedTourney = new Tourney().configureFromJson(tourney);
+        $scope.filteredTeams = filterTeams();
     };
 
     $scope.addTeam = function(team) {
@@ -46,14 +49,20 @@ app.controller('TourneyModificationCtrl', ['$scope', '$rootScope', 'TeamService'
 
     $scope.removeTeam = function(team) {
         $scope.selectedTourney.removeTeam(team);
-        $scope.allTeams.push(team);
+        $scope.filteredTeams.push(team);
     };
 
     function removeTeam(team) {
-        var index = $scope.allTeams.indexOf(team);
+        var index = $scope.filteredTeams.indexOf(team);
         if (index > -1) {
-            $scope.allTeams.splice(index, 1);
+            $scope.filteredTeams.splice(index, 1);
         }
+    };
+
+    function filterTeams() {
+        return UtilsService.filter($scope.allTeams, $scope.selectedTourney.teams, function(allTeam, selectedTeam) {
+            return allTeam.id == selectedTeam.id;
+        });
     };
 
 }]);
