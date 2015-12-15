@@ -8,26 +8,24 @@
 
     <div class="ranking center">
         <div class="ranking-show">
-            <div class="tourneys center">
+            <div class="tourneys center" style="padding-top: 15px;">
                 <div class="form-group">
-                    <h3 for="tourneys">{{ 'TOURNEY_SELECT' | translate }}:</h3>
+                    <h4 for="tourneys">{{ 'TOURNEY_SELECT' | translate }}:</h4>
                     <select class="form-control" id="tourneys">
                         <option ng-repeat="tourney in tourneys" ng-click="select(tourney);">{{ tourney.name }}</option>
                     </select>
                 </div>
             </div>
             <div class="ranking center">
-                <table class="table table-bordered black-text">
-                    <thead class="white">
+                <table class="table">
+                    <thead>
                         <tr>
                             <th>{{ 'TEAM' | translate }}</th>
-                            <th>{{ 'POINTS' | translate }}</th>
                         </tr>
                     </thead>
-                    <tbody class="dark-green">
-                        <tr dir-paginate="team in teams | itemsPerPage: 9">
+                    <tbody class="gray">
+                        <tr dir-paginate="team in teamsInOrder | itemsPerPage: 7">
                             <td> {{ team.name }} </td>
-                            <td> 0 </td>
                         </tr>
                     </tbody>
                 </table>

@@ -67,3 +67,7 @@ INSERT INTO round_teams(round_id, index, team_id) VALUES (1, 1, 2)
 
 INSERT INTO users(ID, username, password, team) VALUES (1, 'Pepito 1', '1234', 1)
 INSERT INTO users(ID, username, password, team) VALUES (2, 'Pepito 2', '1234', 2)
+
+
+INSERT INTO tourney_scores(user_id, tourney_id, points) VALUES (1, 1, 0)
+INSERT INTO tourney_scores(user_id, tourney_id, points) VALUES (2, 1, 3)

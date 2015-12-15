@@ -12,6 +12,10 @@ public class SuperGol {
         this.scoringRules = this.scoringRules();
     }
 
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
     public List<User> users(){
         return this.users;
     }
@@ -23,6 +27,10 @@ public class SuperGol {
     public List<Team> rankingFor(Tourney aTourney){
 
         return ascendingSortByScore(createScoresMapFromUsers(aTourney));
+    }
+
+    public void updateScoresForByPlayers(Tourney tourney, Map<Player, Integer> scoresForPlayers){
+        this.updateScoresFor(tourney, scoresByTeam(scoresForPlayers));
     }
 
     public void updateScoresFor(Tourney tourney, Map<Team, Integer> scoresForTeams){
@@ -87,5 +95,15 @@ public class SuperGol {
     private List<ScoringRule> scoringRules(){
         return Arrays.asList(   new MidfielderForwardScored(), new DefenderScored(), new NoGoals(),
                                 new DrawMatch(), new WinnerOfTheMatch());
+    }
+
+    private Map<Team, Integer> scoresByTeam(Map<Player, Integer> scoresForPlayers) {
+        Map<Team, Integer> results = new HashMap<Team, Integer>();
+
+        for(Player player : scoresForPlayers.keySet()){
+            Integer count = results.containsKey(player.team()) ? results.get(player.team()) : 0;
+            results.put(player.team(), count + scoresForPlayers.get(player));
+        }
+        return results;
     }
 }

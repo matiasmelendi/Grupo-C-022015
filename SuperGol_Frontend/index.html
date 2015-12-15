@@ -14,6 +14,9 @@
         <script type="text/javascript" src="node_modules/angular-messages/angular-messages.min.js"></script>
         <script type="text/javascript" src="node_modules/angular-route/angular-route.min.js"></script>
         <script type="text/javascript" src="node_modules/angular-translate/dist/angular-translate.min.js"></script>
+        <script type="text/javascript" src="node_modules/angular-sweetalert/SweetAlert.min.js"></script>
+        <script type="text/javascript" src="node_modules/angular-sweetalert/node_modules/sweetalert/lib/sweet-alert.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="node_modules/angular-sweetalert/node_modules/sweetalert/lib/sweet-alert.css" />
         <script type="text/javascript" src="node_modules/angular-utils-pagination/dirPagination.js"></script>
         <script type="text/javascript" src="node_modules/ng-file-upload/dist/ng-file-upload.min.js"></script>
 
@@ -31,7 +34,6 @@
         <script type="text/javascript" src="resources/js/config/routes.js"></script>
         <script type="text/javascript" src="resources/js/config/translator.js"></script>
         <script type="text/javascript" src="resources/js/models/hashtable.js"></script>
-        <script type="text/javascript" src="resources/js/models/position.js"></script>
         <script type="text/javascript" src="resources/js/models/player.js"></script>
         <script type="text/javascript" src="resources/js/models/formation.js"></script>
         <script type="text/javascript" src="resources/js/models/team.js"></script>
@@ -39,12 +41,13 @@
         <script type="text/javascript" src="resources/js/models/round.js"></script>
         <script type="text/javascript" src="resources/js/models/user.js"></script>
         <script type="text/javascript" src="resources/js/services/genericService.js"></script>
-        <script type="text/javascript" src="resources/js/services/uploadService.js"></script>
+        <script type="text/javascript" src="resources/js/services/roundService.js"></script>
         <script type="text/javascript" src="resources/js/services/logService.js"></script>
         <script type="text/javascript" src="resources/js/services/tourneyService.js"></script>
         <script type="text/javascript" src="resources/js/services/playerService.js"></script>
         <script type="text/javascript" src="resources/js/services/teamService.js"></script>
         <script type="text/javascript" src="resources/js/services/registerService.js"></script>
+        <script type="text/javascript" src="resources/js/services/alertService.js"></script>
         <script type="text/javascript" src="resources/js/controllers/homeController.js"></script>
         <script type="text/javascript" src="resources/js/controllers/logInController.js"></script>
         <script type="text/javascript" src="resources/js/controllers/navBarController.js"></script>
@@ -57,7 +60,7 @@
         <script type="text/javascript" src="resources/js/directives/topNav.js"></script>
         <script type="text/javascript" src="resources/js/filters/filters.js"></script>
     </head>
-    <body ng-app="superGol" ng-cloak>
+    <body ng-app="superGol" ng-cloak class="ng-cloak">
         <top-nav></top-nav>
         <div class="container-fluid text-center" ng-view>
             <!-- Content -->

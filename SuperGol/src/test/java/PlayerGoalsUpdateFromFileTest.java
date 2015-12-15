@@ -19,7 +19,6 @@ public class PlayerGoalsUpdateFromFileTest {
         Reader.assignPlayersProvider(new PlayersProviderForTest());
     }
 
-
     @Test(expected = UpdateGoalsFromFileFailure.class)
     public void couldNotUpdateARoundWithAFileThatWasUsedPreviously() throws UpdateGoalsFromFileFailure, CouldNotUpdateAPreviousRound, FileHasNoHeaderID {
         new PlayerGoalsUpdateFromFile(validFile, 0, 1, 001);
