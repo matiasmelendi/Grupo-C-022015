@@ -44,7 +44,7 @@ app.controller('TeamCreationCtrl', ['$scope', 'TeamService', 'PlayerService', 's
                     var currentUser = store.get('currentUser');
                     currentUser.team = $scope.newTeam;
                     store.set('currentUser', currentUser);
-                    $location.path('/team/modify');
+                    $location.path('/');
                 });
             },
             function errorCallback(response) {
