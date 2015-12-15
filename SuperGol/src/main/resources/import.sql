@@ -70,4 +70,4 @@ INSERT INTO users(ID, username, password, team) VALUES (2, 'Pepito 2', '1234', 2
 
 
 INSERT INTO tourney_scores(user_id, tourney_id, points) VALUES (1, 1, 0)
-INSERT INTO tourney_scores(user_id, tourney_id, points) VALUES (2, 1, 0)
+INSERT INTO tourney_scores(user_id, tourney_id, points) VALUES (2, 1, 3)

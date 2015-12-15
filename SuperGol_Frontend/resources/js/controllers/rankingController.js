@@ -6,7 +6,7 @@ app.controller('RankingCtrl', ['$scope', 'TourneyService', 'TeamService', functi
             $scope.selectedTourney = $scope.tourneys[0];
             TourneyService.rankingFor($scope.selectedTourney.id).then(
                 function successCallback(response) {
-                    $scope.scores = response.data;
+                    $scope.teamsInOrder = response.data;
                 },
                 function errorCallback(response) {
                     // Error.
@@ -22,7 +22,7 @@ app.controller('RankingCtrl', ['$scope', 'TourneyService', 'TeamService', functi
         $scope.selectedTourney = tourney;
         TourneyService.rankingFor($scope.selectedTourney.id).then(
             function successCallback(response) {
-                $scope.scores = response.data;
+                $scope.teamsInOrder = response.data;
             },
             function errorCallback(response) {
                 // Error.
