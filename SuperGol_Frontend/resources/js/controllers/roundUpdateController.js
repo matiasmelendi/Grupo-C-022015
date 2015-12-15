@@ -1,4 +1,4 @@
-app.controller('RoundUpdateCtrl', ['$scope', '$timeout', '$location', 'RoundService', 'PlayerService', 'SweetAlert', function($scope, $timeout, $location, RoundService, PlayerService, SweetAlert) {
+app.controller('RoundUpdateCtrl', ['$scope', '$timeout', '$location', 'RoundService', 'PlayerService', 'AlertService', function($scope, $timeout, $location, RoundService, PlayerService, AlertService) {
 
     $scope.useManualMode = function() {
         $scope.manualMode = true;
@@ -22,11 +22,7 @@ app.controller('RoundUpdateCtrl', ['$scope', '$timeout', '$location', 'RoundServ
             });
         },
         function errorCallback(response) {
-            SweetAlert.swal({
-                title: "We have some problems! Sorry!",
-                text: "We are not being able to retrieve the players.",
-                type: "warning"
-            });
+            AlertService.warning("We are not being able to retrieve the players.");
         }
     );
 
@@ -35,32 +31,22 @@ app.controller('RoundUpdateCtrl', ['$scope', '$timeout', '$location', 'RoundServ
             console.log($scope.playerGoals);
             RoundService.uploadPlayerList($scope.playerGoals)
             .then(function successCallback(response) {
-                SweetAlert.swal({
-                    title: "Nice!",
-                    text: "Your tourney was created!",
-                    type: "success"
-                }, function() {
+                AlertService.successWithCallback("The round was updated!", function() {
                     $location.path('/ranking');
                 });
             }, function errorCallback(response) {
-                SweetAlert.swal({
-                    title: "We have some problems! Sorry!",
-                    text: "We are not being able to update the CVS.",
-                    type: "warning"
-                });
+                AlertService.warning("We are not being able to update the CVS.");
             });
         } else {
             RoundService.uploadCSV($scope.csv)
             .then(function (response) {
                 $timeout(function () {
-                    file.result = response.data;
+                    AlertService.successWithCallback("The round was updated!", function() {
+                        $location.path('/ranking');
+                    });
                 });
             }, function (response) {
-                SweetAlert.swal({
-                    title: "We have some problems! Sorry!",
-                    text: "We are not being able to update the CVS.",
-                    type: "warning"
-                });
+                AlertService.warning("We are not being able to update the CVS.");
             });
         }
     }

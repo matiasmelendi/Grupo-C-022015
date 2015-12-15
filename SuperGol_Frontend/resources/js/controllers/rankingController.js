@@ -1,4 +1,4 @@
-app.controller('RankingCtrl', ['$scope', 'TourneyService', 'TeamService', 'SweetAlert', function($scope, TourneyService, TeamService, SweetAlert) {
+app.controller('RankingCtrl', ['$scope', 'TourneyService', 'TeamService', 'AlertService', function($scope, TourneyService, TeamService, AlertService) {
 
     TourneyService.all().then(
         function successCallback(response) {
@@ -9,16 +9,12 @@ app.controller('RankingCtrl', ['$scope', 'TourneyService', 'TeamService', 'Sweet
                     $scope.scores = response.data;
                 },
                 function errorCallback(response) {
-                    SweetAlert.swal({
-                        title: "We have some problems! Sorry!",
-                        text: "We are not being able to retrieve the tourneys.",
-                        type: "warning"
-                    });
+                    AlertService.warning("We are not being able to retrieve the ranking of the selected tourney.");
                 }
             );
         },
         function errorCallback(response) {
-            // Error.
+            AlertService.warning("We are not being able to retrieve the tourneys.");
         }
     );
 
@@ -29,11 +25,7 @@ app.controller('RankingCtrl', ['$scope', 'TourneyService', 'TeamService', 'Sweet
                 $scope.scores = response.data;
             },
             function errorCallback(response) {
-                SweetAlert.swal({
-                    title: "We have some problems! Sorry!",
-                    text: "We are not being able to retrieve the ranking of the selected tourney.",
-                    type: "warning"
-                });
+                AlertService.warning("We are not being able to retrieve the ranking of the selected tourney.");
             }
         );
     };

@@ -1,4 +1,4 @@
-app.controller('TourneyModificationCtrl', ['$scope', '$rootScope', 'TeamService', 'TourneyService', 'SweetAlert', function($scope, $rootScope, TeamService, TourneyService, SweetAlert) {
+app.controller('TourneyModificationCtrl', ['$scope', '$rootScope', 'TeamService', 'TourneyService', 'AlertService', function($scope, $rootScope, TeamService, TourneyService, AlertService) {
 
     function getAllTourneys() {
         TourneyService.all().then(
@@ -7,11 +7,7 @@ app.controller('TourneyModificationCtrl', ['$scope', '$rootScope', 'TeamService'
                 $scope.selectedTourney = new Tourney().configureFromJson($scope.tourneys[0]);
             },
             function errorCallback(response) {
-                SweetAlert.swal({
-                    title: "We have some problems! Sorry!",
-                    text: "We are not being able to retrieve the tourneys.",
-                    type: "warning"
-                });
+                AlertService.warning("We are not being able to retrieve the tourneys.");
             }
         );
     };
@@ -24,11 +20,7 @@ app.controller('TourneyModificationCtrl', ['$scope', '$rootScope', 'TeamService'
             $scope.maxAmountOfTeams = $scope.allTeams.length;
         },
         function errorCallback(response) {
-            SweetAlert.swal({
-                title: "We have some problems! Sorry!",
-                text: "We are not being able to retrieve the teams.",
-                type: "warning"
-            });
+            AlertService.warning("We are not being able to retrieve the teams.");
         }
     );
 
@@ -37,19 +29,11 @@ app.controller('TourneyModificationCtrl', ['$scope', '$rootScope', 'TeamService'
     $scope.editTourney = function () {
         TourneyService.edit($scope.selectedTourney).then(
             function successCallback(response) {
-                SweetAlert.swal({
-                    title: "Nice!",
-                    text: "Your tourney was edited!",
-                    type: "success"
-                });
+                AlertService.success("Your tourney was edited!");
                 getAllTourneys();
             },
             function errorCallback(response) {
-                SweetAlert.swal({
-                    title: "We have some problems! Sorry!",
-                    text: "We are not being able to save your changes in the Tourney.",
-                    type: "warning"
-                });
+                AlertService.warning("We are not being able to save your changes in the Tourney.");
             }
         );
     };

@@ -1,4 +1,4 @@
-app.controller('TeamCreationCtrl', ['$scope', 'TeamService', 'PlayerService', 'store', 'SweetAlert', function($scope, TeamService, PlayerService, store, SweetAlert) {
+app.controller('TeamCreationCtrl', ['$scope', 'TeamService', 'PlayerService', 'store', 'AlertService', function($scope, TeamService, PlayerService, store, AlertService) {
 
     $scope.newTeam = new Team();
 
@@ -14,11 +14,7 @@ app.controller('TeamCreationCtrl', ['$scope', 'TeamService', 'PlayerService', 's
             $scope.allPlayers = allPlayers;
         },
         function errorCallback(response) {
-            SweetAlert.swal({
-                title: "We have some problems! Sorry!",
-                text: "We are not being able to retrieve the players.",
-                type: "warning"
-            });
+            AlertService.warning("We are not being able to retrieve the players.");
         }
     );
 
@@ -44,11 +40,7 @@ app.controller('TeamCreationCtrl', ['$scope', 'TeamService', 'PlayerService', 's
     $scope.createTeam = function () {
         TeamService.create($scope.newTeam).then(
             function successCallback(response) {
-                SweetAlert.swal({
-                    title: "Nice!",
-                    text: "Your team was created!",
-                    type: "success"
-                }, function() {
+                AlertService.successWithCallback("Your team was created!", function() {
                     var currentUser = store.get('currentUser');
                     currentUser.team = $scope.newTeam;
                     store.put('currentUser', currentUser);
@@ -56,11 +48,7 @@ app.controller('TeamCreationCtrl', ['$scope', 'TeamService', 'PlayerService', 's
                 });
             },
             function errorCallback(response) {
-                SweetAlert.swal({
-                    title: "Oh no!",
-                    text: "Your team could not be created!",
-                    type: "warning"
-                });
+                AlertService.warning("Your team could not be created!");
             }
         );
     };
