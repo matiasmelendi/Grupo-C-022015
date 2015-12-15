@@ -1,11 +1,23 @@
 package services;
 
+import model.Player;
+import model.Position;
 import model.Team;
 import model.Tourney;
+import org.codehaus.jackson.JsonGenerator;
+import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.JsonParser;
+import org.codehaus.jackson.JsonProcessingException;
+import org.codehaus.jackson.map.*;
+import org.codehaus.jackson.map.annotate.JsonDeserialize;
+import org.codehaus.jackson.node.ObjectNode;
+import org.codehaus.jackson.type.TypeReference;
 import repositories.TourniesRepository;
 
 import javax.ws.rs.*;
-import java.util.List;
+import java.io.IOException;
+import java.io.Serializable;
+import java.util.*;
 
 @Path("/tournies")
 public class TourniesService {
@@ -51,6 +63,29 @@ public class TourniesService {
     @Produces("application/x-www-form-urlencoded")
     public void update(Tourney tourney) {
         this.repository.update(tourney);
+    }
+
+    @POST
+    @Path("/{id}/update-from-list")
+    @Consumes("application/json")
+    public void updateFromList(@PathParam("id") Integer id, List<List<Object>> requestBody){
+        Map<Player, Integer> scores = new HashMap<Player, Integer>();
+
+        for(List<Object> score : requestBody){
+            scores.put(playerFrom((LinkedHashMap) score.get(0)), (Integer)score.get(1));
+        }
+
+        this.repository.updateFromList(id, scores);
+    }
+
+    private Player playerFrom(LinkedHashMap<String, Object> playerJson){
+        Player player = new Player();
+        player.setId((Integer)playerJson.get("id"));
+        player.setName((String) playerJson.get("name"));
+        player.setPosition(Position.valueOf((String)playerJson.get("position")));
+        player.setCaptain((Boolean)playerJson.get("captain"));
+
+        return player;
     }
 
     //*******************************************************
