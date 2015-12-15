@@ -43,7 +43,6 @@ app.controller('TeamCreationCtrl', ['$scope', 'TeamService', 'PlayerService', 's
                 AlertService.successWithCallback("Your team was created!", function() {
                     var currentUser = store.get('currentUser');
                     currentUser.team = $scope.newTeam;
-                    console.log(currentUser.team);
                     store.set('currentUser', currentUser);
                     $location.path('/team/modify');
                 });
