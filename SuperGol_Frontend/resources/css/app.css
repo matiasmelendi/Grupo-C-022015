@@ -26,6 +26,10 @@ html, body {
     background-color: #0B3B0B;
 }
 
+.gray {
+    background-color: #729972;
+}
+
 .dark-green {
     background-color: #083208;
 }
@@ -119,7 +123,7 @@ input.btn[disabled] {
 
 .ranking {
     height: 100%;
-    width: 80%;
+    width: 60%;
 }
 
 .ranking-show {
@@ -152,7 +156,37 @@ input.btn[disabled] {
 }
 
 .round-paginator {
-    height: 15%;
+    height: 25%;
+}
+
+.round-paginator-div {
+    height: 50%;
+}
+
+.upload-submit-divs {
+    height: 50%;
+    width: 100%;
+    padding-top: 15px;
+}
+
+.upload-div {
+    height: 100%;
+    width: 85%;
+    float: left;
+    padding-left: 15px;
+}
+
+.upload-file {
+    padding-top: 9px;
+    padding-left: 22%;
+    width: 100%;
+    text-align: left;
+}
+
+.submit-div {
+    height: 100%;
+    width: 15%;
+    float: left;
 }
 
 .upload {
@@ -160,6 +194,11 @@ input.btn[disabled] {
     margin-top: 20px;
     margin-left: 20px;
     margin-right: -200px;
+}
+
+.upload-modes {
+    width: 100%;
+    padding: 10px;
 }
 
 .form-horizontal {
