@@ -1,4 +1,4 @@
-app.controller('RoundUpdateCtrl', ['$scope', '$timeout', '$location', 'RoundService', 'PlayerService', 'AlertService', function($scope, $timeout, $location, RoundService, PlayerService, AlertService) {
+app.controller('RoundUpdateCtrl', ['$scope', '$timeout', '$location', 'RoundService', 'PlayerService', 'AlertService', 'TourneyService', function($scope, $timeout, $location, RoundService, PlayerService, AlertService, TourneyService) {
 
     $scope.useManualMode = function() {
         $scope.manualMode = true;
@@ -26,10 +26,31 @@ app.controller('RoundUpdateCtrl', ['$scope', '$timeout', '$location', 'RoundServ
         }
     );
 
+    TourneyService.all().then(
+        function successCallback(response) {
+            $scope.tourneys = response.data;
+            $scope.selectedTourney = $scope.tourneys[0];
+        },
+        function errorCallback(response) {
+            AlertService.warning("We are not being able to retrieve the tourneys.");
+        }
+    );
+
+    $scope.select = function(tourney) {
+        $scope.selectedTourney = tourney;
+    };
+
     $scope.submit = function() {
+        var request = [];
+        $scope.playerGoals.forEach(function(score) {
+            var player = score.player;
+            var goals = score.goals;
+            request.push({
+                player: goals
+            });
+        });
         if($scope.manualMode) {
-            console.log($scope.playerGoals);
-            RoundService.uploadPlayerList($scope.playerGoals)
+            RoundService.uploadPlayerList($scope.selectedTourney.id, request)
             .then(function successCallback(response) {
                 AlertService.successWithCallback("The round was updated!", function() {
                     $location.path('/ranking');
@@ -38,7 +59,7 @@ app.controller('RoundUpdateCtrl', ['$scope', '$timeout', '$location', 'RoundServ
                 AlertService.warning("We are not being able to update the CVS.");
             });
         } else {
-            RoundService.uploadCSV($scope.csv)
+            RoundService.uploadCSV($scope.selectedTourney.id, $scope.csv)
             .then(function (response) {
                 $timeout(function () {
                     AlertService.successWithCallback("The round was updated!", function() {

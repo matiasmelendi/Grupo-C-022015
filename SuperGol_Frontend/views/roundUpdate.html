@@ -7,6 +7,9 @@
 <div class="workspace" ng-controller="RoundUpdateCtrl">
     <form name="roundUpdate" novalidate class="simple-form">
         <div class="rounds-container center">
+            <select class="form-control" id="tourneys">
+                <option ng-repeat="tourney in tourneys" ng-click="select(tourney);">{{ tourney.name }}</option>
+            </select>
             <div class="upload-modes btn-group"
                  style="margin-left: auto;
                         margin-right: auto;
@@ -34,7 +37,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <tr dir-paginate="score in playerGoals | itemsPerPage: 6">
+                        <tr dir-paginate="score in playerGoals | itemsPerPage: 4">
                             <td> {{ score.player.name }} </td>
                             <td>
                                 <input type="number"
@@ -43,7 +46,7 @@
                                    max="99"
                                    maxlength="2"
                                    ng-model="score.goals"
-                                   ng-disable="{{ automaticMode }}"
+                                   ng-disable="automaticMode"
                                    name='goals'
                                    class="form-control"
                                    required

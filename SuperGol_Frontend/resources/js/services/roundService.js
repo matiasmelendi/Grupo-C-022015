@@ -6,8 +6,8 @@ app.service('RoundService', function(GenericService, $rootScope, Upload, store) 
         uploadPlayerList: uploadPlayerList
     };
 
-    function uploadCSV(file) {
-        return GenericService.doPut('/rounds/update-from-csv', file, {});
+    function uploadCSV(id, file) {
+        return GenericService.doPut('/rounds/'+id+'/update-from-csv', file, {});
     };
 
     function uploadPlayerList(id, data) {
