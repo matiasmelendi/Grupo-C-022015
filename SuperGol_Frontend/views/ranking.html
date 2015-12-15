@@ -21,13 +21,11 @@
                     <thead class="white">
                         <tr>
                             <th>{{ 'TEAM' | translate }}</th>
-                            <th>{{ 'POINTS' | translate }}</th>
                         </tr>
                     </thead>
                     <tbody class="dark-green">
-                        <tr dir-paginate="team in teams | itemsPerPage: 9">
+                        <tr dir-paginate="team in teamsInOrder | itemsPerPage: 9">
                             <td> {{ team.name }} </td>
-                            <td> 0 </td>
                         </tr>
                     </tbody>
                 </table>

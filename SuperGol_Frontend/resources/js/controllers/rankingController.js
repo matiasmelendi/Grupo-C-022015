@@ -6,7 +6,7 @@ app.controller('RankingCtrl', ['$scope', 'TourneyService', 'TeamService', 'Alert
             $scope.selectedTourney = $scope.tourneys[0];
             TourneyService.rankingFor($scope.selectedTourney.id).then(
                 function successCallback(response) {
-                    $scope.scores = response.data;
+                    $scope.teamsInOrder = response.data;
                 },
                 function errorCallback(response) {
                     AlertService.warning("We are not being able to retrieve the ranking of the selected tourney.");
@@ -22,7 +22,7 @@ app.controller('RankingCtrl', ['$scope', 'TourneyService', 'TeamService', 'Alert
         $scope.selectedTourney = tourney;
         TourneyService.rankingFor($scope.selectedTourney.id).then(
             function successCallback(response) {
-                $scope.scores = response.data;
+                $scope.teamsInOrder = response.data;
             },
             function errorCallback(response) {
                 AlertService.warning("We are not being able to retrieve the ranking of the selected tourney.");
