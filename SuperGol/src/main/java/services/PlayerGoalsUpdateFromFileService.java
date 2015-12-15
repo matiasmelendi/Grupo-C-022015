@@ -5,10 +5,7 @@ import exceptions.FileHasNoHeaderID;
 import exceptions.UpdateGoalsFromFileFailure;
 import repositories.PlayerGoalsUpdateFromFileRepository;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import java.io.File;
 
 @Path("/rounds")
@@ -17,11 +14,11 @@ public class PlayerGoalsUpdateFromFileService {
     private PlayerGoalsUpdateFromFileRepository repository;
 
     @PUT
-    @Path("/update-from-csv")
+    @Path("/{id}/update-from-csv")
     @Consumes("multipart/form-data")
     @Produces("application/x-www-form-urlencoded")
-    public void updateFromCsv(File csvFile) throws UpdateGoalsFromFileFailure, CouldNotUpdateAPreviousRound, FileHasNoHeaderID {
-        this.repository.updateRoundFromCSV(csvFile);
+    public void updateFromCsv(@PathParam("id") Integer tourneyID,File csvFile) throws UpdateGoalsFromFileFailure, CouldNotUpdateAPreviousRound, FileHasNoHeaderID {
+        this.repository.updateRoundFromCSV(tourneyID, csvFile);
     }
 
     //*******************************************************
