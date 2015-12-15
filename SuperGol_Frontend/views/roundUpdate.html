@@ -7,31 +7,34 @@
 <div class="workspace" ng-controller="RoundUpdateCtrl">
     <form name="roundUpdate" novalidate class="simple-form">
         <div class="rounds-container center">
-            <div class="upload-modes btn-group"
-                 style="margin-left: auto;
-                        margin-right: auto;
-                        padding-top: 10px;"
-                 data-toggle="buttons">
-                <label class="btn btn-default" ng-click="useManualMode()">
-                    <input type="radio"/>
-                    Manual
-                </label>
-                <label class="btn btn-default" ng-click="useAutomaticMode()">
-                    <input type="radio"/>
-                    Automatic
-                </label>
+            <div class="round-header">
+                <div class="upload-modes btn-group" data-toggle="buttons">
+                    <label class="btn btn-default" ng-click="useManualMode()">
+                        <input type="radio"/>
+                        Manual
+                    </label>
+                    <label class="btn btn-default" ng-click="useAutomaticMode()">
+                        <input type="radio"/>
+                        Automatic
+                    </label>
+                </div>
+                <div class="tourney-select-combo">
+                    <select class="form-control" id="tourneys">
+                        <option ng-repeat="tourney in tourneys" ng-click="select(tourney);">{{ tourney.name }}</option>
+                    </select>
+                </div>
             </div>
             <div class="rounds-form center">
                 <table class="table">
                     <thead>
-                    <tr>
-                        <th class="text-center" style="width: 89%;">
-                            {{ 'PLAYERS' | translate }}
-                        </th>
-                        <th class="text-center">
-                            {{ 'GOALS' | translate }}
-                        </th>
-                    </tr>
+                        <tr>
+                            <th class="text-center" style="width: 89%;">
+                                {{ 'PLAYERS' | translate }}
+                            </th>
+                            <th class="text-center">
+                                {{ 'GOALS' | translate }}
+                            </th>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr dir-paginate="score in playerGoals | itemsPerPage: 6">
@@ -54,26 +57,36 @@
                 </table>
             </div>
             <div class="round-paginator">
-                <button type="file"
-                        class="btn btn-primary"
-                        ngf-select
-                        ng-disabled="manualMode"
-                        ng-model="csv"
-                        required>
-                    CHOOSE A CSV
-                </button>
-                <span>File: {{csv.name}}</span>
-                <dir-pagination-controls
-                        max-size="6"
-                        direction-links="false"
-                        boundary-links="true">
-                </dir-pagination-controls>
-                <button type="submit"
-                        class="btn btn-primary"
-                        ng-disabled="!automaticMode && !manualMode"
-                        ng-click="submit()">
-                    SUBMIT
-                </button>
+                <div class="round-paginator-div">
+                    <dir-pagination-controls
+                            max-size="6"
+                            direction-links="false"
+                            boundary-links="true">
+                    </dir-pagination-controls>
+                </div>
+                <div class="upload-submit-divs">
+                    <div class="upload-div">
+                        <button type="file"
+                                class="btn btn-primary pull-left"
+                                ng-disabled="manualMode"
+                                ngf-select
+                                ng-model="csv"
+                                required>
+                            CHOOSE A CSV
+                        </button>
+                        <div class="upload-file">
+                            <span>File: {{csv.name}}</span>
+                        </div>
+                    </div>
+                    <div style="height: 100%; width: 15%; float: left;">
+                        <button type="submit"
+                                class="btn btn-primary"
+                                ng-disabled="(!automaticMode && !manualMode) || (automaticMode && csv == null)"
+                                ng-click="submit()">
+                            SUBMIT
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </form>
