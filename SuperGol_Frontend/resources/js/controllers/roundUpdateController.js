@@ -1,5 +1,7 @@
 app.controller('RoundUpdateCtrl', ['$scope', '$timeout', '$location', 'RoundService', 'PlayerService', 'AlertService', 'TourneyService', function($scope, $timeout, $location, RoundService, PlayerService, AlertService, TourneyService) {
 
+    $scope.csv = null;
+
     $scope.useManualMode = function() {
         $scope.manualMode = true;
         $scope.automaticMode = false;
