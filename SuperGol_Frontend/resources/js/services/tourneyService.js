@@ -17,7 +17,7 @@ app.service('TourneyService', function(GenericService) {
     }
 
     function edit(tourney) {
-        return GenericService.doPut('/tournies/', data, {});
+        return GenericService.doPut('/tournies/', tourney, {});
     }
 
     function rankingFor(tourneyID) {

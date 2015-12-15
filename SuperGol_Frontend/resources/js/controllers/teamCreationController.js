@@ -1,4 +1,4 @@
-app.controller('TeamCreationCtrl', ['$scope', 'TeamService', 'PlayerService', 'store', function($scope, TeamService, PlayerService, store) {
+app.controller('TeamCreationCtrl', ['$scope', 'TeamService', 'PlayerService', 'store', 'AlertService', function($scope, TeamService, PlayerService, store, AlertService) {
 
     $scope.newTeam = new Team();
 
@@ -14,7 +14,7 @@ app.controller('TeamCreationCtrl', ['$scope', 'TeamService', 'PlayerService', 's
             $scope.allPlayers = allPlayers;
         },
         function errorCallback(response) {
-            console.log(response);
+            AlertService.warning("We are not being able to retrieve the players.");
         }
     );
 
@@ -40,13 +40,15 @@ app.controller('TeamCreationCtrl', ['$scope', 'TeamService', 'PlayerService', 's
     $scope.createTeam = function () {
         TeamService.create($scope.newTeam).then(
             function successCallback(response) {
-                var currentUser = store.get('currentUser');
-                currentUser.team = $scope.newTeam;
-                store.put('currentUser', currentUser);
-                $location.path('/team/modify');
+                AlertService.successWithCallback("Your team was created!", function() {
+                    var currentUser = store.get('currentUser');
+                    currentUser.team = $scope.newTeam;
+                    store.put('currentUser', currentUser);
+                    $location.path('/team/modify');
+                });
             },
             function errorCallback(response) {
-                console.log(response);
+                AlertService.warning("Your team could not be created!");
             }
         );
     };

@@ -1,4 +1,16 @@
-app.controller('TourneyModificationCtrl', ['$scope', '$rootScope', 'TeamService', 'TourneyService', function($scope, $rootScope, TeamService, TourneyService) {
+app.controller('TourneyModificationCtrl', ['$scope', '$rootScope', 'TeamService', 'TourneyService', 'AlertService', function($scope, $rootScope, TeamService, TourneyService, AlertService) {
+
+    function getAllTourneys() {
+        TourneyService.all().then(
+            function successCallback(response) {
+                $scope.tourneys = response.data;
+                $scope.selectedTourney = new Tourney().configureFromJson($scope.tourneys[0]);
+            },
+            function errorCallback(response) {
+                AlertService.warning("We are not being able to retrieve the tourneys.");
+            }
+        );
+    };
 
     $scope.minAmountOfTeams = 2;
 
@@ -8,27 +20,20 @@ app.controller('TourneyModificationCtrl', ['$scope', '$rootScope', 'TeamService'
             $scope.maxAmountOfTeams = $scope.allTeams.length;
         },
         function errorCallback(response) {
-            // Error.
+            AlertService.warning("We are not being able to retrieve the teams.");
         }
     );
 
-    TourneyService.all().then(
-        function successCallback(response) {
-            $scope.tourneys = response.data;
-            $scope.selectedTourney = new Tourney().configureFromJson($scope.tourneys[0]);
-        },
-        function errorCallback(response) {
-            // Error.
-        }
-    );
+    getAllTourneys();
 
     $scope.editTourney = function () {
         TourneyService.edit($scope.selectedTourney).then(
             function successCallback(response) {
-                $scope.editionSuccess = true;
+                AlertService.success("Your tourney was edited!");
+                getAllTourneys();
             },
             function errorCallback(response) {
-                // Error.
+                AlertService.warning("We are not being able to save your changes in the Tourney.");
             }
         );
     };

@@ -1,4 +1,4 @@
-app.controller('RoundUpdateCtrl', ['$scope', '$timeout', '$location', 'RoundService', 'PlayerService', function($scope, $timeout, $location, RoundService, PlayerService) {
+app.controller('RoundUpdateCtrl', ['$scope', '$timeout', '$location', 'RoundService', 'PlayerService', 'AlertService', function($scope, $timeout, $location, RoundService, PlayerService, AlertService) {
 
     $scope.useManualMode = function() {
         $scope.manualMode = true;
@@ -22,7 +22,7 @@ app.controller('RoundUpdateCtrl', ['$scope', '$timeout', '$location', 'RoundServ
             });
         },
         function errorCallback(response) {
-
+            AlertService.warning("We are not being able to retrieve the players.");
         }
     );
 
@@ -31,20 +31,22 @@ app.controller('RoundUpdateCtrl', ['$scope', '$timeout', '$location', 'RoundServ
             console.log($scope.playerGoals);
             RoundService.uploadPlayerList($scope.playerGoals)
             .then(function successCallback(response) {
-                $location.path('/ranking');
+                AlertService.successWithCallback("The round was updated!", function() {
+                    $location.path('/ranking');
+                });
             }, function errorCallback(response) {
-
+                AlertService.warning("We are not being able to update the CVS.");
             });
         } else {
             RoundService.uploadCSV($scope.csv)
             .then(function (response) {
                 $timeout(function () {
-                    file.result = response.data;
+                    AlertService.successWithCallback("The round was updated!", function() {
+                        $location.path('/ranking');
+                    });
                 });
             }, function (response) {
-                if(response.status > 0) {
-                    console.log(response.status + ': ' + response.data);
-                }
+                AlertService.warning("We are not being able to update the CVS.");
             });
         }
     }
