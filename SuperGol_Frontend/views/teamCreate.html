@@ -97,7 +97,7 @@
                 </div>
                 <button type="submit"
                         class="btn btn-primary"
-                        ng-disabled="{{ !newTeam.isFull() }}"
+                        ng-disabled="teamCreationForm.$invalid || !newTeam.isFull()"
                         ng-click="createTeam()">
                     <span class="glyphicon glyphicon-plus"></span>
                     {{ 'CREATE' | translate }}

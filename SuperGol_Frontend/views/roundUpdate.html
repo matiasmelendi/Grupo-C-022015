@@ -7,19 +7,22 @@
 <div class="workspace" ng-controller="RoundUpdateCtrl">
     <form name="roundUpdate" novalidate class="simple-form">
         <div class="rounds-container center">
-            <select class="form-control" id="tourneys">
-                <option ng-repeat="tourney in tourneys" ng-click="select(tourney);">{{ tourney.name }}</option>
-            </select>
-
-            <div class="upload-modes btn-group" data-toggle="buttons">
-                <label class="btn btn-default" ng-click="useManualMode()">
-                    <input type="radio"/>
-                    Manual
-                </label>
-                <label class="btn btn-default" ng-click="useAutomaticMode()">
-                    <input type="radio"/>
-                    Automatic
-                </label>
+            <div class="round-header">
+                <div class="upload-modes btn-group" data-toggle="buttons">
+                    <label class="btn btn-default" ng-click="useManualMode()">
+                        <input type="radio"/>
+                        Manual
+                    </label>
+                    <label class="btn btn-default" ng-click="useAutomaticMode()">
+                        <input type="radio"/>
+                        Automatic
+                    </label>
+                </div>
+                <div class="tourney-select-combo">
+                    <select class="form-control" id="tourneys">
+                        <option ng-repeat="tourney in tourneys" ng-click="select(tourney);">{{ tourney.name }}</option>
+                    </select>
+                </div>
             </div>
             <div class="rounds-form center">
                 <table class="table">
@@ -34,7 +37,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr dir-paginate="score in playerGoals | itemsPerPage: 4">
+                        <tr dir-paginate="score in playerGoals | itemsPerPage: 6">
                             <td> {{ score.player.name }} </td>
                             <td>
                                 <input type="number"
@@ -43,7 +46,7 @@
                                    max="99"
                                    maxlength="2"
                                    ng-model="score.goals"
-                                   ng-disable="automaticMode"
+                                   ng-disabled="automaticMode"
                                    name='goals'
                                    class="form-control"
                                    required
@@ -65,6 +68,7 @@
                     <div class="upload-div">
                         <button type="file"
                                 class="btn btn-primary pull-left"
+                                ng-disabled="manualMode"
                                 ngf-select
                                 ng-model="csv"
                                 required>
@@ -77,6 +81,7 @@
                     <div style="height: 100%; width: 15%; float: left;">
                         <button type="submit"
                                 class="btn btn-primary"
+                                ng-disabled="(!automaticMode && !manualMode) || (automaticMode && csv == null)"
                                 ng-click="submit()">
                             SUBMIT
                         </button>
