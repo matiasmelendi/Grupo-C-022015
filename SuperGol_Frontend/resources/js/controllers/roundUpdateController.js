@@ -56,7 +56,7 @@ app.controller('RoundUpdateCtrl', ['$scope', '$timeout', '$location', 'RoundServ
                     $location.path('/ranking');
                 });
             }, function errorCallback(response) {
-                AlertService.warning("We are not being able to update the CVS.");
+                AlertService.warning("We are not being able to update manually.");
             });
         } else {
             RoundService.uploadCSV($scope.selectedTourney.id, $scope.csv)
