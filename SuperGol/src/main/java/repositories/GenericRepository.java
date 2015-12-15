@@ -2,6 +2,8 @@ package repositories;
 
 import java.util.List;
 
+import model.SuperGol;
+import model.User;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,9 +12,12 @@ public abstract class GenericRepository<T> extends HibernateDaoSupport {
 
     protected Class<T> persistentClass = this.getDomainClass();
 
-   /* public void delete(final T entity) {
-        this.getHibernateTemplate().delete(entity);
-    }*/
+    public SuperGol getAGameInstance(){
+        SuperGol game = new SuperGol();
+        game.setUsers(this.getHibernateTemplate().findByExample(new User()));
+
+        return game;
+    }
 
     @Transactional
     public void delete(Integer id) {

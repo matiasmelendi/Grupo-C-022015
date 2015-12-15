@@ -1,4 +1,4 @@
-app.controller('TeamModificationCtrl', ['$scope', 'TeamService', 'PlayerService', 'store', function($scope, TeamService, PlayerService, store) {
+app.controller('TeamModificationCtrl', ['$scope', 'TeamService', 'PlayerService', 'store', 'AlertService', function($scope, TeamService, PlayerService, store, AlertService) {
 
     var currentUser = store.get('currentUser');
     $scope.userTeam = currentUser.team;
@@ -16,7 +16,7 @@ app.controller('TeamModificationCtrl', ['$scope', 'TeamService', 'PlayerService'
             $scope.allPlayers = allPlayers;
         },
         function errorCallback(response) {
-            console.log('Error.');
+            AlertService.warning("We are not being able to retrieve the players.");
         }
     );
 
@@ -42,10 +42,10 @@ app.controller('TeamModificationCtrl', ['$scope', 'TeamService', 'PlayerService'
     $scope.editTeam = function () {
         TeamService.edit($scope.selectedTeam).then(
             function successCallback(response) {
-                console.log('Success.');
+                AlertService.success("Your team was edited!");
             },
             function errorCallback(response) {
-                console.log('Error.');
+                AlertService.warning("Your team could not be edited!");
             }
         );
     };

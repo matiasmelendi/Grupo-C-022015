@@ -9,10 +9,8 @@ import java.util.Map;
 public class TourniesRepository extends GenericRepository<Tourney> implements TourniesRepositoryProtocol {
 
     public List<Team> rankingForATourney(Integer id){
-        SuperGol game = new SuperGol();
-        game.setUsers(this.getHibernateTemplate().findByExample(new User()));
 
-        return game.rankingFor(this.find(id));
+        return this.getAGameInstance().rankingFor(this.find(id));
     }
 
     public void updateFromList(Integer id, Map<Player, Integer> scores){
