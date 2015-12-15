@@ -5,7 +5,8 @@ describe("Tourney", function() {
 
     beforeEach(function() {
         tourney = new Tourney();
-        tourney.maxNumberOfTeams = 1;
+        tourney.minNumberOfTeams = 2
+        tourney.maxNumberOfTeams = 4;
         team = new Team();
     });
 
@@ -23,8 +24,12 @@ describe("Tourney", function() {
         expect(tourney.amountOfTeams()).toBe(1);
     });
 
-    it("can't add a team when maximum is 1 and a team was already added", function() {
+    it("can't add a team when maximum is 4 and 4 teams were already added", function() {
         tourney.addTeam(team);
+        tourney.addTeam(team);
+        tourney.addTeam(team);
+        tourney.addTeam(team);
+
         expect(tourney.canAddATeam()).toBe(false);
     });
 
@@ -36,12 +41,36 @@ describe("Tourney", function() {
         expect(tourney.amountOfTeams()).toBe(0);
     });
 
-    it("is valid", function() {
+    it("is valid with two teams", function() {
+        tourney.addTeam(team);
         tourney.addTeam(team);
         expect(tourney.valid()).toBe(true);
     });
 
-    it("is not valid", function() {
+    it("is valid with three teams", function() {
+        tourney.addTeam(team);
+        tourney.addTeam(team);
+        tourney.addTeam(team);
+        expect(tourney.valid()).toBe(true);
+    });
+
+    it("is valid with four teams", function() {
+        tourney.addTeam(team);
+        tourney.addTeam(team);
+        tourney.addTeam(team);
+        tourney.addTeam(team);
+        expect(tourney.valid()).toBe(true);
+    });
+
+    it("is not valid with one team", function() {
+        tourney.addTeam(team);
+        expect(tourney.valid()).toBe(false);
+    });
+
+    it("is not valid with five teams", function() {
+        tourney.addTeam(team);
+        tourney.addTeam(team);
+        tourney.addTeam(team);
         tourney.addTeam(team);
         tourney.addTeam(team);
         expect(tourney.valid()).toBe(false);
